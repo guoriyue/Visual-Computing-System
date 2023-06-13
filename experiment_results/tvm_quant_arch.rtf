@@ -1,0 +1,800 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww29740\viewh15520\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 4, 56, 56), float32] span=aten::_convolution_1:0:0 */;\
+  %18 = nn.relu(%17) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::relu__1:0:0 */;\
+  %19 = multiply(%18, 16f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %20 = round(%19) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %21 = clip(%20, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %22 = cast(%21, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %23 = nn.conv2d(%22, meta[relay.Constant][6] /* ty=Tensor[(64, 64, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %24 = add(%23, meta[relay.Constant][7] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %25 = right_shift(%24, meta[relay.Constant][8] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %26 = clip(%25, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %27 = cast(%26, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %28 = annotation.stop_fusion(%27) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %29 = cast(%28, dtype="float32") /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %30 = multiply(%29, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %31 = nn.bias_add(%30, meta[relay.Constant][9] /* ty=Tensor[(64), float32] */) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::_convolution_2:0:0 */;\
+  %32 = add(%31, %4) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::add__0:0:0 */;\
+  %33 = nn.relu(%32) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::relu__2:0:0 */;\
+  %34 = multiply(%33, 16f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %35 = round(%34) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %36 = clip(%35, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %37 = cast(%36, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %38 = nn.conv2d(%37, meta[relay.Constant][10] /* ty=Tensor[(64, 64, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %39 = add(%38, meta[relay.Constant][11] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %40 = right_shift(%39, meta[relay.Constant][12] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %41 = clip(%40, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %42 = cast(%41, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %43 = annotation.stop_fusion(%42) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %44 = cast(%43, dtype="float32") /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %45 = multiply(%44, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %46 = nn.bias_add(%45, meta[relay.Constant][13] /* ty=Tensor[(64), float32] */) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::_convolution_3:0:0 */;\
+  %47 = nn.relu(%46) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::relu__3:0:0 */;\
+  %48 = multiply(%47, 16f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %49 = round(%48) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %50 = clip(%49, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %51 = cast(%50, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %52 = nn.conv2d(%51, meta[relay.Constant][14] /* ty=Tensor[(64, 64, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %53 = add(%52, meta[relay.Constant][15] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %54 = right_shift(%53, meta[relay.Constant][16] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %55 = clip(%54, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %56 = cast(%55, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %57 = annotation.stop_fusion(%56) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %58 = cast(%57, dtype="float32") /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %59 = multiply(%58, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %60 = nn.bias_add(%59, meta[relay.Constant][17] /* ty=Tensor[(64), float32] */) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::_convolution_4:0:0 */;\
+  %61 = add(%60, %33) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::add__1:0:0 */;\
+  %62 = nn.relu(%61) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::relu__4:0:0 */;\
+  %63 = multiply(%62, 16f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %64 = round(%63) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %65 = clip(%64, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %66 = cast(%65, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %67 = nn.conv2d(%66, meta[relay.Constant][18] /* ty=Tensor[(128, 64, 3, 3), int8] */, strides=[2, 2], padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %68 = add(%67, meta[relay.Constant][19] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %69 = right_shift(%68, meta[relay.Constant][20] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %70 = clip(%69, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %71 = cast(%70, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %72 = annotation.stop_fusion(%71) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %73 = cast(%72, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %74 = multiply(%73, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %75 = nn.bias_add(%74, meta[relay.Constant][21] /* ty=Tensor[(128), float32] */) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::_convolution_5:0:0 */;\
+  %76 = nn.relu(%75) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::relu__5:0:0 */;\
+  %77 = multiply(%76, 16f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %78 = round(%77) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %79 = clip(%78, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %80 = cast(%79, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %81 = nn.conv2d(%80, meta[relay.Constant][22] /* ty=Tensor[(128, 128, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %82 = add(%81, meta[relay.Constant][23] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %83 = right_shift(%82, meta[relay.Constant][24] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %84 = clip(%83, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %85 = cast(%84, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %86 = annotation.stop_fusion(%85) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %87 = cast(%86, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %88 = multiply(%87, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %89 = cast(%65, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %90 = nn.conv2d(%89, meta[relay.Constant][26] /* ty=Tensor[(128, 64, 1, 1), int8] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=128, kernel_size=[1, 1], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %91 = add(%90, meta[relay.Constant][27] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %92 = right_shift(%91, meta[relay.Constant][28] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %93 = clip(%92, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %94 = cast(%93, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %95 = annotation.stop_fusion(%94) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %96 = cast(%95, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %97 = multiply(%96, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %98 = nn.bias_add(%88, meta[relay.Constant][25] /* ty=Tensor[(128), float32] */) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::_convolution_6:0:0 */;\
+  %99 = nn.bias_add(%97, meta[relay.Constant][29] /* ty=Tensor[(128), float32] */) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::_convolution_7:0:0 */;\
+  %100 = add(%98, %99) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::add__2:0:0 */;\
+  %101 = nn.relu(%100) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::relu__6:0:0 */;\
+  %102 = multiply(%101, 16f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %103 = round(%102) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %104 = clip(%103, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %105 = cast(%104, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %106 = nn.conv2d(%105, meta[relay.Constant][30] /* ty=Tensor[(128, 128, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %107 = add(%106, meta[relay.Constant][31] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %108 = right_shift(%107, meta[relay.Constant][32] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %109 = clip(%108, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %110 = cast(%109, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %111 = annotation.stop_fusion(%110) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %112 = cast(%111, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %113 = multiply(%112, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %114 = nn.bias_add(%113, meta[relay.Constant][33] /* ty=Tensor[(128), float32] */) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::_convolution_8:0:0 */;\
+  %115 = nn.relu(%114) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::relu__7:0:0 */;\
+  %116 = multiply(%115, 16f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %117 = round(%116) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %118 = clip(%117, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %119 = cast(%118, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %120 = nn.conv2d(%119, meta[relay.Constant][34] /* ty=Tensor[(128, 128, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %121 = add(%120, meta[relay.Constant][35] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %122 = right_shift(%121, meta[relay.Constant][36] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %123 = clip(%122, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %124 = cast(%123, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %125 = annotation.stop_fusion(%124) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %126 = cast(%125, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %127 = multiply(%126, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %128 = nn.bias_add(%127, meta[relay.Constant][37] /* ty=Tensor[(128), float32] */) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::_convolution_9:0:0 */;\
+  %129 = add(%128, %101) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::add__3:0:0 */;\
+  %130 = nn.relu(%129) /* ty=Tensor[(1, 128, 28, 28), float32] span=aten::relu__8:0:0 */;\
+  %131 = multiply(%130, 16f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %132 = round(%131) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %133 = clip(%132, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;\
+  %134 = cast(%133, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %135 = nn.conv2d(%134, meta[relay.Constant][38] /* ty=Tensor[(256, 128, 3, 3), int8] */, strides=[2, 2], padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %136 = add(%135, meta[relay.Constant][39] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %137 = right_shift(%136, meta[relay.Constant][40] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %138 = clip(%137, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %139 = cast(%138, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %140 = annotation.stop_fusion(%139) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %141 = cast(%140, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %142 = multiply(%141, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %143 = nn.bias_add(%142, meta[relay.Constant][41] /* ty=Tensor[(256), float32] */) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::_convolution_10:0:0 */;\
+  %144 = nn.relu(%143) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::relu__9:0:0 */;\
+  %145 = multiply(%144, 16f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %146 = round(%145) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %147 = clip(%146, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %148 = cast(%147, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %149 = nn.conv2d(%148, meta[relay.Constant][42] /* ty=Tensor[(256, 256, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %150 = add(%149, meta[relay.Constant][43] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %151 = right_shift(%150, meta[relay.Constant][44] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %152 = clip(%151, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %153 = cast(%152, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %154 = annotation.stop_fusion(%153) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %155 = cast(%154, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %156 = multiply(%155, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %157 = cast(%133, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %158 = nn.conv2d(%157, meta[relay.Constant][46] /* ty=Tensor[(256, 128, 1, 1), int8] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=256, kernel_size=[1, 1], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %159 = add(%158, meta[relay.Constant][47] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %160 = right_shift(%159, meta[relay.Constant][48] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %161 = clip(%160, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %162 = cast(%161, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %163 = annotation.stop_fusion(%162) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %164 = cast(%163, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %165 = multiply(%164, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %166 = nn.bias_add(%156, meta[relay.Constant][45] /* ty=Tensor[(256), float32] */) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::_convolution_11:0:0 */;\
+  %167 = nn.bias_add(%165, meta[relay.Constant][49] /* ty=Tensor[(256), float32] */) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::_convolution_12:0:0 */;\
+  %168 = add(%166, %167) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::add__4:0:0 */;\
+  %169 = nn.relu(%168) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::relu__10:0:0 */;\
+  %170 = multiply(%169, 16f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %171 = round(%170) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %172 = clip(%171, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %173 = cast(%172, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %174 = nn.conv2d(%173, meta[relay.Constant][50] /* ty=Tensor[(256, 256, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %175 = add(%174, meta[relay.Constant][51] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %176 = right_shift(%175, meta[relay.Constant][52] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %177 = clip(%176, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %178 = cast(%177, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %179 = annotation.stop_fusion(%178) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %180 = cast(%179, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %181 = multiply(%180, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %182 = nn.bias_add(%181, meta[relay.Constant][53] /* ty=Tensor[(256), float32] */) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::_convolution_13:0:0 */;\
+  %183 = nn.relu(%182) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::relu__11:0:0 */;\
+  %184 = multiply(%183, 16f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %185 = round(%184) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %186 = clip(%185, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %187 = cast(%186, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %188 = nn.conv2d(%187, meta[relay.Constant][54] /* ty=Tensor[(256, 256, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %189 = add(%188, meta[relay.Constant][55] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %190 = right_shift(%189, meta[relay.Constant][56] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %191 = clip(%190, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %192 = cast(%191, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %193 = annotation.stop_fusion(%192) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %194 = cast(%193, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %195 = multiply(%194, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %196 = nn.bias_add(%195, meta[relay.Constant][57] /* ty=Tensor[(256), float32] */) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::_convolution_14:0:0 */;\
+  %197 = add(%196, %169) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::add__5:0:0 */;\
+  %198 = nn.relu(%197) /* ty=Tensor[(1, 256, 14, 14), float32] span=aten::relu__12:0:0 */;\
+  %199 = multiply(%198, 16f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %200 = round(%199) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %201 = clip(%200, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;\
+  %202 = cast(%201, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %203 = nn.conv2d(%202, meta[relay.Constant][58] /* ty=Tensor[(512, 256, 3, 3), int8] */, strides=[2, 2], padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %204 = add(%203, meta[relay.Constant][59] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %205 = right_shift(%204, meta[relay.Constant][60] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %206 = clip(%205, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %207 = cast(%206, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %208 = annotation.stop_fusion(%207) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %209 = cast(%208, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %210 = multiply(%209, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %211 = nn.bias_add(%210, meta[relay.Constant][61] /* ty=Tensor[(512), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_15:0:0 */;\
+  %212 = nn.relu(%211) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::relu__13:0:0 */;\
+  %213 = multiply(%212, 16f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %214 = round(%213) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %215 = clip(%214, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %216 = cast(%215, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %217 = nn.conv2d(%216, meta[relay.Constant][62] /* ty=Tensor[(512, 512, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %218 = add(%217, meta[relay.Constant][63] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %219 = right_shift(%218, meta[relay.Constant][64] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %220 = clip(%219, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %221 = cast(%220, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %222 = annotation.stop_fusion(%221) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %223 = cast(%222, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %224 = multiply(%223, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %225 = cast(%201, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %226 = nn.conv2d(%225, meta[relay.Constant][66] /* ty=Tensor[(512, 256, 1, 1), int8] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=512, kernel_size=[1, 1], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %227 = add(%226, meta[relay.Constant][67] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %228 = right_shift(%227, meta[relay.Constant][68] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %229 = clip(%228, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %230 = cast(%229, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %231 = annotation.stop_fusion(%230) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %232 = cast(%231, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %233 = multiply(%232, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %234 = nn.bias_add(%224, meta[relay.Constant][65] /* ty=Tensor[(512), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_16:0:0 */;\
+  %235 = nn.bias_add(%233, meta[relay.Constant][69] /* ty=Tensor[(512), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_17:0:0 */;\
+  %236 = add(%234, %235) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::add__6:0:0 */;\
+  %237 = nn.relu(%236) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::relu__14:0:0 */;\
+  %238 = multiply(%237, 16f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %239 = round(%238) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %240 = clip(%239, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %241 = cast(%240, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %242 = nn.conv2d(%241, meta[relay.Constant][70] /* ty=Tensor[(512, 512, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %243 = add(%242, meta[relay.Constant][71] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %244 = right_shift(%243, meta[relay.Constant][72] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %245 = clip(%244, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %246 = cast(%245, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %247 = annotation.stop_fusion(%246) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %248 = cast(%247, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %249 = multiply(%248, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %250 = nn.bias_add(%249, meta[relay.Constant][73] /* ty=Tensor[(512), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_18:0:0 */;\
+  %251 = nn.relu(%250) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::relu__15:0:0 */;\
+  %252 = multiply(%251, 16f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %253 = round(%252) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %254 = clip(%253, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %255 = cast(%254, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %256 = nn.conv2d(%255, meta[relay.Constant][74] /* ty=Tensor[(512, 512, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %257 = add(%256, meta[relay.Constant][75] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %258 = right_shift(%257, meta[relay.Constant][76] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %259 = clip(%258, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %260 = cast(%259, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %261 = annotation.stop_fusion(%260) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %262 = cast(%261, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %263 = multiply(%262, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %264 = nn.bias_add(%263, meta[relay.Constant][77] /* ty=Tensor[(512), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_19:0:0 */;\
+  %265 = add(%264, %237) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::add__7:0:0 */;\
+  %266 = nn.relu(%265) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::relu__16:0:0 */;\
+  %267 = nn.adaptive_avg_pool2d(%266, output_size=[1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] span=aten::adaptive_avg_pool2d_0:0:0 */;\
+  %268 = reshape(%267, newshape=[0, -1, 1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] span=aten::flatten_0:0:0 */;\
+  %269 = squeeze(%268, axis=[2, 3]) /* ty=Tensor[(1, 512), float32] span=aten::flatten_0:0:0 */;\
+  %270 = nn.dense(%269, meta[relay.Constant][78] /* ty=Tensor[(1000, 512), float32] */, units=None) /* ty=Tensor[(1, 1000), float32] span=aten::linear_0:0:0 */;\
+  nn.bias_add(%270, meta[relay.Constant][79] /* ty=Tensor[(1000), float32] */, axis=-1) /* ty=Tensor[(1, 1000), float32] span=aten::linear_0:0:0 */\
+\}\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+def @main(%input0: Tensor[(1, 3, 224, 224), float32] /* span=aten::_convolution_0.input0:0:0 */, %aten::_convolution_0.weight: Tensor[(64, 3, 7, 7), float32] /* span=aten::_convolution_0.weight:0:0 */, %aten::_convolution_0.bias: Tensor[(64), float32] /* span=aten::_convolution_0.bias:0:0 */, %aten::_convolution_1.weight: Tensor[(64, 64, 3, 3), float32] /* span=aten::_convolution_1.weight:0:0 */, %aten::_convolution_1.bias: Tensor[(64), float32] /* span=aten::_convolution_1.bias:0:0 */, %aten::_convolution_2.weight: Tensor[(64, 64, 3, 3), float32] /* span=aten::_convolution_2.weight:0:0 */, %aten::_convolution_2.bias: Tensor[(64), float32] /* span=aten::_convolution_2.bias:0:0 */, %aten::_convolution_3.weight: Tensor[(64, 64, 3, 3), float32] /* span=aten::_convolution_3.weight:0:0 */, %aten::_convolution_3.bias: Tensor[(64), float32] /* span=aten::_convolution_3.bias:0:0 */, %aten::_convolution_4.weight: Tensor[(64, 64, 3, 3), float32] /* span=aten::_convolution_4.weight:0:0 */, %aten::_convolution_4.bias: Tensor[(64), float32] /* span=aten::_convolution_4.bias:0:0 */, %aten::_convolution_5.weight: Tensor[(128, 64, 3, 3), float32] /* span=aten::_convolution_5.weight:0:0 */, %aten::_convolution_5.bias: Tensor[(128), float32] /* span=aten::_convolution_5.bias:0:0 */, %aten::_convolution_6.weight: Tensor[(128, 128, 3, 3), float32] /* span=aten::_convolution_6.weight:0:0 */, %aten::_convolution_6.bias: Tensor[(128), float32] /* span=aten::_convolution_6.bias:0:0 */, %aten::_convolution_7.weight: Tensor[(128, 64, 1, 1), float32] /* span=aten::_convolution_7.weight:0:0 */, %aten::_convolution_7.bias: Tensor[(128), float32] /* span=aten::_convolution_7.bias:0:0 */, %aten::_convolution_8.weight: Tensor[(128, 128, 3, 3), float32] /* span=aten::_convolution_8.weight:0:0 */, %aten::_convolution_8.bias: Tensor[(128), float32] /* span=aten::_convolution_8.bias:0:0 */, %aten::_convolution_9.weight: Tensor[(128, 128, 3, 3), float32] /* span=aten::_convolution_9.weight:0:0 */, %aten::_convolution_9.bias: Tensor[(128), float32] /* span=aten::_convolution_9.bias:0:0 */, %aten::_convolution_10.weight: Tensor[(256, 128, 3, 3), float32] /* span=aten::_convolution_10.weight:0:0 */, %aten::_convolution_10.bias: Tensor[(256), float32] /* span=aten::_convolution_10.bias:0:0 */, %aten::_convolution_11.weight: Tensor[(256, 256, 3, 3), float32] /* span=aten::_convolution_11.weight:0:0 */, %aten::_convolution_11.bias: Tensor[(256), float32] /* span=aten::_convolution_11.bias:0:0 */, %aten::_convolution_12.weight: Tensor[(256, 128, 1, 1), float32] /* span=aten::_convolution_12.weight:0:0 */, %aten::_convolution_12.bias: Tensor[(256), float32] /* span=aten::_convolution_12.bias:0:0 */, %aten::_convolution_13.weight: Tensor[(256, 256, 3, 3), float32] /* span=aten::_convolution_13.weight:0:0 */, %aten::_convolution_13.bias: Tensor[(256), float32] /* span=aten::_convolution_13.bias:0:0 */, %aten::_convolution_14.weight: Tensor[(256, 256, 3, 3), float32] /* span=aten::_convolution_14.weight:0:0 */, %aten::_convolution_14.bias: Tensor[(256), float32] /* span=aten::_convolution_14.bias:0:0 */, %aten::_convolution_15.weight: Tensor[(512, 256, 3, 3), float32] /* span=aten::_convolution_15.weight:0:0 */, %aten::_convolution_15.bias: Tensor[(512), float32] /* span=aten::_convolution_15.bias:0:0 */, %aten::_convolution_16.weight: Tensor[(512, 512, 3, 3), float32] /* span=aten::_convolution_16.weight:0:0 */, %aten::_convolution_16.bias: Tensor[(512), float32] /* span=aten::_convolution_16.bias:0:0 */, %aten::_convolution_17.weight: Tensor[(512, 256, 1, 1), float32] /* span=aten::_convolution_17.weight:0:0 */, %aten::_convolution_17.bias: Tensor[(512), float32] /* span=aten::_convolution_17.bias:0:0 */, %aten::_convolution_18.weight: Tensor[(512, 512, 3, 3), float32] /* span=aten::_convolution_18.weight:0:0 */, %aten::_convolution_18.bias: Tensor[(512), float32] /* span=aten::_convolution_18.bias:0:0 */, %aten::_convolution_19.weight: Tensor[(512, 512, 3, 3), float32] /* span=aten::_convolution_19.weight:0:0 */, %aten::_convolution_19.bias: Tensor[(512), float32] /* span=aten::_convolution_19.bias:0:0 */, %aten::linear_0.weight: Tensor[(1000, 512), float32] /* span=aten::linear_0.weight:0:0 */, %aten::linear_0.bias: Tensor[(1000), float32] /* span=aten::linear_0.bias:0:0 */) \{\
+  %0 = nn.conv2d(%input0, %aten::_convolution_0.weight, strides=[2, 2], padding=[3, 3, 3, 3], channels=64, kernel_size=[7, 7]) /* span=aten::_convolution_0:0:0 */;\
+  %1 = nn.bias_add(%0, %aten::_convolution_0.bias) /* span=aten::_convolution_0:0:0 */;\
+  %2 = nn.relu(%1) /* span=aten::relu__0:0:0 */;\
+  %3 = nn.max_pool2d(%2, pool_size=[3, 3], strides=[2, 2], padding=[1, 1, 1, 1]) /* span=aten::max_pool2d_0:0:0 */;\
+  %4 = nn.conv2d(%3, %aten::_convolution_1.weight, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3]) /* span=aten::_convolution_1:0:0 */;\
+  %5 = nn.bias_add(%4, %aten::_convolution_1.bias) /* span=aten::_convolution_1:0:0 */;\
+  %6 = nn.relu(%5) /* span=aten::relu__1:0:0 */;\
+  %7 = nn.conv2d(%6, %aten::_convolution_2.weight, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3]) /* span=aten::_convolution_2:0:0 */;\
+  %8 = nn.bias_add(%7, %aten::_convolution_2.bias) /* span=aten::_convolution_2:0:0 */;\
+  %9 = add(%8, %3) /* span=aten::add__0:0:0 */;\
+  %10 = nn.relu(%9) /* span=aten::relu__2:0:0 */;\
+  %11 = nn.conv2d(%10, %aten::_convolution_3.weight, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3]) /* span=aten::_convolution_3:0:0 */;\
+  %12 = nn.bias_add(%11, %aten::_convolution_3.bias) /* span=aten::_convolution_3:0:0 */;\
+  %13 = nn.relu(%12) /* span=aten::relu__3:0:0 */;\
+  %14 = nn.conv2d(%13, %aten::_convolution_4.weight, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3]) /* span=aten::_convolution_4:0:0 */;\
+  %15 = nn.bias_add(%14, %aten::_convolution_4.bias) /* span=aten::_convolution_4:0:0 */;\
+  %16 = add(%15, %10) /* span=aten::add__1:0:0 */;\
+  %17 = nn.relu(%16) /* span=aten::relu__4:0:0 */;\
+  %18 = nn.conv2d(%17, %aten::_convolution_5.weight, strides=[2, 2], padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3]) /* span=aten::_convolution_5:0:0 */;\
+  %19 = nn.bias_add(%18, %aten::_convolution_5.bias) /* span=aten::_convolution_5:0:0 */;\
+  %20 = nn.relu(%19) /* span=aten::relu__5:0:0 */;\
+  %21 = nn.conv2d(%20, %aten::_convolution_6.weight, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3]) /* span=aten::_convolution_6:0:0 */;\
+  %22 = nn.conv2d(%17, %aten::_convolution_7.weight, strides=[2, 2], padding=[0, 0, 0, 0], channels=128, kernel_size=[1, 1]) /* span=aten::_convolution_7:0:0 */;\
+  %23 = nn.bias_add(%21, %aten::_convolution_6.bias) /* span=aten::_convolution_6:0:0 */;\
+  %24 = nn.bias_add(%22, %aten::_convolution_7.bias) /* span=aten::_convolution_7:0:0 */;\
+  %25 = add(%23, %24) /* span=aten::add__2:0:0 */;\
+  %26 = nn.relu(%25) /* span=aten::relu__6:0:0 */;\
+  %27 = nn.conv2d(%26, %aten::_convolution_8.weight, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3]) /* span=aten::_convolution_8:0:0 */;\
+  %28 = nn.bias_add(%27, %aten::_convolution_8.bias) /* span=aten::_convolution_8:0:0 */;\
+  %29 = nn.relu(%28) /* span=aten::relu__7:0:0 */;\
+  %30 = nn.conv2d(%29, %aten::_convolution_9.weight, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3]) /* span=aten::_convolution_9:0:0 */;\
+  %31 = nn.bias_add(%30, %aten::_convolution_9.bias) /* span=aten::_convolution_9:0:0 */;\
+  %32 = add(%31, %26) /* span=aten::add__3:0:0 */;\
+  %33 = nn.relu(%32) /* span=aten::relu__8:0:0 */;\
+  %34 = nn.conv2d(%33, %aten::_convolution_10.weight, strides=[2, 2], padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3]) /* span=aten::_convolution_10:0:0 */;\
+  %35 = nn.bias_add(%34, %aten::_convolution_10.bias) /* span=aten::_convolution_10:0:0 */;\
+  %36 = nn.relu(%35) /* span=aten::relu__9:0:0 */;\
+  %37 = nn.conv2d(%36, %aten::_convolution_11.weight, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3]) /* span=aten::_convolution_11:0:0 */;\
+  %38 = nn.conv2d(%33, %aten::_convolution_12.weight, strides=[2, 2], padding=[0, 0, 0, 0], channels=256, kernel_size=[1, 1]) /* span=aten::_convolution_12:0:0 */;\
+  %39 = nn.bias_add(%37, %aten::_convolution_11.bias) /* span=aten::_convolution_11:0:0 */;\
+  %40 = nn.bias_add(%38, %aten::_convolution_12.bias) /* span=aten::_convolution_12:0:0 */;\
+  %41 = add(%39, %40) /* span=aten::add__4:0:0 */;\
+  %42 = nn.relu(%41) /* span=aten::relu__10:0:0 */;\
+  %43 = nn.conv2d(%42, %aten::_convolution_13.weight, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3]) /* span=aten::_convolution_13:0:0 */;\
+  %44 = nn.bias_add(%43, %aten::_convolution_13.bias) /* span=aten::_convolution_13:0:0 */;\
+  %45 = nn.relu(%44) /* span=aten::relu__11:0:0 */;\
+  %46 = nn.conv2d(%45, %aten::_convolution_14.weight, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3]) /* span=aten::_convolution_14:0:0 */;\
+  %47 = nn.bias_add(%46, %aten::_convolution_14.bias) /* span=aten::_convolution_14:0:0 */;\
+  %48 = add(%47, %42) /* span=aten::add__5:0:0 */;\
+  %49 = nn.relu(%48) /* span=aten::relu__12:0:0 */;\
+  %50 = nn.conv2d(%49, %aten::_convolution_15.weight, strides=[2, 2], padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3]) /* span=aten::_convolution_15:0:0 */;\
+  %51 = nn.bias_add(%50, %aten::_convolution_15.bias) /* span=aten::_convolution_15:0:0 */;\
+  %52 = nn.relu(%51) /* span=aten::relu__13:0:0 */;\
+  %53 = nn.conv2d(%52, %aten::_convolution_16.weight, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3]) /* span=aten::_convolution_16:0:0 */;\
+  %54 = nn.conv2d(%49, %aten::_convolution_17.weight, strides=[2, 2], padding=[0, 0, 0, 0], channels=512, kernel_size=[1, 1]) /* span=aten::_convolution_17:0:0 */;\
+  %55 = nn.bias_add(%53, %aten::_convolution_16.bias) /* span=aten::_convolution_16:0:0 */;\
+  %56 = nn.bias_add(%54, %aten::_convolution_17.bias) /* span=aten::_convolution_17:0:0 */;\
+  %57 = add(%55, %56) /* span=aten::add__6:0:0 */;\
+  %58 = nn.relu(%57) /* span=aten::relu__14:0:0 */;\
+  %59 = nn.conv2d(%58, %aten::_convolution_18.weight, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3]) /* span=aten::_convolution_18:0:0 */;\
+  %60 = nn.bias_add(%59, %aten::_convolution_18.bias) /* span=aten::_convolution_18:0:0 */;\
+  %61 = nn.relu(%60) /* span=aten::relu__15:0:0 */;\
+  %62 = nn.conv2d(%61, %aten::_convolution_19.weight, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3]) /* span=aten::_convolution_19:0:0 */;\
+  %63 = nn.bias_add(%62, %aten::_convolution_19.bias) /* span=aten::_convolution_19:0:0 */;\
+  %64 = add(%63, %58) /* span=aten::add__7:0:0 */;\
+  %65 = nn.relu(%64) /* span=aten::relu__16:0:0 */;\
+  %66 = nn.adaptive_avg_pool2d(%65, output_size=[1, 1]) /* span=aten::adaptive_avg_pool2d_0:0:0 */;\
+  %67 = reshape(%66, newshape=[0, -1, 1, 1]) /* span=aten::flatten_0:0:0 */;\
+  %68 = squeeze(%67, axis=[2, 3]) /* span=aten::flatten_0:0:0 */;\
+  %69 = nn.dense(%68, %aten::linear_0.weight, units=None) /* span=aten::linear_0:0:0 */;\
+  nn.bias_add(%69, %aten::linear_0.bias, axis=-1) /* span=aten::linear_0:0:0 */\
+\}\
+\
+=====================================\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+possible_names in context:  ['arm_cpu', 'arm_cpu', 'cpu', 'llvm']\
+[19:25:20] /home/ubuntu/QTVM/src/relay/backend/build_module.cc:420: \
+###before IR:\
+#[version = "0.0.5"]\
+def @main(%input0: Tensor[(1, 3, 224, 224), float32] /* ty=Tensor[(1, 3, 224, 224), float32] span=aten::_convolution_0.input0:0:0 */) -> Tensor[(1, 1000), float32] \{\
+  %0 = nn.conv2d(%input0, meta[relay.Constant][0] /* ty=Tensor[(64, 3, 7, 7), float32] */, strides=[2, 2], padding=[3, 3, 3, 3], channels=64, kernel_size=[7, 7]) /* ty=Tensor[(1, 64, 112, 112), float32] span=aten::_convolution_0:0:0 */;\
+  %1 = annotation.stop_fusion(%0) /* ty=Tensor[(1, 64, 112, 112), float32] */;\
+  %2 = multiply(%1, meta[relay.Constant][1] /* ty=Tensor[(64, 1, 1), float32] */) /* ty=Tensor[(1, 64, 112, 112), float32] */;\
+  %3 = add(%2, meta[relay.Constant][2] /* ty=Tensor[(64, 1, 1), float32] */) /* ty=Tensor[(1, 64, 112, 112), float32] */;\
+  %4 = nn.relu(%3) /* ty=Tensor[(1, 64, 112, 112), float32] span=aten::relu__0:0:0 */;\
+  %5 = nn.max_pool2d(%4, pool_size=[3, 3], strides=[2, 2], padding=[1, 1, 1, 1]) /* ty=Tensor[(1, 64, 56, 56), float32] span=aten::max_pool2d_0:0:0 */;\
+  %6 = annotation.stop_fusion(%5) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %7 = multiply(%6, 16f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %8 = round(%7) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %9 = clip(%8, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %10 = cast(%9, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %11 = nn.conv2d(%10, meta[relay.Constant][3] /* ty=Tensor[(64, 64, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %12 = add(%11, meta[relay.Constant][4] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %13 = right_shift(%12, meta[relay.Constant][5] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %14 = clip(%13, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %15 = cast(%14, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %16 = annotation.stop_fusion(%15) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %17 = multiply(%16, meta[relay.Constant][6] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %18 = add(%17, meta[relay.Constant][7] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %19 = nn.relu(%18) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %20 = add(%19, meta[relay.Constant][8] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %21 = right_shift(%20, meta[relay.Constant][9] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %22 = clip(%21, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %23 = cast(%22, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %24 = annotation.stop_fusion(%23) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %25 = nn.conv2d(%24, meta[relay.Constant][10] /* ty=Tensor[(64, 64, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %26 = add(%25, meta[relay.Constant][11] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %27 = right_shift(%26, meta[relay.Constant][12] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %28 = clip(%27, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %29 = cast(%28, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %30 = annotation.stop_fusion(%29) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %31 = multiply(%30, meta[relay.Constant][13] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %32 = add(%31, meta[relay.Constant][14] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %33 = add(%32, meta[relay.Constant][15] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %34 = right_shift(%33, meta[relay.Constant][16] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %35 = clip(%34, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %36 = cast(%35, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %37 = annotation.stop_fusion(%5) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %38 = multiply(%37, 16f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %39 = round(%38) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %40 = clip(%39, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;\
+  %41 = cast(%40, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %42 = annotation.stop_fusion(%36) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %43 = annotation.stop_fusion(%41) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %44 = add(%42, %43) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %45 = nn.relu(%44) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %46 = clip(%45, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %47 = cast(%46, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %48 = annotation.stop_fusion(%47) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %49 = nn.conv2d(%48, meta[relay.Constant][17] /* ty=Tensor[(64, 64, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %50 = add(%49, meta[relay.Constant][18] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %51 = right_shift(%50, meta[relay.Constant][19] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %52 = clip(%51, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %53 = cast(%52, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %54 = annotation.stop_fusion(%53) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %55 = multiply(%54, meta[relay.Constant][20] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %56 = add(%55, meta[relay.Constant][21] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %57 = nn.relu(%56) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %58 = add(%57, meta[relay.Constant][22] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %59 = right_shift(%58, meta[relay.Constant][23] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %60 = clip(%59, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %61 = cast(%60, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %62 = annotation.stop_fusion(%61) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %63 = nn.conv2d(%62, meta[relay.Constant][24] /* ty=Tensor[(64, 64, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %64 = add(%63, meta[relay.Constant][25] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %65 = right_shift(%64, meta[relay.Constant][26] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %66 = clip(%65, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %67 = cast(%66, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %68 = annotation.stop_fusion(%67) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %69 = multiply(%68, meta[relay.Constant][27] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %70 = add(%69, meta[relay.Constant][28] /* ty=Tensor[(64, 1, 1), int8] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %71 = add(%70, meta[relay.Constant][29] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %72 = right_shift(%71, meta[relay.Constant][30] /* ty=int8 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %73 = clip(%72, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %74 = cast(%73, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %75 = cast(%46, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %76 = annotation.stop_fusion(%74) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %77 = annotation.stop_fusion(%75) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %78 = add(%76, %77) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %79 = nn.relu(%78) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %80 = clip(%79, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %81 = cast(%80, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %82 = annotation.stop_fusion(%81) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %83 = nn.conv2d(%82, meta[relay.Constant][31] /* ty=Tensor[(128, 64, 3, 3), int8] */, strides=[2, 2], padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %84 = add(%83, meta[relay.Constant][32] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %85 = right_shift(%84, meta[relay.Constant][33] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %86 = clip(%85, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %87 = cast(%86, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %88 = annotation.stop_fusion(%87) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %89 = multiply(%88, meta[relay.Constant][34] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %90 = add(%89, meta[relay.Constant][35] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %91 = nn.relu(%90) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %92 = add(%91, meta[relay.Constant][36] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %93 = right_shift(%92, meta[relay.Constant][37] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %94 = clip(%93, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %95 = cast(%94, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %96 = annotation.stop_fusion(%95) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %97 = nn.conv2d(%96, meta[relay.Constant][38] /* ty=Tensor[(128, 128, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %98 = add(%97, meta[relay.Constant][39] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %99 = right_shift(%98, meta[relay.Constant][40] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %100 = clip(%99, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %101 = cast(%100, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %102 = annotation.stop_fusion(%101) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %103 = multiply(%102, meta[relay.Constant][41] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %104 = add(%103, meta[relay.Constant][42] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %105 = add(%104, meta[relay.Constant][43] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %106 = right_shift(%105, meta[relay.Constant][44] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %107 = clip(%106, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %108 = cast(%107, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %109 = cast(%80, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %110 = annotation.stop_fusion(%109) /* ty=Tensor[(1, 64, 56, 56), int8] */;\
+  %111 = nn.conv2d(%110, meta[relay.Constant][45] /* ty=Tensor[(128, 64, 1, 1), int8] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=128, kernel_size=[1, 1], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %112 = add(%111, meta[relay.Constant][46] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %113 = right_shift(%112, meta[relay.Constant][47] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %114 = clip(%113, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %115 = cast(%114, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %116 = annotation.stop_fusion(%115) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %117 = multiply(%116, meta[relay.Constant][48] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %118 = add(%117, meta[relay.Constant][49] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %119 = add(%118, meta[relay.Constant][50] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %120 = right_shift(%119, meta[relay.Constant][51] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %121 = clip(%120, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %122 = cast(%121, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %123 = annotation.stop_fusion(%108) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %124 = annotation.stop_fusion(%122) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %125 = add(%123, %124) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %126 = nn.relu(%125) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %127 = clip(%126, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %128 = cast(%127, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %129 = annotation.stop_fusion(%128) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %130 = nn.conv2d(%129, meta[relay.Constant][52] /* ty=Tensor[(128, 128, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %131 = add(%130, meta[relay.Constant][53] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %132 = right_shift(%131, meta[relay.Constant][54] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %133 = clip(%132, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %134 = cast(%133, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %135 = annotation.stop_fusion(%134) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %136 = multiply(%135, meta[relay.Constant][55] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %137 = add(%136, meta[relay.Constant][56] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %138 = nn.relu(%137) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %139 = add(%138, meta[relay.Constant][57] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %140 = right_shift(%139, meta[relay.Constant][58] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %141 = clip(%140, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %142 = cast(%141, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %143 = annotation.stop_fusion(%142) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %144 = nn.conv2d(%143, meta[relay.Constant][59] /* ty=Tensor[(128, 128, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %145 = add(%144, meta[relay.Constant][60] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %146 = right_shift(%145, meta[relay.Constant][61] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %147 = clip(%146, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %148 = cast(%147, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %149 = annotation.stop_fusion(%148) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %150 = multiply(%149, meta[relay.Constant][62] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %151 = add(%150, meta[relay.Constant][63] /* ty=Tensor[(128, 1, 1), int8] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %152 = add(%151, meta[relay.Constant][64] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %153 = right_shift(%152, meta[relay.Constant][65] /* ty=int8 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %154 = clip(%153, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %155 = cast(%154, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %156 = cast(%127, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %157 = annotation.stop_fusion(%155) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %158 = annotation.stop_fusion(%156) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %159 = add(%157, %158) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %160 = nn.relu(%159) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %161 = clip(%160, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %162 = cast(%161, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %163 = annotation.stop_fusion(%162) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %164 = nn.conv2d(%163, meta[relay.Constant][66] /* ty=Tensor[(256, 128, 3, 3), int8] */, strides=[2, 2], padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %165 = add(%164, meta[relay.Constant][67] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %166 = right_shift(%165, meta[relay.Constant][68] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %167 = clip(%166, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %168 = cast(%167, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %169 = annotation.stop_fusion(%168) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %170 = multiply(%169, meta[relay.Constant][69] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %171 = add(%170, meta[relay.Constant][70] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %172 = nn.relu(%171) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %173 = add(%172, meta[relay.Constant][71] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %174 = right_shift(%173, meta[relay.Constant][72] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %175 = clip(%174, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %176 = cast(%175, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %177 = annotation.stop_fusion(%176) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %178 = nn.conv2d(%177, meta[relay.Constant][73] /* ty=Tensor[(256, 256, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %179 = add(%178, meta[relay.Constant][74] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %180 = right_shift(%179, meta[relay.Constant][75] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %181 = clip(%180, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %182 = cast(%181, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %183 = annotation.stop_fusion(%182) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %184 = multiply(%183, meta[relay.Constant][76] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %185 = add(%184, meta[relay.Constant][77] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %186 = add(%185, meta[relay.Constant][78] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %187 = right_shift(%186, meta[relay.Constant][79] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %188 = clip(%187, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %189 = cast(%188, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %190 = cast(%161, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %191 = annotation.stop_fusion(%190) /* ty=Tensor[(1, 128, 28, 28), int8] */;\
+  %192 = nn.conv2d(%191, meta[relay.Constant][80] /* ty=Tensor[(256, 128, 1, 1), int8] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=256, kernel_size=[1, 1], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %193 = add(%192, meta[relay.Constant][81] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %194 = right_shift(%193, meta[relay.Constant][82] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %195 = clip(%194, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %196 = cast(%195, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %197 = annotation.stop_fusion(%196) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %198 = multiply(%197, meta[relay.Constant][83] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %199 = add(%198, meta[relay.Constant][84] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %200 = add(%199, meta[relay.Constant][85] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %201 = right_shift(%200, meta[relay.Constant][86] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %202 = clip(%201, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %203 = cast(%202, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %204 = annotation.stop_fusion(%189) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %205 = annotation.stop_fusion(%203) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %206 = add(%204, %205) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %207 = nn.relu(%206) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %208 = clip(%207, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %209 = cast(%208, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %210 = annotation.stop_fusion(%209) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %211 = nn.conv2d(%210, meta[relay.Constant][87] /* ty=Tensor[(256, 256, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %212 = add(%211, meta[relay.Constant][88] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %213 = right_shift(%212, meta[relay.Constant][89] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %214 = clip(%213, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %215 = cast(%214, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %216 = annotation.stop_fusion(%215) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %217 = multiply(%216, meta[relay.Constant][90] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %218 = add(%217, meta[relay.Constant][91] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %219 = nn.relu(%218) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %220 = add(%219, meta[relay.Constant][92] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %221 = right_shift(%220, meta[relay.Constant][93] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %222 = clip(%221, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %223 = cast(%222, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %224 = annotation.stop_fusion(%223) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %225 = nn.conv2d(%224, meta[relay.Constant][94] /* ty=Tensor[(256, 256, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %226 = add(%225, meta[relay.Constant][95] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %227 = right_shift(%226, meta[relay.Constant][96] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %228 = clip(%227, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %229 = cast(%228, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %230 = annotation.stop_fusion(%229) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %231 = multiply(%230, meta[relay.Constant][97] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %232 = add(%231, meta[relay.Constant][98] /* ty=Tensor[(256, 1, 1), int8] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %233 = add(%232, meta[relay.Constant][99] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %234 = right_shift(%233, meta[relay.Constant][100] /* ty=int8 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %235 = clip(%234, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %236 = cast(%235, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %237 = cast(%208, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %238 = annotation.stop_fusion(%236) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %239 = annotation.stop_fusion(%237) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %240 = add(%238, %239) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %241 = nn.relu(%240) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %242 = clip(%241, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %243 = cast(%242, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %244 = annotation.stop_fusion(%243) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %245 = nn.conv2d(%244, meta[relay.Constant][101] /* ty=Tensor[(512, 256, 3, 3), int8] */, strides=[2, 2], padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %246 = add(%245, meta[relay.Constant][102] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %247 = right_shift(%246, meta[relay.Constant][103] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %248 = clip(%247, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %249 = cast(%248, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %250 = annotation.stop_fusion(%249) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %251 = multiply(%250, meta[relay.Constant][104] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %252 = add(%251, meta[relay.Constant][105] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %253 = nn.relu(%252) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %254 = add(%253, meta[relay.Constant][106] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %255 = right_shift(%254, meta[relay.Constant][107] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %256 = clip(%255, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %257 = cast(%256, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %258 = annotation.stop_fusion(%257) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %259 = nn.conv2d(%258, meta[relay.Constant][108] /* ty=Tensor[(512, 512, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %260 = add(%259, meta[relay.Constant][109] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %261 = right_shift(%260, meta[relay.Constant][110] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %262 = clip(%261, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %263 = cast(%262, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %264 = annotation.stop_fusion(%263) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %265 = multiply(%264, meta[relay.Constant][111] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %266 = add(%265, meta[relay.Constant][112] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %267 = add(%266, meta[relay.Constant][113] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %268 = right_shift(%267, meta[relay.Constant][114] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %269 = clip(%268, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %270 = cast(%269, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %271 = cast(%242, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %272 = annotation.stop_fusion(%271) /* ty=Tensor[(1, 256, 14, 14), int8] */;\
+  %273 = nn.conv2d(%272, meta[relay.Constant][115] /* ty=Tensor[(512, 256, 1, 1), int8] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=512, kernel_size=[1, 1], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %274 = add(%273, meta[relay.Constant][116] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %275 = right_shift(%274, meta[relay.Constant][117] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %276 = clip(%275, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %277 = cast(%276, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %278 = annotation.stop_fusion(%277) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %279 = multiply(%278, meta[relay.Constant][118] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %280 = add(%279, meta[relay.Constant][119] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %281 = add(%280, meta[relay.Constant][120] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %282 = right_shift(%281, meta[relay.Constant][121] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %283 = clip(%282, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %284 = cast(%283, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %285 = annotation.stop_fusion(%270) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %286 = annotation.stop_fusion(%284) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %287 = add(%285, %286) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %288 = nn.relu(%287) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %289 = clip(%288, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %290 = cast(%289, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %291 = annotation.stop_fusion(%290) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %292 = nn.conv2d(%291, meta[relay.Constant][122] /* ty=Tensor[(512, 512, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %293 = add(%292, meta[relay.Constant][123] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %294 = right_shift(%293, meta[relay.Constant][124] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %295 = clip(%294, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %296 = cast(%295, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %297 = annotation.stop_fusion(%296) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %298 = multiply(%297, meta[relay.Constant][125] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %299 = add(%298, meta[relay.Constant][126] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %300 = nn.relu(%299) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %301 = add(%300, meta[relay.Constant][127] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %302 = right_shift(%301, meta[relay.Constant][128] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %303 = clip(%302, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %304 = cast(%303, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %305 = annotation.stop_fusion(%304) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %306 = nn.conv2d(%305, meta[relay.Constant][129] /* ty=Tensor[(512, 512, 3, 3), int8] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], out_dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %307 = add(%306, meta[relay.Constant][130] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %308 = right_shift(%307, meta[relay.Constant][131] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %309 = clip(%308, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %310 = cast(%309, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %311 = annotation.stop_fusion(%310) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %312 = multiply(%311, meta[relay.Constant][132] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %313 = add(%312, meta[relay.Constant][133] /* ty=Tensor[(512, 1, 1), int8] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %314 = add(%313, meta[relay.Constant][134] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %315 = right_shift(%314, meta[relay.Constant][135] /* ty=int8 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %316 = clip(%315, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %317 = cast(%316, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %318 = cast(%289, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %319 = annotation.stop_fusion(%317) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %320 = annotation.stop_fusion(%318) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %321 = add(%319, %320) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %322 = nn.relu(%321) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %323 = cast(%322, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %324 = annotation.stop_fusion(%323) /* ty=Tensor[(1, 512, 7, 7), int8] */;\
+  %325 = cast(%324, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %326 = multiply(%325, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;\
+  %327 = nn.adaptive_avg_pool2d(%326, output_size=[1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] span=aten::adaptive_avg_pool2d_0:0:0 */;\
+  %328 = reshape(%327, newshape=[0, -1, 1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] span=aten::flatten_0:0:0 */;\
+  %329 = squeeze(%328, axis=[2, 3]) /* ty=Tensor[(1, 512), float32] span=aten::flatten_0:0:0 */;\
+  %330 = nn.dense(%329, meta[relay.Constant][136] /* ty=Tensor[(1000, 512), float32] */, units=None) /* ty=Tensor[(1, 1000), float32] span=aten::linear_0:0:0 */;\
+  nn.bias_add(%330, meta[relay.Constant][137] /* ty=Tensor[(1000), float32] */, axis=-1) /* ty=Tensor[(1, 1000), float32] span=aten::linear_0:0:0 */\
+\}\
+\
+\
+\
+\
+\
+    nn.relu(%4) /* ty=Tensor[(1, 512, 7, 7), float32] */                                                       [11/1851]\
+  \} /* ty=fn (Tensor[(1, 512, 7, 7), float32], Tensor[(6, 6, 32, 512, 16), float32], Tensor[(1, 512, 1, 1), float32], Te\
+nsor[(1, 512, 7, 7), float32]) -> Tensor[(1, 512, 7, 7), float32] */;                                                   \
+  %88 = %87(%86, meta[relay.Constant][38] /* ty=Tensor[(6, 6, 32, 512, 16), float32] */, meta[relay.Constant][39] /* ty=\
+Tensor[(1, 512, 1, 1), float32] */, %84) /* ty=Tensor[(1, 512, 7, 7), float32] */;                                      \
+  %89 = fn (%p02: Tensor[(1, 512, 7, 7), float32] /* ty=Tensor[(1, 512, 7, 7), float32] */, Primitive=1, hash="61b143b6e\
+27e2ebd", layout="NCHW", out_layout="") -> Tensor[(1, 512, 1, 1), float32] \{                                            \
+    nn.adaptive_avg_pool2d(%p02, output_size=[1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] */                           \
+  \} /* ty=fn (Tensor[(1, 512, 7, 7), float32]) -> Tensor[(1, 512, 1, 1), float32] */;                                   \
+  %90 = %89(%88) /* ty=Tensor[(1, 512, 1, 1), float32] */;                                                              \
+  %91 = fn (%p01: Tensor[(1, 512, 1, 1), float32] /* ty=Tensor[(1, 512, 1, 1), float32] */, Primitive=1, relay.reshape_o\
+nly=1, hash="04891aab9f3ea6a1") -> Tensor[(1, 512), float32] \{                                                          \
+    %1 = reshape(%p01, newshape=[0, -1, 1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] */;\
+    squeeze(%1, axis=[2, 3]) /* ty=Tensor[(1, 512), float32] */\
+  \} /* ty=fn (Tensor[(1, 512, 1, 1), float32]) -> Tensor[(1, 512), float32] */;\
+  %92 = %91(%90) /* ty=Tensor[(1, 512), float32] */;\
+  %93 = fn (%p0: Tensor[(1, 512), float32] /* ty=Tensor[(1, 512), float32] */, %p1: Tensor[(1000, 512), float32] /* ty=Tensor[(1000, 512), float32] */, %p2: Tensor[(1, 1000), float32] /* ty=Tensor[(1, 1000), float32] */, Primitive=1, hash="be83b583e5ca494e") -> Tensor[(1, 1000), float32] \{\
+    %0 = nn.dense(%p0, %p1, units=None) /* ty=Tensor[(1, 1000), float32] */;\
+    add(%0, %p2) /* ty=Tensor[(1, 1000), float32] */\
+  \} /* ty=fn (Tensor[(1, 512), float32], Tensor[(1000, 512), float32], Tensor[(1, 1000), float32]) -> Tensor[(1, 1000), float32] */;\
+  %93(%92, meta[relay.Constant][40] /* ty=Tensor[(1000, 512), float32] */, meta[relay.Constant][41] /* ty=Tensor[(1, 1000), float32] */) /* ty=Tensor[(1, 1000), float32] */\
+\}\
+\
+\
+\
+\
+  \{                                                                                                                   \
+      "op": "tvm_op",                                                                                                   \
+      "name": "tvmgen_default_fused_nn_conv2d_add_right_shift_clip_8_2",                                                \
+      "attrs": \{                                                                                                        \
+        "num_outputs": "1",                                                                                             \
+        "num_inputs": "4",                                                                                              \
+        "flatten_data": "0",                                                                                            \
+        "func_name": "tvmgen_default_fused_nn_conv2d_add_right_shift_clip_8",                                           \
+        "out_layout": "",                                                                                               \
+        "data_layout": "NCHW",                                                                                          \
+        "kernel_layout": "OIHW16o",                                                                                     \
+        "hash": "211ff0a500654a1e"                                                                                      \
+      \},                  \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+      "attrs": \{                                                                                                        \
+        "num_outputs": "1",                                                                                             \
+        "num_inputs": "4",                                                                                              \
+        "flatten_data": "0",                                                                                            \
+        "func_name": "tvmgen_default_fused_nn_conv2d_add_right_shift_clip_8",                                           \
+        "out_layout": "",                                                                                               \
+        "data_layout": "NCHW",                                                                                          \
+        "kernel_layout": "OIHW16o",                                                                                     \
+        "hash": "211ff0a500654a1e"                                                                                      \
+      \},       \
+\
+\
+\
+"op": "tvm_op",                                                                                                   \
+      "name": "tvmgen_default_fused_nn_conv2d_add_right_shift_clip_8",                                                  \
+      "attrs": \{                                                                                                        \
+        "num_outputs": "1",                                                                                             \
+        "num_inputs": "4",                                                                                              \
+        "flatten_data": "0",                                                                                            \
+        "func_name": "tvmgen_default_fused_nn_conv2d_add_right_shift_clip_8",                                           \
+        "out_layout": "",                                                                                               \
+        "data_layout": "NCHW",                                                                                          \
+        "kernel_layout": "OIHW16o",                                                                                     \
+        "hash": "211ff0a500654a1e"                                                                                      \
+      \},                }

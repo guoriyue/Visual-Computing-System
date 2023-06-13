@@ -1,0 +1,200 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;
+\f3\fnil\fcharset0 Monaco;\f4\fswiss\fcharset0 ArialMT;\f5\fswiss\fcharset0 Helvetica-Bold;
+\f6\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red226\green131\blue14;\red0\green0\blue0;
+\red199\green203\blue211;\red212\green20\blue102;\red27\green27\blue27;\red255\green255\blue255;\red35\green38\blue42;
+\red244\green244\blue244;\red166\green63\blue5;\red14\green110\blue109;\red237\green237\blue237;\red83\green83\blue83;
+\red26\green26\blue26;\red249\green249\blue249;\red31\green31\blue31;\red239\green239\blue239;\red86\green32\blue244;
+\red51\green51\blue51;\red247\green247\blue247;\red22\green155\blue255;\red210\green0\blue53;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c91373\c58431\c4706;\cssrgb\c0\c0\c0;
+\cssrgb\c81961\c83529\c85882;\cssrgb\c87451\c18824\c47451;\cssrgb\c14118\c14118\c14118;\cssrgb\c100000\c100000\c100000;\cssrgb\c18431\c20000\c21569;
+\cssrgb\c96471\c96471\c96471;\cssrgb\c71765\c32549\c392;\cssrgb\c0\c50196\c50196;\cssrgb\c94510\c94510\c94510;\cssrgb\c40000\c40000\c40000;
+\cssrgb\c13333\c13333\c13333;\cssrgb\c98039\c98039\c98039;\cssrgb\c16078\c16078\c16078;\cssrgb\c94902\c94902\c94902;\cssrgb\c41681\c25958\c96648;
+\cssrgb\c26275\c26275\c26275;\cssrgb\c97647\c97647\c97647;\cssrgb\c3922\c67843\c100000;\cssrgb\c86667\c6667\c26667;}
+\margl1440\margr1440\vieww16840\viewh12660\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 Architecture:          x86_64\
+CPU op-mode(s):        32-bit, 64-bit\
+Byte Order:            Little Endian\
+CPU(s):                80\
+On-line CPU(s) list:   0-79\
+Thread(s) per core:    2\
+Core(s) per socket:    20\
+Socket(s):             2\
+NUMA node(s):          2\
+Vendor ID:             GenuineIntel\
+CPU family:            6\
+Model:                 79\
+Model name:            Intel(R) Xeon(R) CPU E5-2698 v4 @ 2.20GHz\
+Stepping:              1\
+CPU MHz:               2699.984\
+CPU max MHz:           3600.0000\
+CPU min MHz:           1200.0000\
+BogoMIPS:              4391.82\
+Virtualization:        VT-x\
+L1d cache:             32K\
+L1i cache:             32K\
+L2 cache:              256K\
+L3 cache:              51200K\
+NUMA node0 CPU(s):     0-19,40-59\
+NUMA node1 CPU(s):     20-39,60-79\
+\
+\
+\
+ssh -i /Users/guomingfei/multipass-key mfguo@charlotte.stanford.edu\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 export\cf5  PATH=
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /raid/mfguo/gcc-8.4.0/
+\f1\fs28 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 bin:\cf6 $PATH\cf5 \
+\cf3 export\cf5  LD_LIBRARY_PATH=
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /raid/mfguo/gcc-8.4.0/
+\f1\fs28 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 lib64:\cf6 $LD_LIBRARY_PATH\
+\
+
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+/raid/mfguo/gcc-8.4.0/bin/gcc
+\f1\fs28 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf7 \cb8 export CC=/raid/mfguo/gcc-8.4.0/bin/gcc\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf9 \cb10 $PWD/../gcc\cf11 -8.4.0\cf9 /configure --prefix=$HOME/gcc\cf11 -8.4.0\cf9  \
+make\
+make install
+\f1\fs28 \cf3 \cb4 \
+
+\f2\fs26 \cf9 \cb10 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ssh -i multipass-key mfguo@charlotte.stanford.edu\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\
+export\cf5  PATH=
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /raid/mfguo/bzr-temp/bzr-2.7.0/
+\f1\fs28 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 bzr:\cf6 $PATH\cf5 \
+\cf3 export\cf5  LD_LIBRARY_PATH=
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /raid/mfguo/gcc-8.4.0/
+\f1\fs28 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 lib64:\cf6 $LD_LIBRARY_PATH\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf12 \cb13 export\cf14 \'a0\cf12 PYTHONPATH\cf14 =
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /usr/lib/python2.7 
+\f3\fs26 \cf14 \cb13 \expnd0\expndtw0\kerning0
+\CocoaLigature1 bzr
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs28 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs22 \cf0 \cb8 /raid/mfguo/gcc-7.1.0/build
+\f1\fs28 \cf3 \cb4 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 python2 /raid/mfguo/bzr-temp/bzr-2.7.0/bzr 
+\fs26 \cf15 \expnd0\expndtw0\kerning0
+\CocoaLigature1 checkout --lightweight  bzr://bzr.savannah.gnu.org/gsrc/trunk/ gsrc\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs29\fsmilli14667 \cf7 \cb16 export PATH=/raid/arden/gcc-11.4.0/bin:$PATH
+\fs26\fsmilli13333 \cb1 \
+
+\fs29\fsmilli14667 \cb16 export LD_LIBRARY_PATH=/raid/arden/gcc-11.4.0/lib64:$LD_LIBRARY_PATH
+\fs26\fsmilli13333 \cb1 \
+
+\fs29\fsmilli14667 \cb16 export CC=/raid/arden/gcc-11.4.0/bin/gcc-11.4
+\fs26\fsmilli13333 \cb1 \
+
+\fs29\fsmilli14667 \cb16 export CXX=/raid/arden/gcc-11.4.0/bin/g++-11.4
+\fs26\fsmilli13333 \cb1 \
+\
+\
+\
+export TVM_HOME=/raid/mfguo/tvm\
+export PYTHONPATH=$TVM_HOME/python:$\{PYTHONPATH\}\
+\
+\
+source /raid/mfguo/TVM-Scripts/tvm/bin/activate\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf17 \cb18 virtualenv 
+\f5\b -p /raid/mfguo/
+\f6\fs22 \cf19 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 Python-3.7.9/
+\f5\fs32 \cf17 \cb18 \expnd0\expndtw0\kerning0
+\CocoaLigature1 python
+\f1\b0  my_env\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs26\fsmilli13333 \cf7 \cb1 source /raid/mfguo/
+\f0\fs22 \cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 my_env
+\f1\fs26\fsmilli13333 \cf7 \expnd0\expndtw0\kerning0
+\CocoaLigature1 /bin/activate\
+\
+\
+\
+\
+export PATH=/raid/arden/gcc-11.4.0/bin:$PATH\
+export LD_LIBRARY_PATH=/raid/arden/gcc-11.4.0/lib64:$LD_LIBRARY_PATH\
+export CC=/raid/arden/gcc-11.4.0/bin/gcc-11.4\
+export CXX=/raid/arden/gcc-11.4.0/bin/g++-11.4\
+export PATH=/raid/arden/gcc-11.4.0/bin:$PATH\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs30 \cf20 \cb21 import \cf22 os\cf20 \
+\cf22 os\cf20 .environ[\cf23 "PATH"\cf20 ] = \cf22 os\cf20 .environ[\cf23 "PATH"\cf20 ]+\cf23 ":/usr/local/cuda/bin/"\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26\fsmilli13333 \cf7 \cb1 export PATH=
+\f0\fs30 \cf23 \cb21 /usr/local/
+\f6\b\fs22 \cf19 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 cuda-10.2
+\f1\b0\fs26\fsmilli13333 \cf7 \expnd0\expndtw0\kerning0
+\CocoaLigature1 /bin:$PATH\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+}

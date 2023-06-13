@@ -1,0 +1,3287 @@
+You should be able to log on using the command:
+ 
+ssh -i [YOUR_PRIVATE_KEY] mfguo@charlotte.stanford.edu
+ 
+Please keep all your work in the /raid/mfguo directory (note: this is not your home directory). Do not use your home directory for any work (disk space issues). Also after the quarter ends please be sure to copy all your work you want saved to a local machine since we will be deleting your profile and directories afterwards.
+ 
+Let me know if you need any further assistance.
+
+ssh -i multipass-key mfguo@charlotte.stanford.edu
+
+
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red210\green0\blue53;\red219\green219\blue219;\red231\green53\blue34;
+\red255\green255\blue255;\red194\green126\blue101;\red23\green23\blue23;\red202\green202\blue202;\red194\green126\blue101;
+\red23\green23\blue23;\red202\green202\blue202;}
+{\*\expandedcolortbl;;\cssrgb\c86667\c6667\c26667;\cssrgb\c88627\c88627\c88627;\cssrgb\c93333\c29804\c17255;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c80784\c56863\c47059;\cssrgb\c11765\c11765\c11765;\cssrgb\c83137\c83137\c83137;\cssrgb\c80784\c56863\c47059;
+\cssrgb\c11765\c11765\c11765;\cssrgb\c83137\c83137\c83137;}
+\margl1440\margr1440\vieww22100\viewh11160\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sa360\partightenfactor0
+
+\fs24\fsmilli12250 \cf4 \cb5 densenet121
+\fs28 \cf2 \cb3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf6 \cb7 \outl0\strokewidth0 \strokec6 efficientnet_b2\cf8 \cb1 \strokec8  int 16 a 32\
+\
+
+\f0\fs28 \cf2 \cb3 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Without intrin pass\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \
+\
+\
+\
+\
+\
+\
+batch quant_inference 0.019469913095235825\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.025641508400440216\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.028061060855786007\
+batch quant_accuracy top1_acc 0.005208333333333333\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.029394258745014668\
+batch quant_accuracy top1_acc 0.00390625\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.030008719861507417\
+batch quant_accuracy top1_acc 0.003125\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.030940466249982517\
+batch quant_accuracy top1_acc 0.0026041666666666665\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03142116378460612\
+batch quant_accuracy top1_acc 0.002232142857142857\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.03186697652563453\
+batch quant_accuracy top1_acc 0.001953125\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.032057399964994855\
+batch quant_accuracy top1_acc 0.001736111111111111\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.032408124580979344\
+batch quant_accuracy top1_acc 0.0015625\
+batch quant_accuracy top5_acc 0.003125\
+batch quant_inference 0.032415116375142876\
+batch quant_accuracy top1_acc 0.0014204545454545455\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.032524266901115574\
+batch quant_accuracy top1_acc 0.0013020833333333333\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03244048156417333\
+batch quant_accuracy top1_acc 0.001201923076923077\
+batch quant_accuracy top5_acc 0.003605769230769231\
+batch quant_inference 0.03270159901252815\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.032758922626574837\
+batch quant_accuracy top1_acc 0.0010416666666666667\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.032812703400850296\
+batch quant_accuracy top1_acc 0.0009765625\
+batch quant_accuracy top5_acc 0.0048828125\
+batch quant_inference 0.03291345979360973\
+batch quant_accuracy top1_acc 0.0009191176470588235\
+batch quant_accuracy top5_acc 0.004595588235294118\
+batch quant_inference 0.03306733816862106\
+batch quant_accuracy top1_acc 0.0008680555555555555\
+batch quant_accuracy top5_acc 0.004340277777777778\
+batch quant_inference 0.03321881533453339\
+batch quant_accuracy top1_acc 0.0008223684210526315\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.03317649848759174\
+batch quant_accuracy top1_acc 0.00078125\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03319008027513822\
+batch quant_accuracy top1_acc 0.000744047619047619\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.03315198167481206\
+batch quant_accuracy top1_acc 0.0007102272727272727\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.03329645372603251\
+batch quant_accuracy top1_acc 0.0006793478260869565\
+batch quant_accuracy top5_acc 0.0033967391304347825\
+batch quant_inference 0.03332507439578573\
+batch quant_accuracy top1_acc 0.0006510416666666666\
+batch quant_accuracy top5_acc 0.004557291666666667\
+batch quant_inference 0.033255723416805265\
+batch quant_accuracy top1_acc 0.000625\
+batch quant_accuracy top5_acc 0.004375\
+batch quant_inference 0.03336475846859125\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \
+With intrin\
+\
+\
+batch quant_inference 0.022999204695224762\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.025823120027780533\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.027118369936943054\
+batch quant_accuracy top1_acc 0.005208333333333333\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.027473882772028446\
+batch quant_accuracy top1_acc 0.00390625\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.02766404375433922\
+batch quant_accuracy top1_acc 0.003125\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.028144700452685356\
+batch quant_accuracy top1_acc 0.0026041666666666665\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.028269623539277484\
+batch quant_accuracy top1_acc 0.002232142857142857\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.028439688496291637\
+batch quant_accuracy top1_acc 0.001953125\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.02851772101389037\
+batch quant_accuracy top1_acc 0.001736111111111111\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.02932046689093113\
+batch quant_accuracy top1_acc 0.0015625\
+batch quant_accuracy top5_acc 0.003125\
+batch quant_inference 0.030185504731806843\
+batch quant_accuracy top1_acc 0.0014204545454545455\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.03032697768261035\
+batch quant_accuracy top1_acc 0.0013020833333333333\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.0301383280983338\
+batch quant_accuracy top1_acc 0.001201923076923077\
+batch quant_accuracy top5_acc 0.003605769230769231\
+batch quant_inference 0.03031452532325472\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.004464285714285714\
+\
+\
+\
+\
+\
+\
+batch quant_inference 0.02625984326004982\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.029041005298495293\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.02885462964574496\
+batch quant_accuracy top1_acc 0.005208333333333333\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.029071318916976452\
+batch quant_accuracy top1_acc 0.00390625\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.029123933613300325\
+batch quant_accuracy top1_acc 0.003125\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.02934807352721691\
+batch quant_accuracy top1_acc 0.0026041666666666665\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.029244853449719294\
+batch quant_accuracy top1_acc 0.002232142857142857\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.029181606136262417\
+batch quant_accuracy top1_acc 0.001953125\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.02917250618338585\
+batch quant_accuracy top1_acc 0.001736111111111111\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.029566845670342446\
+batch quant_accuracy top1_acc 0.0015625\
+batch quant_accuracy top5_acc 0.003125\
+batch quant_inference 0.029516109350052746\
+batch quant_accuracy top1_acc 0.0014204545454545455\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.029518345991770428\
+batch quant_accuracy top1_acc 0.0013020833333333333\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.02958692065798319\
+batch quant_accuracy top1_acc 0.001201923076923077\
+batch quant_accuracy top5_acc 0.003605769230769231\
+batch quant_inference 0.02970843017101288\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.02999869113167127\
+batch quant_accuracy top1_acc 0.0010416666666666667\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.02994618029333651\
+batch quant_accuracy top1_acc 0.0009765625\
+batch quant_accuracy top5_acc 0.0048828125\
+batch quant_inference 0.029945724369848475\
+batch quant_accuracy top1_acc 0.0009191176470588235\
+batch quant_accuracy top5_acc 0.004595588235294118\
+batch quant_inference 0.02988251071009371\
+batch quant_accuracy top1_acc 0.0008680555555555555\
+batch quant_accuracy top5_acc 0.004340277777777778\
+batch quant_inference 0.02987729973698917\
+batch quant_accuracy top1_acc 0.0008223684210526315\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.02984869070351124\
+batch quant_accuracy top1_acc 0.00078125\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.02985284495211783\
+batch quant_accuracy top1_acc 0.000744047619047619\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.029833501712842422\
+batch quant_accuracy top1_acc 0.0007102272727272727\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.02990351698320845\
+batch quant_accuracy top1_acc 0.0006793478260869565\
+batch quant_accuracy top5_acc 0.0033967391304347825\
+batch quant_inference 0.02988144988194108\
+batch quant_accuracy top1_acc 0.0006510416666666666\
+batch quant_accuracy top5_acc 0.004557291666666667\
+batch quant_inference 0.030096507668495177\
+batch quant_accuracy top1_acc 0.000625\
+batch quant_accuracy top5_acc 0.004375\
+batch quant_inference 0.0301533739727277\
+batch quant_accuracy top1_acc 0.0006009615384615385\
+batch quant_accuracy top5_acc 0.005408653846153846\
+batch quant_inference 0.03017241797513432\
+batch quant_accuracy top1_acc 0.0011574074074074073\
+batch quant_accuracy top5_acc 0.005787037037037037\
+batch quant_inference 0.03013303809400116\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.030130698506174416\
+batch quant_accuracy top1_acc 0.0010775862068965517\
+batch quant_accuracy top5_acc 0.005387931034482759\
+batch quant_inference 0.030100124205152193\
+batch quant_accuracy top1_acc 0.0010416666666666667\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.030073318149774306\
+batch quant_accuracy top1_acc 0.0010080645161290322\
+batch quant_accuracy top5_acc 0.005544354838709678\
+batch quant_inference 0.030076359631493688\
+batch quant_accuracy top1_acc 0.0009765625\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.03004850684241815\
+batch quant_accuracy top1_acc 0.000946969696969697\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.030081251088310692\
+batch quant_accuracy top1_acc 0.0009191176470588235\
+batch quant_accuracy top5_acc 0.0055147058823529415\
+batch quant_inference 0.030121838727167675\
+batch quant_accuracy top1_acc 0.0008928571428571428\
+batch quant_accuracy top5_acc 0.005803571428571429\
+batch quant_inference 0.030200521047744486\
+batch quant_accuracy top1_acc 0.0008680555555555555\
+batch quant_accuracy top5_acc 0.005642361111111111\
+batch quant_inference 0.030177886522299534\
+batch quant_accuracy top1_acc 0.0008445945945945946\
+batch quant_accuracy top5_acc 0.005489864864864865\
+batch quant_inference 0.03015086015588359\
+batch quant_accuracy top1_acc 0.0008223684210526315\
+batch quant_accuracy top5_acc 0.005345394736842105\
+batch quant_inference 0.030121916379684057\
+batch quant_accuracy top1_acc 0.0008012820512820513\
+batch quant_accuracy top5_acc 0.006009615384615385\
+batch quant_inference 0.030186521448194982\
+batch quant_accuracy top1_acc 0.00078125\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.0301642313417865\
+batch quant_accuracy top1_acc 0.0007621951219512195\
+batch quant_accuracy top5_acc 0.005716463414634146\
+batch quant_inference 0.030216810426541736\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.005952380952380952\
+batch quant_inference 0.03021671389077985\
+batch quant_accuracy top1_acc 0.0010901162790697674\
+batch quant_accuracy top5_acc 0.005813953488372093\
+batch quant_inference 0.03020883614028042\
+batch quant_accuracy top1_acc 0.001065340909090909\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.03022235698170132\
+batch quant_accuracy top1_acc 0.0010416666666666667\
+batch quant_accuracy top5_acc 0.005902777777777778\
+batch quant_inference 0.030194635867424633\
+batch quant_accuracy top1_acc 0.0010190217391304348\
+batch quant_accuracy top5_acc 0.00577445652173913\
+batch quant_inference 0.03017224355580959\
+batch quant_accuracy top1_acc 0.0009973404255319148\
+batch quant_accuracy top5_acc 0.005651595744680851\
+batch quant_inference 0.03016122671154638\
+batch quant_accuracy top1_acc 0.0013020833333333333\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.030165261227865607\
+batch quant_accuracy top1_acc 0.0012755102040816326\
+batch quant_accuracy top5_acc 0.005739795918367347\
+batch quant_inference 0.030149134621024132\
+batch quant_accuracy top1_acc 0.00125\
+batch quant_accuracy top5_acc 0.005625\
+batch quant_inference 0.030149650047807133\
+batch quant_accuracy top1_acc 0.0012254901960784314\
+batch quant_accuracy top5_acc 0.0055147058823529415\
+batch quant_inference 0.030226680306861035\
+batch quant_accuracy top1_acc 0.001201923076923077\
+batch quant_accuracy top5_acc 0.005709134615384615\
+batch quant_inference 0.03025356891020289\
+batch quant_accuracy top1_acc 0.0011792452830188679\
+batch quant_accuracy top5_acc 0.00589622641509434\
+batch quant_inference 0.03023438245334007\
+batch quant_accuracy top1_acc 0.0014467592592592592\
+batch quant_accuracy top5_acc 0.006076388888888889\
+batch quant_inference 0.030221514200622385\
+batch quant_accuracy top1_acc 0.0014204545454545455\
+batch quant_accuracy top5_acc 0.005965909090909091\
+batch quant_inference 0.03020833246409893\
+batch quant_accuracy top1_acc 0.0013950892857142857\
+batch quant_accuracy top5_acc 0.006138392857142857\
+batch quant_inference 0.03019842028356435\
+batch quant_accuracy top1_acc 0.0013706140350877192\
+batch quant_accuracy top5_acc 0.006030701754385965\
+batch quant_inference 0.030296142052473694\
+batch quant_accuracy top1_acc 0.0013469827586206897\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.030309632420539856\
+batch quant_accuracy top1_acc 0.0013241525423728813\
+batch quant_accuracy top5_acc 0.005826271186440678\
+batch quant_inference 0.030321033981939156\
+batch quant_accuracy top1_acc 0.0013020833333333333\
+batch quant_accuracy top5_acc 0.005729166666666666\
+batch quant_inference 0.03030748243947498\
+batch quant_accuracy top1_acc 0.0012807377049180327\
+batch quant_accuracy top5_acc 0.00589139344262295\
+batch quant_inference 0.030331788404333974\
+batch quant_accuracy top1_acc 0.0012600806451612903\
+batch quant_accuracy top5_acc 0.0057963709677419355\
+batch quant_inference 0.03033184851445849\
+batch quant_accuracy top1_acc 0.001240079365079365\
+batch quant_accuracy top5_acc 0.005704365079365079\
+batch quant_inference 0.03030763554852456\
+batch quant_accuracy top1_acc 0.001220703125\
+batch quant_accuracy top5_acc 0.005615234375\
+batch quant_inference 0.03029057509624041\
+batch quant_accuracy top1_acc 0.001201923076923077\
+batch quant_accuracy top5_acc 0.005528846153846154\
+batch quant_inference 0.030305005101995033\
+batch quant_accuracy top1_acc 0.0011837121212121212\
+batch quant_accuracy top5_acc 0.005445075757575758\
+batch quant_inference 0.030298264280183992\
+batch quant_accuracy top1_acc 0.0011660447761194029\
+batch quant_accuracy top5_acc 0.005363805970149254\
+batch quant_inference 0.030375700224848354\
+batch quant_accuracy top1_acc 0.0011488970588235295\
+batch quant_accuracy top5_acc 0.005284926470588236\
+batch quant_inference 0.030402570530988167\
+batch quant_accuracy top1_acc 0.0011322463768115942\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.030388179048895837\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.005133928571428571\
+batch quant_inference 0.03038906699544947\
+batch quant_accuracy top1_acc 0.0011003521126760564\
+batch quant_accuracy top5_acc 0.00528169014084507\
+batch quant_inference 0.030368584777332015\
+batch quant_accuracy top1_acc 0.0010850694444444445\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03042352388370527\
+batch quant_accuracy top1_acc 0.0010702054794520547\
+batch quant_accuracy top5_acc 0.005136986301369863\
+batch quant_inference 0.03043522731073805\
+batch quant_accuracy top1_acc 0.0010557432432432433\
+batch quant_accuracy top5_acc 0.005278716216216216\
+batch quant_inference 0.030460283309221268\
+batch quant_accuracy top1_acc 0.0010416666666666667\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.030464222899785166\
+batch quant_accuracy top1_acc 0.0010279605263157894\
+batch quant_accuracy top5_acc 0.005139802631578948\
+batch quant_inference 0.03045153811380461\
+batch quant_accuracy top1_acc 0.0012175324675324675\
+batch quant_accuracy top5_acc 0.005275974025974026\
+batch quant_inference 0.030454352736855164\
+batch quant_accuracy top1_acc 0.001201923076923077\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03048216773173477\
+batch quant_accuracy top1_acc 0.0011867088607594937\
+batch quant_accuracy top5_acc 0.005142405063291139\
+batch quant_inference 0.030470626521855594\
+batch quant_accuracy top1_acc 0.001171875\
+batch quant_accuracy top5_acc 0.005078125\
+batch quant_inference 0.030466903920894788\
+batch quant_accuracy top1_acc 0.0011574074074074073\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03046317216826648\
+batch quant_accuracy top1_acc 0.0011432926829268292\
+batch quant_accuracy top5_acc 0.005144817073170732\
+batch quant_inference 0.030574445803481412\
+batch quant_accuracy top1_acc 0.0011295180722891566\
+batch quant_accuracy top5_acc 0.005271084337349397\
+batch quant_inference 0.030602180886836278\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.005394345238095238\
+batch quant_inference 0.030585629054728676\
+batch quant_accuracy top1_acc 0.0011029411764705882\
+batch quant_accuracy top5_acc 0.005330882352941177\
+batch quant_inference 0.03056704603828663\
+batch quant_accuracy top1_acc 0.0010901162790697674\
+batch quant_accuracy top5_acc 0.005450581395348837\
+batch quant_inference 0.030547588978005552\
+batch quant_accuracy top1_acc 0.0010775862068965517\
+batch quant_accuracy top5_acc 0.005387931034482759\
+batch quant_inference 0.030557057947259058\
+batch quant_accuracy top1_acc 0.001065340909090909\
+batch quant_accuracy top5_acc 0.005504261363636364\
+batch quant_inference 0.030539244580804634\
+batch quant_accuracy top1_acc 0.001053370786516854\
+batch quant_accuracy top5_acc 0.0056179775280898875\
+batch quant_inference 0.03052543583843443\
+batch quant_accuracy top1_acc 0.0010416666666666667\
+batch quant_accuracy top5_acc 0.005729166666666666\
+batch quant_inference 0.030514133950838677\
+batch quant_accuracy top1_acc 0.0010302197802197802\
+batch quant_accuracy top5_acc 0.005666208791208791\
+batch quant_inference 0.03051982888870913\
+batch quant_accuracy top1_acc 0.0010190217391304348\
+batch quant_accuracy top5_acc 0.005604619565217391\
+batch quant_inference 0.030506643476665662\
+batch quant_accuracy top1_acc 0.0010080645161290322\
+batch quant_accuracy top5_acc 0.005544354838709678\
+batch quant_inference 0.030488629647074862\
+batch quant_accuracy top1_acc 0.0009973404255319148\
+batch quant_accuracy top5_acc 0.005485372340425532\
+batch quant_inference 0.030473933486562025\
+batch quant_accuracy top1_acc 0.000986842105263158\
+batch quant_accuracy top5_acc 0.005427631578947369\
+batch quant_inference 0.030476605830093224\
+batch quant_accuracy top1_acc 0.0009765625\
+batch quant_accuracy top5_acc 0.005533854166666667\
+batch quant_inference 0.03048837161862973\
+batch quant_accuracy top1_acc 0.0009664948453608248\
+batch quant_accuracy top5_acc 0.005637886597938144\
+batch quant_inference 0.030483186092911934\
+batch quant_accuracy top1_acc 0.0009566326530612245\
+batch quant_accuracy top5_acc 0.005739795918367347\
+batch quant_inference 0.030500697367119068\
+batch quant_accuracy top1_acc 0.000946969696969697\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.030489168167114257\
+batch quant_accuracy top1_acc 0.0009375\
+batch quant_accuracy top5_acc 0.005625\
+batch quant_inference 0.030499741914543774\
+batch quant_accuracy top1_acc 0.0009282178217821782\
+batch quant_accuracy top5_acc 0.005724009900990099\
+batch quant_inference 0.030489639945182147\
+batch quant_accuracy top1_acc 0.0009191176470588235\
+batch quant_accuracy top5_acc 0.005667892156862745\
+batch quant_inference 0.03048830081536932\
+batch quant_accuracy top1_acc 0.0009101941747572816\
+batch quant_accuracy top5_acc 0.005612864077669903\
+batch quant_inference 0.03052207068181955\
+batch quant_accuracy top1_acc 0.0009014423076923077\
+batch quant_accuracy top5_acc 0.005558894230769231\
+batch quant_inference 0.03056658726362955\
+batch quant_accuracy top1_acc 0.0008928571428571428\
+batch quant_accuracy top5_acc 0.005654761904761905\
+batch quant_inference 0.03056293212861385\
+batch quant_accuracy top1_acc 0.000884433962264151\
+batch quant_accuracy top5_acc 0.005601415094339622\
+batch quant_inference 0.030555768895929106\
+batch quant_accuracy top1_acc 0.0008761682242990654\
+batch quant_accuracy top5_acc 0.005549065420560747\
+batch quant_inference 0.030549251853867813\
+batch quant_accuracy top1_acc 0.0008680555555555555\
+batch quant_accuracy top5_acc 0.005497685185185185\
+batch quant_inference 0.030545084711608536\
+batch quant_accuracy top1_acc 0.0008600917431192661\
+batch quant_accuracy top5_acc 0.005733944954128441\
+batch quant_inference 0.030585372922095386\
+batch quant_accuracy top1_acc 0.0008522727272727272\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.030614309784796862\
+batch quant_accuracy top1_acc 0.0008445945945945946\
+\
+\
+\
+\
+batch quant_inference 0.02064746990799904\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.028635824099183083\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0\
+batch quant_inference 0.03247052182753881\
+batch quant_accuracy top1_acc 0.005208333333333333\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.0348731204867363\
+batch quant_accuracy top1_acc 0.00390625\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.036678663641214374\
+batch quant_accuracy top1_acc 0.003125\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03850833016137282\
+batch quant_accuracy top1_acc 0.0026041666666666665\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.039119718330247064\
+batch quant_accuracy top1_acc 0.002232142857142857\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.03950859094038606\
+batch quant_accuracy top1_acc 0.001953125\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03976550739672449\
+batch quant_accuracy top1_acc 0.001736111111111111\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.040163414925336836\
+batch quant_accuracy top1_acc 0.0015625\
+batch quant_accuracy top5_acc 0.003125\
+batch quant_inference 0.04042506285689094\
+batch quant_accuracy top1_acc 0.0014204545454545455\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.04074221011251211\
+batch quant_accuracy top1_acc 0.0013020833333333333\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.04087591371857203\
+batch quant_accuracy top1_acc 0.001201923076923077\
+batch quant_accuracy top5_acc 0.003605769230769231\
+batch quant_inference 0.04112211082662855\
+batch quant_accuracy top1_acc 0.0011160714285714285\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.04122205177942912\
+batch quant_accuracy top1_acc 0.0010416666666666667\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.04126761225052178\
+batch quant_accuracy top1_acc 0.0009765625\
+batch quant_accuracy top5_acc 0.0048828125\
+batch quant_inference 0.04130280894391677\
+batch quant_accuracy top1_acc 0.0009191176470588235\
+batch quant_accuracy top5_acc 0.004595588235294118\
+batch quant_inference 0.04136973536676831\
+batch quant_accuracy top1_acc 0.0008680555555555555\
+batch quant_accuracy top5_acc 0.004340277777777778\
+batch quant_inference 0.0415035139181112\
+batch quant_accuracy top1_acc 0.0008223684210526315\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.041527802124619484\
+batch quant_accuracy top1_acc 0.00078125\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.04158883435385568\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf9 \cb10 efficientnet_b2\cf11 \cb1  int 8 a 32\
+\
+
+\f0\fs28 \cf2 \cb3 \
+Without intrin pass
+\f1\fs24 \cf11 \cb1 \
+\
+\
+batch quant_inference 0.027033668011426926\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.015625\
+batch quant_inference 0.03269166126847267\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.033409065256516136\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03408797364681959\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.0344596765935421\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03499235833684603\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.035127486501421244\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.006696428571428571\
+batch quant_inference 0.03528915857896209\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.035368437982267804\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03581296652555466\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0046875\
+batch quant_inference 0.03601235388354822\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.03613451309502125\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.036111217278700605\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.036190147910799296\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.03620527262489001\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004166666666666667\
+batch quant_inference 0.03617136017419398\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03617040155565038\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003676470588235294\
+batch quant_inference 0.03616793991790877\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.03621645271778107\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.03619443252682686\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03618972766257468\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.036183000626889145\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.03621903191442075\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004076086956521739\
+batch quant_inference 0.036201608988145985\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.036192472130060195\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00375\
+batch quant_inference 0.03618198403945336\
+batch quant_accuracy top1_acc 0.0006009615384615385\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.036237338212905104\
+batch quant_accuracy top1_acc 0.0005787037037037037\
+batch quant_accuracy top5_acc 0.005787037037037037\
+batch quant_inference 0.036238884420267174\
+batch quant_accuracy top1_acc 0.0005580357142857143\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.0362333199330445\
+batch quant_accuracy top1_acc 0.0005387931034482759\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.03623681378861268\
+batch quant_accuracy top1_acc 0.0005208333333333333\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03633959711559357\
+batch quant_accuracy top1_acc 0.0005040322580645161\
+batch quant_accuracy top5_acc 0.007056451612903226\
+batch quant_inference 0.03638295643031597\
+batch quant_accuracy top1_acc 0.00048828125\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.0363672762883432\
+batch quant_accuracy top1_acc 0.0004734848484848485\
+batch quant_accuracy top5_acc 0.007575757575757576\
+batch quant_inference 0.036429656450362766\
+batch quant_accuracy top1_acc 0.00045955882352941176\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.03649016373923847\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.007589285714285714\
+batch quant_inference 0.03655676678236988\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.007378472222222222\
+batch quant_inference 0.03657227069944949\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.0071790540540540545\
+batch quant_inference 0.03666182695642898\
+batch quant_accuracy top1_acc 0.00041118421052631577\
+batch quant_accuracy top5_acc 0.0069901315789473685\
+batch quant_inference 0.03665190008588326\
+batch quant_accuracy top1_acc 0.00040064102564102563\
+batch quant_accuracy top5_acc 0.006810897435897436\
+batch quant_inference 0.03669079300016165\
+batch quant_accuracy top1_acc 0.000390625\
+batch quant_accuracy top5_acc 0.006640625\
+batch quant_inference 0.0366723086775803\
+batch quant_accuracy top1_acc 0.00038109756097560977\
+batch quant_accuracy top5_acc 0.006859756097560976\
+batch quant_inference 0.03665936312505177\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.007068452380952381\
+batch quant_inference 0.03664304376688114\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.006904069767441861\
+batch quant_inference 0.03663309688933871\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.007102272727272727\
+batch quant_inference 0.036659700009557934\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.007291666666666667\
+batch quant_inference 0.03671575920737308\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.007133152173913043\
+batch quant_inference 0.03673144857934181\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.007313829787234043\
+batch quant_inference 0.03673232897805671\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.007161458333333333\
+batch quant_inference 0.036760496165679425\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.00701530612244898\
+batch quant_inference 0.03681979887187481\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.006875\
+batch quant_inference 0.03683904792163886\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.0070465686274509805\
+batch quant_inference 0.03686300328431221\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.007211538461538462\
+batch quant_inference 0.036882751322579836\
+batch quant_accuracy top1_acc 0.00029481132075471697\
+batch quant_accuracy top5_acc 0.007075471698113208\
+batch quant_inference 0.0368688024442505\
+batch quant_accuracy top1_acc 0.00028935185185185184\
+batch quant_accuracy top5_acc 0.006944444444444444\
+batch quant_inference 0.03685269802808762\
+batch quant_accuracy top1_acc 0.0002840909090909091\
+batch quant_accuracy top5_acc 0.006818181818181818\
+batch quant_inference 0.036841361317783594\
+batch quant_accuracy top1_acc 0.00027901785714285713\
+batch quant_accuracy top5_acc 0.006975446428571429\
+batch quant_inference 0.036843584164192804\
+batch quant_accuracy top1_acc 0.00027412280701754384\
+batch quant_accuracy top5_acc 0.006853070175438596\
+batch quant_inference 0.03687570571642498\
+batch quant_accuracy top1_acc 0.00026939655172413793\
+batch quant_accuracy top5_acc 0.006734913793103448\
+batch quant_inference 0.03686280138159202\
+batch quant_accuracy top1_acc 0.00026483050847457627\
+batch quant_accuracy top5_acc 0.0066207627118644065\
+batch quant_inference 0.03684741711864869\
+batch quant_accuracy top1_acc 0.00026041666666666666\
+batch quant_accuracy top5_acc 0.006510416666666667\
+batch quant_inference 0.036841239230554615\
+batch quant_accuracy top1_acc 0.00025614754098360657\
+batch quant_accuracy top5_acc 0.00665983606557377\
+batch quant_inference 0.03686981972667479\
+batch quant_accuracy top1_acc 0.00025201612903225806\
+batch quant_accuracy top5_acc 0.00655241935483871\
+batch quant_inference 0.03689754677433816\
+batch quant_accuracy top1_acc 0.000248015873015873\
+batch quant_accuracy top5_acc 0.006448412698412698\
+batch quant_inference 0.0369382108328864\
+batch quant_accuracy top1_acc 0.000244140625\
+batch quant_accuracy top5_acc 0.00634765625\
+batch quant_inference 0.03698836490511894\
+batch quant_accuracy top1_acc 0.0002403846153846154\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03701233925918738\
+batch quant_accuracy top1_acc 0.00023674242424242425\
+batch quant_accuracy top5_acc 0.00615530303030303\
+batch quant_inference 0.03706617442084782\
+batch quant_accuracy top1_acc 0.0002332089552238806\
+batch quant_accuracy top5_acc 0.006063432835820896\
+batch quant_inference 0.03706554646658547\
+batch quant_accuracy top1_acc 0.00022977941176470588\
+batch quant_accuracy top5_acc 0.0059742647058823525\
+batch quant_inference 0.03706147878066353\
+batch quant_accuracy top1_acc 0.00022644927536231884\
+batch quant_accuracy top5_acc 0.006114130434782609\
+batch quant_inference 0.03708339541086129\
+batch quant_accuracy top1_acc 0.0002232142857142857\
+batch quant_accuracy top5_acc 0.0060267857142857146\
+batch quant_inference 0.03712338219645997\
+batch quant_accuracy top1_acc 0.00022007042253521127\
+batch quant_accuracy top5_acc 0.006161971830985915\
+batch quant_inference 0.03711229650717643\
+batch quant_accuracy top1_acc 0.00021701388888888888\
+batch quant_accuracy top5_acc 0.006076388888888889\
+batch quant_inference 0.03710026115383187\
+batch quant_accuracy top1_acc 0.00021404109589041095\
+batch quant_accuracy top5_acc 0.0062071917808219175\
+batch quant_inference 0.037102184484939314\
+batch quant_accuracy top1_acc 0.00021114864864864866\
+batch quant_accuracy top5_acc 0.006123310810810811\
+batch quant_inference 0.037120204915603\
+batch quant_accuracy top1_acc 0.00020833333333333335\
+batch quant_accuracy top5_acc 0.0060416666666666665\
+batch quant_inference 0.03710712095428454\
+batch quant_accuracy top1_acc 0.00020559210526315788\
+batch quant_accuracy top5_acc 0.005962171052631579\
+batch quant_inference 0.0371056440491955\
+batch quant_accuracy top1_acc 0.00020292207792207794\
+batch quant_accuracy top5_acc 0.00588474025974026\
+batch quant_inference 0.03709511468425775\
+batch quant_accuracy top1_acc 0.00020032051282051281\
+batch quant_accuracy top5_acc 0.005809294871794872\
+batch quant_inference 0.03710366464868377\
+batch quant_accuracy top1_acc 0.00019778481012658228\
+batch quant_accuracy top5_acc 0.005735759493670886\
+batch quant_inference 0.0370893229264766\
+batch quant_accuracy top1_acc 0.0001953125\
+batch quant_accuracy top5_acc 0.0056640625\
+batch quant_inference 0.0370790802034331\
+batch quant_accuracy top1_acc 0.00019290123456790122\
+batch quant_accuracy top5_acc 0.0055941358024691355\
+batch quant_inference 0.03706507434750476\
+batch quant_accuracy top1_acc 0.00019054878048780488\
+batch quant_accuracy top5_acc 0.005525914634146341\
+batch quant_inference 0.037054847252656176\
+batch quant_accuracy top1_acc 0.00018825301204819278\
+batch quant_accuracy top5_acc 0.005647590361445783\
+batch quant_inference 0.03706462104760465\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.005766369047619048\
+batch quant_inference 0.037055430561304094\
+batch quant_accuracy top1_acc 0.0003676470588235294\
+batch quant_accuracy top5_acc 0.005698529411764706\
+batch quant_inference 0.037042789810965225\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.005813953488372093\
+batch quant_inference 0.03702904219771254\
+batch quant_accuracy top1_acc 0.00035919540229885057\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.037036771293390884\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.006036931818181818\
+batch quant_inference 0.03702688246463122\
+batch quant_accuracy top1_acc 0.00035112359550561797\
+batch quant_accuracy top5_acc 0.0059691011235955055\
+batch quant_inference 0.037017609344588386\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.005902777777777778\
+batch quant_inference 0.03700488773021069\
+batch quant_accuracy top1_acc 0.00034340659340659343\
+batch quant_accuracy top5_acc 0.005837912087912088\
+batch quant_inference 0.03703323115959116\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.00577445652173913\
+batch quant_inference 0.037041948847873235\
+batch quant_accuracy top1_acc 0.0003360215053763441\
+batch quant_accuracy top5_acc 0.00571236559139785\
+batch quant_inference 0.03703610813047024\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.005651595744680851\
+batch quant_inference 0.037028078342738906\
+batch quant_accuracy top1_acc 0.0003289473684210526\
+batch quant_accuracy top5_acc 0.005592105263157895\
+batch quant_inference 0.03711518672450135\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.005533854166666667\
+batch quant_inference 0.03713989814685792\
+batch quant_accuracy top1_acc 0.00032216494845360824\
+batch quant_accuracy top5_acc 0.00547680412371134\
+batch quant_inference 0.03714853905293406\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.005739795918367347\
+batch quant_inference 0.037165226433614286\
+batch quant_accuracy top1_acc 0.0003156565656565657\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.03717605002224445\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.00578125\
+batch quant_inference 0.037205075494723745\
+batch quant_accuracy top1_acc 0.0003094059405940594\
+batch quant_accuracy top5_acc 0.005724009900990099\
+batch quant_inference 0.03722050720277954\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.005821078431372549\
+batch quant_inference 0.037218942768076094\
+batch quant_accuracy top1_acc 0.00030339805825242716\
+batch quant_accuracy top5_acc 0.0057645631067961165\
+batch quant_inference 0.03722046616558845\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.005709134615384615\
+batch quant_inference 0.03725910211602847\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.005803571428571429\
+batch quant_inference 0.037270745824811595\
+batch quant_accuracy top1_acc 0.0004422169811320755\
+batch quant_accuracy top5_acc 0.005748820754716981\
+batch quant_inference 0.03726919656880548\
+batch quant_accuracy top1_acc 0.0004380841121495327\
+batch quant_accuracy top5_acc 0.005695093457943925\
+batch quant_inference 0.03726480235518129\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.005642361111111111\
+batch quant_inference 0.0372635751552538\
+batch quant_accuracy top1_acc 0.00043004587155963305\
+batch quant_accuracy top5_acc 0.00559059633027523\
+batch quant_inference 0.03727192909202792\
+batch quant_accuracy top1_acc 0.0004261363636363636\
+batch quant_accuracy top5_acc 0.005539772727272727\
+batch quant_inference 0.037259187079496214\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.005489864864864865\
+batch quant_inference 0.03724946766825659\
+batch quant_accuracy top1_acc 0.0004185267857142857\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.03723874533202796\
+batch quant_accuracy top1_acc 0.0004148230088495575\
+batch quant_accuracy top5_acc 0.0055309734513274336\
+batch quant_inference 0.0372567405891523\
+batch quant_accuracy top1_acc 0.00041118421052631577\
+batch quant_accuracy top5_acc 0.005482456140350877\
+batch quant_inference 0.03725851819567058\
+batch quant_accuracy top1_acc 0.0004076086956521739\
+batch quant_accuracy top5_acc 0.005434782608695652\
+batch quant_inference 0.03727508667085705\
+batch quant_accuracy top1_acc 0.0004040948275862069\
+batch quant_accuracy top5_acc 0.005387931034482759\
+batch quant_inference 0.03728521599346756\
+batch quant_accuracy top1_acc 0.0005341880341880342\
+batch quant_accuracy top5_acc 0.00547542735042735\
+\
+\
+\
+\
+\
+\
+\
+\
+batch quant_inference 0.026991508901119232\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.015625\
+batch quant_inference 0.039133816957473755\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.04416651030381521\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.04710147716104984\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.048513752222061154\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.0504286860426267\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.051834803606782644\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.006696428571428571\
+batch quant_inference 0.05245235189795494\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.052588356037934623\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.054215307161211965\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0046875\
+batch quant_inference 0.05451821908354759\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.05443598081668218\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.054302196663159594\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.055189767852425575\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.055347600330909096\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004166666666666667\
+batch quant_inference 0.05534253874793649\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.05535899256082142\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003676470588235294\
+batch quant_inference 0.05584773566159937\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.05606315716316825\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.05645979642868042\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.05758422276093846\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.05755742554637519\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.05757814208450525\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004076086956521739\
+batch quant_inference 0.057569043866048254\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.05755898252129555\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00375\
+batch quant_inference 0.05748854147700163\
+batch quant_accuracy top1_acc 0.0006009615384615385\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.057475116517808705\
+batch quant_accuracy top1_acc 0.0005787037037037037\
+batch quant_accuracy top5_acc 0.005787037037037037\
+batch quant_inference 0.05777729329253946\
+batch quant_accuracy top1_acc 0.0005580357142857143\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.05787319381689203\
+batch quant_accuracy top1_acc 0.0005387931034482759\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.057765811185042065\
+batch quant_accuracy top1_acc 0.0005208333333333333\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.05765698754018353\
+batch quant_accuracy top1_acc 0.0005040322580645161\
+batch quant_accuracy top5_acc 0.007056451612903226\
+batch quant_inference 0.05759065167512745\
+batch quant_accuracy top1_acc 0.00048828125\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.057524929556882744\
+batch quant_accuracy top1_acc 0.0004734848484848485\
+batch quant_accuracy top5_acc 0.007575757575757576\
+batch quant_inference 0.057468030163470435\
+batch quant_accuracy top1_acc 0.00045955882352941176\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.0574171812406608\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.007589285714285714\
+batch quant_inference 0.05738805544873079\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.007378472222222222\
+batch quant_inference 0.05725177377462387\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.0071790540540540545\
+batch quant_inference 0.05726962095420612\
+batch quant_accuracy top1_acc 0.00041118421052631577\
+batch quant_accuracy top5_acc 0.0069901315789473685\
+batch quant_inference 0.05722989524022127\
+batch quant_accuracy top1_acc 0.00040064102564102563\
+batch quant_accuracy top5_acc 0.006810897435897436\
+batch quant_inference 0.05722667826339602\
+batch quant_accuracy top1_acc 0.000390625\
+batch quant_accuracy top5_acc 0.006640625\
+batch quant_inference 0.05717282987585882\
+batch quant_accuracy top1_acc 0.00038109756097560977\
+batch quant_accuracy top5_acc 0.006859756097560976\
+batch quant_inference 0.05711642643880276\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.007068452380952381\
+batch quant_inference 0.05724435135029083\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.006904069767441861\
+batch quant_inference 0.05730166235430674\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.007102272727272727\
+batch quant_inference 0.05726938512590196\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.007291666666666667\
+batch quant_inference 0.057290984560614044\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.007133152173913043\
+batch quant_inference 0.05726563240936462\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.007313829787234043\
+batch quant_inference 0.05727594058650235\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.007161458333333333\
+batch quant_inference 0.05727280752391231\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.00701530612244898\
+batch quant_inference 0.05729466587305069\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.006875\
+batch quant_inference 0.057320615532351474\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.0070465686274509805\
+batch quant_inference 0.05727509165612551\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.007211538461538462\
+batch quant_inference 0.057341993347091495\
+batch quant_accuracy top1_acc 0.00029481132075471697\
+batch quant_accuracy top5_acc 0.007075471698113208\
+batch quant_inference 0.05727427894318545\
+batch quant_accuracy top1_acc 0.00028935185185185184\
+batch quant_accuracy top5_acc 0.006944444444444444\
+batch quant_inference 0.05724927058274096\
+batch quant_accuracy top1_acc 0.0002840909090909091\
+batch quant_accuracy top5_acc 0.006818181818181818\
+batch quant_inference 0.057185861348573654\
+batch quant_accuracy top1_acc 0.00027901785714285713\
+batch quant_accuracy top5_acc 0.006975446428571429\
+batch quant_inference 0.057155952707194445\
+batch quant_accuracy top1_acc 0.00027412280701754384\
+batch quant_accuracy top5_acc 0.006853070175438596\
+batch quant_inference 0.05722904635657524\
+batch quant_accuracy top1_acc 0.00026939655172413793\
+batch quant_accuracy top5_acc 0.006734913793103448\
+batch quant_inference 0.05727562586129722\
+batch quant_accuracy top1_acc 0.00026483050847457627\
+batch quant_accuracy top5_acc 0.0066207627118644065\
+batch quant_inference 0.057379940152168275\
+batch quant_accuracy top1_acc 0.00026041666666666666\
+batch quant_accuracy top5_acc 0.006510416666666667\
+batch quant_inference 0.05735691502446034\
+batch quant_accuracy top1_acc 0.00025614754098360657\
+batch quant_accuracy top5_acc 0.00665983606557377\
+batch quant_inference 0.057500268903470805\
+batch quant_accuracy top1_acc 0.00025201612903225806\
+batch quant_accuracy top5_acc 0.00655241935483871\
+batch quant_inference 0.05752935195489535\
+batch quant_accuracy top1_acc 0.000248015873015873\
+batch quant_accuracy top5_acc 0.006448412698412698\
+batch quant_inference 0.057474548229947686\
+batch quant_accuracy top1_acc 0.000244140625\
+batch quant_accuracy top5_acc 0.00634765625\
+batch quant_inference 0.05747733901326473\
+batch quant_accuracy top1_acc 0.0002403846153846154\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.057528687358805626\
+batch quant_accuracy top1_acc 0.00023674242424242425\
+batch quant_accuracy top5_acc 0.00615530303030303\
+batch quant_inference 0.05759182550124268\
+batch quant_accuracy top1_acc 0.0002332089552238806\
+batch quant_accuracy top5_acc 0.006063432835820896\
+batch quant_inference 0.057575943879783154\
+batch quant_accuracy top1_acc 0.00022977941176470588\
+batch quant_accuracy top5_acc 0.0059742647058823525\
+\
+\
+\
+batch quant_inference 0.02817511186003685\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.015625\
+batch quant_inference 0.03247859701514244\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.03337849800785383\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03414839878678322\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.034483592957258224\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03505415345231692\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.035347435623407364\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.006696428571428571\
+batch quant_inference 0.03553135832771659\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.03561324502031008\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03586250804364681\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0046875\
+batch quant_inference 0.03592695058746771\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.03592942996571461\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03595063262260877\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.03615876766187804\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.036204639822244644\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004166666666666667\
+batch quant_inference 0.03657616092823446\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.036563012529821956\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003676470588235294\
+batch quant_inference 0.03672891793151697\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.037003516170539354\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004111842105263158\
+\
+\
+\
+\
+With intrinsics:\
+\
+\
+\
+batch quant_inference 0.028197936713695526\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.015625\
+batch quant_inference 0.03738410584628582\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.040862600008646645\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.042209213599562645\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.04360138773918152\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.044072793796658516\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.0446669411446367\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.006696428571428571\
+batch quant_inference 0.0452718841843307\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.045560174932082496\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.04617922157049179\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0046875\
+batch quant_inference 0.04635069553147663\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.04654983586321274\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.046602751773137316\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.04677128179797104\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.046532851705948515\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004166666666666667\
+batch quant_inference 0.046534139197319746\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.046461172182770336\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003676470588235294\
+batch quant_inference 0.04631145608921846\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.04656575992703438\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.04671223107725382\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.046503850391932895\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.046877390959046104\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.04709272734496905\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004076086956521739\
+batch quant_inference 0.047180851455777884\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.0471096308529377\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00375\
+batch quant_inference 0.04718782079334442\
+batch quant_accuracy top1_acc 0.0006009615384615385\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.04735682890922935\
+batch quant_accuracy top1_acc 0.0005787037037037037\
+batch quant_accuracy top5_acc 0.005787037037037037\
+batch quant_inference 0.04728671668895653\
+batch quant_accuracy top1_acc 0.0005580357142857143\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.04732878352033681\
+batch quant_accuracy top1_acc 0.0005387931034482759\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.0472367886453867\
+batch quant_accuracy top1_acc 0.0005208333333333333\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.04731306181319298\
+batch quant_accuracy top1_acc 0.0005040322580645161\
+batch quant_accuracy top5_acc 0.007056451612903226\
+batch quant_inference 0.04744097194634378\
+batch quant_accuracy top1_acc 0.00048828125\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.047547133921673805\
+batch quant_accuracy top1_acc 0.0004734848484848485\
+batch quant_accuracy top5_acc 0.007575757575757576\
+batch quant_inference 0.04748038257307866\
+batch quant_accuracy top1_acc 0.00045955882352941176\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.04751260025160653\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.007589285714285714\
+batch quant_inference 0.047566228753162756\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.007378472222222222\
+batch quant_inference 0.047532319921899484\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.0071790540540540545\
+batch quant_inference 0.0474961814715674\
+batch quant_accuracy top1_acc 0.00041118421052631577\
+batch quant_accuracy top5_acc 0.0069901315789473685\
+batch quant_inference 0.04743974627210544\
+batch quant_accuracy top1_acc 0.00040064102564102563\
+batch quant_accuracy top5_acc 0.006810897435897436\
+batch quant_inference 0.04744654167443514\
+batch quant_accuracy top1_acc 0.000390625\
+batch quant_accuracy top5_acc 0.006640625\
+batch quant_inference 0.04740987054821921\
+batch quant_accuracy top1_acc 0.00038109756097560977\
+batch quant_accuracy top5_acc 0.006859756097560976\
+batch quant_inference 0.047350198385261354\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.007068452380952381\
+batch quant_inference 0.04731069323281909\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.006904069767441861\
+batch quant_inference 0.047295810908756473\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.007102272727272727\
+batch quant_inference 0.04737558530436622\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.007291666666666667\
+batch quant_inference 0.04735970893955749\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.007133152173913043\
+batch quant_inference 0.04730840225486045\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.007313829787234043\
+batch quant_inference 0.047315411580105625\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.007161458333333333\
+batch quant_inference 0.047302233017220786\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.00701530612244898\
+batch quant_inference 0.04729593507945538\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.006875\
+batch quant_inference 0.047250927736361824\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.0070465686274509805\
+batch quant_inference 0.04721696889744355\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.007211538461538462\
+batch quant_inference 0.04721187118370578\
+batch quant_accuracy top1_acc 0.00029481132075471697\
+batch quant_accuracy top5_acc 0.007075471698113208\
+batch quant_inference 0.04712336275864531\
+batch quant_accuracy top1_acc 0.00028935185185185184\
+batch quant_accuracy top5_acc 0.006944444444444444\
+batch quant_inference 0.04711029705676165\
+batch quant_accuracy top1_acc 0.0002840909090909091\
+batch quant_accuracy top5_acc 0.006818181818181818\
+batch quant_inference 0.04710301237979105\
+batch quant_accuracy top1_acc 0.00027901785714285713\
+batch quant_accuracy top5_acc 0.006975446428571429\
+batch quant_inference 0.047107998739209095\
+batch quant_accuracy top1_acc 0.00027412280701754384\
+batch quant_accuracy top5_acc 0.006853070175438596\
+batch quant_inference 0.047136303487009014\
+batch quant_accuracy top1_acc 0.00026939655172413793\
+batch quant_accuracy top5_acc 0.006734913793103448\
+batch quant_inference 0.04713363629781594\
+batch quant_accuracy top1_acc 0.00026483050847457627\
+batch quant_accuracy top5_acc 0.0066207627118644065\
+batch quant_inference 0.04712254715462526\
+batch quant_accuracy top1_acc 0.00026041666666666666\
+batch quant_accuracy top5_acc 0.006510416666666667\
+batch quant_inference 0.04712955391065019\
+batch quant_accuracy top1_acc 0.00025614754098360657\
+batch quant_accuracy top5_acc 0.00665983606557377\
+batch quant_inference 0.04716098464785084\
+batch quant_accuracy top1_acc 0.00025201612903225806\
+batch quant_accuracy top5_acc 0.00655241935483871\
+batch quant_inference 0.04711199409904934\
+batch quant_accuracy top1_acc 0.000248015873015873\
+batch quant_accuracy top5_acc 0.006448412698412698\
+batch quant_inference 0.04706539254402742\
+batch quant_accuracy top1_acc 0.000244140625\
+batch quant_accuracy top5_acc 0.00634765625\
+batch quant_inference 0.04709692247785055\
+batch quant_accuracy top1_acc 0.0002403846153846154\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.04708734403053919\
+batch quant_accuracy top1_acc 0.00023674242424242425\
+batch quant_accuracy top5_acc 0.00615530303030303\
+batch quant_inference 0.0470699275385088\
+batch quant_accuracy top1_acc 0.0002332089552238806\
+batch quant_accuracy top5_acc 0.006063432835820896\
+batch quant_inference 0.04707978726090754\
+batch quant_accuracy top1_acc 0.00022977941176470588\
+batch quant_accuracy top5_acc 0.0059742647058823525\
+batch quant_inference 0.04709729077159495\
+batch quant_accuracy top1_acc 0.00022644927536231884\
+batch quant_accuracy top5_acc 0.006114130434782609\
+batch quant_inference 0.047069359198212625\
+batch quant_accuracy top1_acc 0.0002232142857142857\
+batch quant_accuracy top5_acc 0.0060267857142857146\
+batch quant_inference 0.04707786430355529\
+batch quant_accuracy top1_acc 0.00022007042253521127\
+batch quant_accuracy top5_acc 0.006161971830985915\
+batch quant_inference 0.047050933043162026\
+batch quant_accuracy top1_acc 0.00021701388888888888\
+batch quant_accuracy top5_acc 0.006076388888888889\
+batch quant_inference 0.04704350804629391\
+batch quant_accuracy top1_acc 0.00021404109589041095\
+batch quant_accuracy top5_acc 0.0062071917808219175\
+batch quant_inference 0.04700407753320965\
+batch quant_accuracy top1_acc 0.00021114864864864866\
+batch quant_accuracy top5_acc 0.006123310810810811\
+batch quant_inference 0.04704152926802635\
+batch quant_accuracy top1_acc 0.00020833333333333335\
+batch quant_accuracy top5_acc 0.0060416666666666665\
+batch quant_inference 0.0470284669120845\
+batch quant_accuracy top1_acc 0.00020559210526315788\
+batch quant_accuracy top5_acc 0.005962171052631579\
+batch quant_inference 0.0470228289532197\
+batch quant_accuracy top1_acc 0.00020292207792207794\
+batch quant_accuracy top5_acc 0.00588474025974026\
+batch quant_inference 0.047002098021598965\
+batch quant_accuracy top1_acc 0.00020032051282051281\
+batch quant_accuracy top5_acc 0.005809294871794872\
+batch quant_inference 0.04710052747137939\
+batch quant_accuracy top1_acc 0.00019778481012658228\
+batch quant_accuracy top5_acc 0.005735759493670886\
+batch quant_inference 0.04710802566260099\
+batch quant_accuracy top1_acc 0.0001953125\
+batch quant_accuracy top5_acc 0.0056640625\
+batch quant_inference 0.04712682497906096\
+batch quant_accuracy top1_acc 0.00019290123456790122\
+batch quant_accuracy top5_acc 0.0055941358024691355\
+batch quant_inference 0.04715441921498717\
+batch quant_accuracy top1_acc 0.00019054878048780488\
+batch quant_accuracy top5_acc 0.005525914634146341\
+batch quant_inference 0.04714381097849593\
+batch quant_accuracy top1_acc 0.00018825301204819278\
+batch quant_accuracy top5_acc 0.005647590361445783\
+batch quant_inference 0.04719152545467729\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.005766369047619048\
+batch quant_inference 0.04717863635981784\
+batch quant_accuracy top1_acc 0.0003676470588235294\
+batch quant_accuracy top5_acc 0.005698529411764706\
+batch quant_inference 0.047158061201835785\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.005813953488372093\
+batch quant_inference 0.0471200887756101\
+batch quant_accuracy top1_acc 0.00035919540229885057\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.047176959035410124\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.006036931818181818\
+batch quant_inference 0.047153157046001946\
+batch quant_accuracy top1_acc 0.00035112359550561797\
+batch quant_accuracy top5_acc 0.0059691011235955055\
+batch quant_inference 0.04712874889373779\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.005902777777777778\
+batch quant_inference 0.04709666140459396\
+batch quant_accuracy top1_acc 0.00034340659340659343\
+batch quant_accuracy top5_acc 0.005837912087912088\
+batch quant_inference 0.04713102592074353\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.00577445652173913\
+batch quant_inference 0.04712691851040368\
+batch quant_accuracy top1_acc 0.0003360215053763441\
+batch quant_accuracy top5_acc 0.00571236559139785\
+batch quant_inference 0.04710037808151955\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.005651595744680851\
+batch quant_inference 0.047084396920706095\
+batch quant_accuracy top1_acc 0.0003289473684210526\
+batch quant_accuracy top5_acc 0.005592105263157895\
+batch quant_inference 0.04707288936090966\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.005533854166666667\
+batch quant_inference 0.04710102296367134\
+batch quant_accuracy top1_acc 0.00032216494845360824\
+batch quant_accuracy top5_acc 0.00547680412371134\
+batch quant_inference 0.047080023860444825\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.005739795918367347\
+batch quant_inference 0.047092619192118594\
+batch quant_accuracy top1_acc 0.0003156565656565657\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.04711451821029186\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.00578125\
+batch quant_inference 0.047134917229413986\
+batch quant_accuracy top1_acc 0.0003094059405940594\
+batch quant_accuracy top5_acc 0.005724009900990099\
+batch quant_inference 0.047119034089001956\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.005821078431372549\
+batch quant_inference 0.047121676534992975\
+batch quant_accuracy top1_acc 0.00030339805825242716\
+batch quant_accuracy top5_acc 0.0057645631067961165\
+batch quant_inference 0.04710655806299586\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.005709134615384615\
+batch quant_inference 0.04711763624634061\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.005803571428571429\
+batch quant_inference 0.04708682573488299\
+batch quant_accuracy top1_acc 0.0004422169811320755\
+batch quant_accuracy top5_acc 0.005748820754716981\
+batch quant_inference 0.04708219093279304\
+batch quant_accuracy top1_acc 0.0004380841121495327\
+batch quant_accuracy top5_acc 0.005695093457943925\
+batch quant_inference 0.04708325700765407\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.005642361111111111\
+batch quant_inference 0.04704295960041361\
+batch quant_accuracy top1_acc 0.00043004587155963305\
+batch quant_accuracy top5_acc 0.00559059633027523\
+batch quant_inference 0.047088614851236346\
+batch quant_accuracy top1_acc 0.0004261363636363636\
+batch quant_accuracy top5_acc 0.005539772727272727\
+batch quant_inference 0.04715908020063563\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.005489864864864865\
+batch quant_inference 0.04720608547462949\
+batch quant_accuracy top1_acc 0.0004185267857142857\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.0472766656131871\
+batch quant_accuracy top1_acc 0.0004148230088495575\
+batch quant_accuracy top5_acc 0.0055309734513274336\
+\
+\
+\
+\
+\
+\
+batch quant_inference 0.027697362005710602\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.015625\
+batch quant_inference 0.03137556463479996\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.03268452982107798\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.0335643645375967\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.03406554087996483\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03473967624207338\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.034942938813141415\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.006696428571428571\
+batch quant_inference 0.03509906306862831\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.03527883440256119\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03556063137948513\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0046875\
+batch quant_inference 0.03563050180673599\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.03566459473222494\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03572324262215541\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.03584801645151207\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.035880584021409354\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004166666666666667\
+batch quant_inference 0.03589602839201689\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.035920624566428805\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003676470588235294\
+batch quant_inference 0.03592634449402491\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.03609639680699298\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.036092983558773994\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03613678046635219\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.0361302967437289\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.03620108832483706\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004076086956521739\
+batch quant_inference 0.036192712684472404\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.036189582496881485\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00375\
+batch quant_inference 0.036187753081321716\
+batch quant_accuracy top1_acc 0.0006009615384615385\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.03630235170324644\
+batch quant_accuracy top1_acc 0.0005787037037037037\
+batch quant_accuracy top5_acc 0.005787037037037037\
+batch quant_inference 0.03629662615380117\
+batch quant_accuracy top1_acc 0.0005580357142857143\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.036295591628757014\
+batch quant_accuracy top1_acc 0.0005387931034482759\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.03628806285560131\
+batch quant_accuracy top1_acc 0.0005208333333333333\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.036274040177945166\
+batch quant_accuracy top1_acc 0.0005040322580645161\
+batch quant_accuracy top5_acc 0.007056451612903226\
+batch quant_inference 0.03635415656026453\
+batch quant_accuracy top1_acc 0.00048828125\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.036341229058576355\
+batch quant_accuracy top1_acc 0.0004734848484848485\
+batch quant_accuracy top5_acc 0.007575757575757576\
+batch quant_inference 0.03633716581937145\
+batch quant_accuracy top1_acc 0.00045955882352941176\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.036327825167349406\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.007589285714285714\
+batch quant_inference 0.03637265683048301\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.007378472222222222\
+batch quant_inference 0.0363611209432821\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.0071790540540540545\
+batch quant_inference 0.03636155542182295\
+batch quant_accuracy top1_acc 0.00041118421052631577\
+batch quant_accuracy top5_acc 0.0069901315789473685\
+batch quant_inference 0.03634844949612251\
+batch quant_accuracy top1_acc 0.00040064102564102563\
+batch quant_accuracy top5_acc 0.006810897435897436\
+batch quant_inference 0.03638173071667552\
+batch quant_accuracy top1_acc 0.000390625\
+batch quant_accuracy top5_acc 0.006640625\
+batch quant_inference 0.03637082375040868\
+batch quant_accuracy top1_acc 0.00038109756097560977\
+batch quant_accuracy top5_acc 0.006859756097560976\
+batch quant_inference 0.03637328912459668\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.007068452380952381\
+batch quant_inference 0.03636407860836317\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.006904069767441861\
+batch quant_inference 0.036359701051630756\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.007102272727272727\
+batch quant_inference 0.03639065838522381\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.007291666666666667\
+batch quant_inference 0.03638804234240366\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.007133152173913043\
+batch quant_inference 0.036380382294350484\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.007313829787234043\
+batch quant_inference 0.036371344700455666\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.007161458333333333\
+batch quant_inference 0.03640087845982337\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.00701530612244898\
+batch quant_inference 0.03639332741498947\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.006875\
+batch quant_inference 0.03638929727615094\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.0070465686274509805\
+batch quant_inference 0.036381569905922964\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.007211538461538462\
+batch quant_inference 0.036427101085208496\
+batch quant_accuracy top1_acc 0.00029481132075471697\
+batch quant_accuracy top5_acc 0.007075471698113208\
+batch quant_inference 0.036418796689422044\
+batch quant_accuracy top1_acc 0.00028935185185185184\
+batch quant_accuracy top5_acc 0.006944444444444444\
+batch quant_inference 0.03641557395458221\
+batch quant_accuracy top1_acc 0.0002840909090909091\
+batch quant_accuracy top5_acc 0.006818181818181818\
+batch quant_inference 0.03641008426036153\
+batch quant_accuracy top1_acc 0.00027901785714285713\
+batch quant_accuracy top5_acc 0.006975446428571429\
+batch quant_inference 0.03640672185441904\
+batch quant_accuracy top1_acc 0.00027412280701754384\
+batch quant_accuracy top5_acc 0.006853070175438596\
+batch quant_inference 0.03643101389551985\
+batch quant_accuracy top1_acc 0.00026939655172413793\
+batch quant_accuracy top5_acc 0.006734913793103448\
+batch quant_inference 0.03642907877594738\
+batch quant_accuracy top1_acc 0.00026483050847457627\
+batch quant_accuracy top5_acc 0.0066207627118644065\
+batch quant_inference 0.03642133735120297\
+batch quant_accuracy top1_acc 0.00026041666666666666\
+batch quant_accuracy top5_acc 0.006510416666666667\
+batch quant_inference 0.03641674753095283\
+batch quant_accuracy top1_acc 0.00025614754098360657\
+batch quant_accuracy top5_acc 0.00665983606557377\
+batch quant_inference 0.0364338981528436\
+batch quant_accuracy top1_acc 0.00025201612903225806\
+batch quant_accuracy top5_acc 0.00655241935483871\
+batch quant_inference 0.036428421617500366\
+batch quant_accuracy top1_acc 0.000248015873015873\
+batch quant_accuracy top5_acc 0.006448412698412698\
+batch quant_inference 0.036420986347366124\
+batch quant_accuracy top1_acc 0.000244140625\
+batch quant_accuracy top5_acc 0.00634765625\
+batch quant_inference 0.036413574734559424\
+batch quant_accuracy top1_acc 0.0002403846153846154\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03644049105544885\
+batch quant_accuracy top1_acc 0.00023674242424242425\
+batch quant_accuracy top5_acc 0.00615530303030303\
+batch quant_inference 0.03643336141509796\
+batch quant_accuracy top1_acc 0.0002332089552238806\
+batch quant_accuracy top5_acc 0.006063432835820896\
+batch quant_inference 0.03643065197941135\
+batch quant_accuracy top1_acc 0.00022977941176470588\
+batch quant_accuracy top5_acc 0.0059742647058823525\
+batch quant_inference 0.036421450853779694\
+batch quant_accuracy top1_acc 0.00022644927536231884\
+batch quant_accuracy top5_acc 0.006114130434782609\
+batch quant_inference 0.03642214685678482\
+batch quant_accuracy top1_acc 0.0002232142857142857\
+batch quant_accuracy top5_acc 0.0060267857142857146\
+batch quant_inference 0.03644132031731202\
+batch quant_accuracy top1_acc 0.00022007042253521127\
+batch quant_accuracy top5_acc 0.006161971830985915\
+batch quant_inference 0.03643792986662851\
+batch quant_accuracy top1_acc 0.00021701388888888888\
+batch quant_accuracy top5_acc 0.006076388888888889\
+batch quant_inference 0.03643208175693473\
+batch quant_accuracy top1_acc 0.00021404109589041095\
+batch quant_accuracy top5_acc 0.0062071917808219175\
+batch quant_inference 0.03643101675284875\
+batch quant_accuracy top1_acc 0.00021114864864864866\
+batch quant_accuracy top5_acc 0.006123310810810811\
+batch quant_inference 0.03645982265472412\
+batch quant_accuracy top1_acc 0.00020833333333333335\
+batch quant_accuracy top5_acc 0.0060416666666666665\
+batch quant_inference 0.03645564400051769\
+batch quant_accuracy top1_acc 0.00020559210526315788\
+batch quant_accuracy top5_acc 0.005962171052631579\
+batch quant_inference 0.0364490281064789\
+batch quant_accuracy top1_acc 0.00020292207792207794\
+batch quant_accuracy top5_acc 0.00588474025974026\
+batch quant_inference 0.036445422909962825\
+batch quant_accuracy top1_acc 0.00020032051282051281\
+batch quant_accuracy top5_acc 0.005809294871794872\
+batch quant_inference 0.0364652823043775\
+batch quant_accuracy top1_acc 0.00019778481012658228\
+batch quant_accuracy top5_acc 0.005735759493670886\
+batch quant_inference 0.03646923615597188\
+batch quant_accuracy top1_acc 0.0001953125\
+batch quant_accuracy top5_acc 0.0056640625\
+batch quant_inference 0.03646199736330244\
+batch quant_accuracy top1_acc 0.00019290123456790122\
+batch quant_accuracy top5_acc 0.0055941358024691355\
+batch quant_inference 0.036456822076948676\
+batch quant_accuracy top1_acc 0.00019054878048780488\
+batch quant_accuracy top5_acc 0.005525914634146341\
+batch quant_inference 0.03645549669682262\
+batch quant_accuracy top1_acc 0.00018825301204819278\
+batch quant_accuracy top5_acc 0.005647590361445783\
+batch quant_inference 0.03647759840601966\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.005766369047619048\
+batch quant_inference 0.036474071574561735\
+batch quant_accuracy top1_acc 0.0003676470588235294\
+batch quant_accuracy top5_acc 0.005698529411764706\
+batch quant_inference 0.03646937177278275\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.005813953488372093\
+batch quant_inference 0.036469151233804634\
+batch quant_accuracy top1_acc 0.00035919540229885057\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.03648147291757844\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.006036931818181818\
+batch quant_inference 0.03647836343793387\
+batch quant_accuracy top1_acc 0.00035112359550561797\
+batch quant_accuracy top5_acc 0.0059691011235955055\
+batch quant_inference 0.036472664235366714\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.005902777777777778\
+batch quant_inference 0.03647007711313583\
+batch quant_accuracy top1_acc 0.00034340659340659343\
+batch quant_accuracy top5_acc 0.005837912087912088\
+batch quant_inference 0.03648431404777195\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.00577445652173913\
+batch quant_inference 0.03648090779140432\
+batch quant_accuracy top1_acc 0.0003360215053763441\
+batch quant_accuracy top5_acc 0.00571236559139785\
+batch quant_inference 0.036475755551711044\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.005651595744680851\
+batch quant_inference 0.03647379573238523\
+batch quant_accuracy top1_acc 0.0003289473684210526\
+batch quant_accuracy top5_acc 0.005592105263157895\
+batch quant_inference 0.03646924102213234\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.005533854166666667\
+batch quant_inference 0.03649177632688247\
+batch quant_accuracy top1_acc 0.00032216494845360824\
+batch quant_accuracy top5_acc 0.00547680412371134\
+batch quant_inference 0.0364973785317674\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.005739795918367347\
+batch quant_inference 0.0365003953226889\
+batch quant_accuracy top1_acc 0.0003156565656565657\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.03650365002453327\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.00578125\
+batch quant_inference 0.03655754505555228\
+batch quant_accuracy top1_acc 0.0003094059405940594\
+batch quant_accuracy top5_acc 0.005724009900990099\
+batch quant_inference 0.03659118868994946\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.005821078431372549\
+batch quant_inference 0.03667363745060939\
+batch quant_accuracy top1_acc 0.00030339805825242716\
+batch quant_accuracy top5_acc 0.0057645631067961165\
+batch quant_inference 0.036695967750767104\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.005709134615384615\
+batch quant_inference 0.036746093346959066\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.005803571428571429\
+\
+\
+\
+\
+\
+\
+batch quant_inference 0.031108137220144272\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.015625\
+batch quant_inference 0.0346344243735075\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.03517689804236094\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.036173089407384396\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.036730293184518814\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.037130340933799744\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.03725500138742583\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.006696428571428571\
+batch quant_inference 0.037807807326316833\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.038252684391207166\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.03852381445467472\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0046875\
+batch quant_inference 0.0386818339201537\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.03850409264365832\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.038502922998024866\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.03854347579181194\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.03872273787856102\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004166666666666667\
+batch quant_inference 0.03883543168194592\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03884232285268167\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003676470588235294\
+batch quant_inference 0.03871407380534543\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.0387522429227829\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.038810374401509765\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.03906122932121867\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.038993110033598816\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.03899432135664899\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004076086956521739\
+batch quant_inference 0.03894082627569636\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.038859592974185946\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00375\
+\
+\
+\
+\
+\
+\
+With llvm target support:\
+\
+\
+batch quant_inference 0.02838464081287384\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.015625\
+batch quant_inference 0.03483888879418373\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.03652243067820867\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.038969798013567924\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.039385060966014865\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.03983538721998533\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.039714573217289786\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.006696428571428571\
+batch quant_inference 0.03969334997236729\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005859375\
+batch quant_inference 0.039807250102361046\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.039903486520051955\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0046875\
+batch quant_inference 0.04005965387279337\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004261363636363636\
+batch quant_inference 0.04062840963403384\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.005208333333333333\
+batch quant_inference 0.04073534648005779\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.04064164523567472\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004464285714285714\
+batch quant_inference 0.040466840068499245\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004166666666666667\
+batch quant_inference 0.04019826534204185\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.040063307784936004\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003676470588235294\
+batch quant_inference 0.040008521949251495\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003472222222222222\
+batch quant_inference 0.03998296276519173\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004111842105263158\
+batch quant_inference 0.0399453217163682\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.040101198390835806\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.003720238095238095\
+batch quant_inference 0.04014052840119058\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.0035511363636363635\
+batch quant_inference 0.04026218989621038\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.004076086956521739\
+batch quant_inference 0.040333132725209\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00390625\
+batch quant_inference 0.0404907713830471\
+batch quant_accuracy top1_acc 0.0\
+batch quant_accuracy top5_acc 0.00375\
+batch quant_inference 0.04037221764715818\
+batch quant_accuracy top1_acc 0.0006009615384615385\
+batch quant_accuracy top5_acc 0.004807692307692308\
+batch quant_inference 0.04048712317038466\
+batch quant_accuracy top1_acc 0.0005787037037037037\
+batch quant_accuracy top5_acc 0.005787037037037037\
+batch quant_inference 0.04058997306440558\
+batch quant_accuracy top1_acc 0.0005580357142857143\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.04071232715043528\
+batch quant_accuracy top1_acc 0.0005387931034482759\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.04065367293854554\
+batch quant_accuracy top1_acc 0.0005208333333333333\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.04051618266009515\
+batch quant_accuracy top1_acc 0.0005040322580645161\
+batch quant_accuracy top5_acc 0.007056451612903226\
+batch quant_inference 0.04042783984914422\
+batch quant_accuracy top1_acc 0.00048828125\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.04030735011805187\
+batch quant_accuracy top1_acc 0.0004734848484848485\
+batch quant_accuracy top5_acc 0.007575757575757576\
+batch quant_inference 0.04023904813563123\
+batch quant_accuracy top1_acc 0.00045955882352941176\
+batch quant_accuracy top5_acc 0.0078125\
+batch quant_inference 0.040212786410536085\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.007589285714285714\
+batch quant_inference 0.04024629657053285\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.007378472222222222\
+batch quant_inference 0.04021029466310063\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.0071790540540540545\
+batch quant_inference 0.040290534692375285\
+batch quant_accuracy top1_acc 0.00041118421052631577\
+batch quant_accuracy top5_acc 0.0069901315789473685\
+batch quant_inference 0.04028993157240061\
+batch quant_accuracy top1_acc 0.00040064102564102563\
+batch quant_accuracy top5_acc 0.006810897435897436\
+batch quant_inference 0.04032330317422748\
+batch quant_accuracy top1_acc 0.000390625\
+batch quant_accuracy top5_acc 0.006640625\
+batch quant_inference 0.040267347380882355\
+batch quant_accuracy top1_acc 0.00038109756097560977\
+batch quant_accuracy top5_acc 0.006859756097560976\
+batch quant_inference 0.04019810889093649\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.007068452380952381\
+batch quant_inference 0.04012142468330472\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.006904069767441861\
+batch quant_inference 0.0400613226335157\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.007102272727272727\
+batch quant_inference 0.04007630124688148\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.007291666666666667\
+batch quant_inference 0.040008382385839585\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.007133152173913043\
+batch quant_inference 0.03993034640208204\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.007313829787234043\
+batch quant_inference 0.03987455531023443\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.007161458333333333\
+batch quant_inference 0.03985211678913662\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.00701530612244898\
+batch quant_inference 0.03978717543184757\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.006875\
+batch quant_inference 0.03971725987160907\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.0070465686274509805\
+batch quant_inference 0.0396818329508488\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.007211538461538462\
+batch quant_inference 0.03964043781161308\
+batch quant_accuracy top1_acc 0.00029481132075471697\
+batch quant_accuracy top5_acc 0.007075471698113208\
+batch quant_inference 0.039686949716673955\
+batch quant_accuracy top1_acc 0.00028935185185185184\
+batch quant_accuracy top5_acc 0.006944444444444444\
+batch quant_inference 0.03974257416345856\
+batch quant_accuracy top1_acc 0.0002840909090909091\
+batch quant_accuracy top5_acc 0.006818181818181818\
+batch quant_inference 0.03984350371839745\
+batch quant_accuracy top1_acc 0.00027901785714285713\
+batch quant_accuracy top5_acc 0.006975446428571429\
+batch quant_inference 0.03982559460819813\
+batch quant_accuracy top1_acc 0.00027412280701754384\
+batch quant_accuracy top5_acc 0.006853070175438596\
+batch quant_inference 0.039830650620419406\
+batch quant_accuracy top1_acc 0.00026939655172413793\
+batch quant_accuracy top5_acc 0.006734913793103448\
+batch quant_inference 0.03991581865791547\
+batch quant_accuracy top1_acc 0.00026483050847457627\
+batch quant_accuracy top5_acc 0.0066207627118644065\
+batch quant_inference 0.03990035237123569\
+batch quant_accuracy top1_acc 0.00026041666666666666\
+batch quant_accuracy top5_acc 0.006510416666666667\
+batch quant_inference 0.03992885815315559\
+batch quant_accuracy top1_acc 0.00025614754098360657\
+batch quant_accuracy top5_acc 0.00665983606557377\
+batch quant_inference 0.04002368792651161\
+batch quant_accuracy top1_acc 0.00025201612903225806\
+batch quant_accuracy top5_acc 0.00655241935483871\
+batch quant_inference 0.040197780326245325\
+batch quant_accuracy top1_acc 0.000248015873015873\
+batch quant_accuracy top5_acc 0.006448412698412698\
+batch quant_inference 0.040327467082533985\
+batch quant_accuracy top1_acc 0.000244140625\
+batch quant_accuracy top5_acc 0.00634765625\
+batch quant_inference 0.040416464610741686\
+batch quant_accuracy top1_acc 0.0002403846153846154\
+batch quant_accuracy top5_acc 0.00625\
+batch quant_inference 0.040419918513207725\
+batch quant_accuracy top1_acc 0.00023674242424242425\
+batch quant_accuracy top5_acc 0.00615530303030303\
+batch quant_inference 0.04040039742170875\
+batch quant_accuracy top1_acc 0.0002332089552238806\
+batch quant_accuracy top5_acc 0.006063432835820896\
+batch quant_inference 0.04035135101088706\
+batch quant_accuracy top1_acc 0.00022977941176470588\
+batch quant_accuracy top5_acc 0.0059742647058823525\
+batch quant_inference 0.04030262884022533\
+batch quant_accuracy top1_acc 0.00022644927536231884\
+batch quant_accuracy top5_acc 0.006114130434782609\
+batch quant_inference 0.040280929580330846\
+batch quant_accuracy top1_acc 0.0002232142857142857\
+batch quant_accuracy top5_acc 0.0060267857142857146\
+batch quant_inference 0.04025430646790585\
+batch quant_accuracy top1_acc 0.00022007042253521127\
+batch quant_accuracy top5_acc 0.006161971830985915\
+batch quant_inference 0.04019913894848691\
+batch quant_accuracy top1_acc 0.00021701388888888888\
+batch quant_accuracy top5_acc 0.006076388888888889\
+batch quant_inference 0.04017563133615337\
+batch quant_accuracy top1_acc 0.00021404109589041095\
+batch quant_accuracy top5_acc 0.0062071917808219175\
+batch quant_inference 0.040127214044332504\
+batch quant_accuracy top1_acc 0.00021114864864864866\
+batch quant_accuracy top5_acc 0.006123310810810811\
+batch quant_inference 0.040138831635316216\
+batch quant_accuracy top1_acc 0.00020833333333333335\
+batch quant_accuracy top5_acc 0.0060416666666666665\
+batch quant_inference 0.04015037240950685\
+batch quant_accuracy top1_acc 0.00020559210526315788\
+batch quant_accuracy top5_acc 0.005962171052631579\
+batch quant_inference 0.04011441022157669\
+batch quant_accuracy top1_acc 0.00020292207792207794\
+batch quant_accuracy top5_acc 0.00588474025974026\
+batch quant_inference 0.04007611538355167\
+batch quant_accuracy top1_acc 0.00020032051282051281\
+batch quant_accuracy top5_acc 0.005809294871794872\
+batch quant_inference 0.04006526925707165\
+batch quant_accuracy top1_acc 0.00019778481012658228\
+batch quant_accuracy top5_acc 0.005735759493670886\
+batch quant_inference 0.04003806253895163\
+batch quant_accuracy top1_acc 0.0001953125\
+batch quant_accuracy top5_acc 0.0056640625\
+batch quant_inference 0.04002728791516504\
+batch quant_accuracy top1_acc 0.00019290123456790122\
+batch quant_accuracy top5_acc 0.0055941358024691355\
+batch quant_inference 0.040063520393720485\
+batch quant_accuracy top1_acc 0.00019054878048780488\
+batch quant_accuracy top5_acc 0.005525914634146341\
+batch quant_inference 0.04003030021327088\
+batch quant_accuracy top1_acc 0.00018825301204819278\
+batch quant_accuracy top5_acc 0.005647590361445783\
+batch quant_inference 0.04001355432860908\
+batch quant_accuracy top1_acc 0.0003720238095238095\
+batch quant_accuracy top5_acc 0.005766369047619048\
+batch quant_inference 0.0400516737909878\
+batch quant_accuracy top1_acc 0.0003676470588235294\
+batch quant_accuracy top5_acc 0.005698529411764706\
+batch quant_inference 0.04005661533149176\
+batch quant_accuracy top1_acc 0.0003633720930232558\
+batch quant_accuracy top5_acc 0.005813953488372093\
+batch quant_inference 0.0400302612233436\
+batch quant_accuracy top1_acc 0.00035919540229885057\
+batch quant_accuracy top5_acc 0.005926724137931034\
+batch quant_inference 0.04003525148569183\
+batch quant_accuracy top1_acc 0.0003551136363636364\
+batch quant_accuracy top5_acc 0.006036931818181818\
+batch quant_inference 0.040061574261844826\
+batch quant_accuracy top1_acc 0.00035112359550561797\
+batch quant_accuracy top5_acc 0.0059691011235955055\
+batch quant_inference 0.04007597230374813\
+batch quant_accuracy top1_acc 0.00034722222222222224\
+batch quant_accuracy top5_acc 0.005902777777777778\
+batch quant_inference 0.04007110978057096\
+batch quant_accuracy top1_acc 0.00034340659340659343\
+batch quant_accuracy top5_acc 0.005837912087912088\
+batch quant_inference 0.04009434273061545\
+batch quant_accuracy top1_acc 0.00033967391304347825\
+batch quant_accuracy top5_acc 0.00577445652173913\
+batch quant_inference 0.040060357781507634\
+batch quant_accuracy top1_acc 0.0003360215053763441\
+batch quant_accuracy top5_acc 0.00571236559139785\
+batch quant_inference 0.04002286533408977\
+batch quant_accuracy top1_acc 0.0003324468085106383\
+batch quant_accuracy top5_acc 0.005651595744680851\
+batch quant_inference 0.04002206341216439\
+batch quant_accuracy top1_acc 0.0003289473684210526\
+batch quant_accuracy top5_acc 0.005592105263157895\
+batch quant_inference 0.03999028211304297\
+batch quant_accuracy top1_acc 0.0003255208333333333\
+batch quant_accuracy top5_acc 0.005533854166666667\
+batch quant_inference 0.03998758125397348\
+batch quant_accuracy top1_acc 0.00032216494845360824\
+batch quant_accuracy top5_acc 0.00547680412371134\
+batch quant_inference 0.03995681067510527\
+batch quant_accuracy top1_acc 0.00031887755102040814\
+batch quant_accuracy top5_acc 0.005739795918367347\
+batch quant_inference 0.039925016575690475\
+batch quant_accuracy top1_acc 0.0003156565656565657\
+batch quant_accuracy top5_acc 0.005681818181818182\
+batch quant_inference 0.0399247582629323\
+batch quant_accuracy top1_acc 0.0003125\
+batch quant_accuracy top5_acc 0.00578125\
+batch quant_inference 0.03991852368753735\
+batch quant_accuracy top1_acc 0.0003094059405940594\
+batch quant_accuracy top5_acc 0.005724009900990099\
+batch quant_inference 0.039892633829046696\
+batch quant_accuracy top1_acc 0.00030637254901960784\
+batch quant_accuracy top5_acc 0.005821078431372549\
+batch quant_inference 0.03990110621145628\
+batch quant_accuracy top1_acc 0.00030339805825242716\
+batch quant_accuracy top5_acc 0.0057645631067961165\
+batch quant_inference 0.039924046920182615\
+batch quant_accuracy top1_acc 0.00030048076923076925\
+batch quant_accuracy top5_acc 0.005709134615384615\
+batch quant_inference 0.03996279974068914\
+batch quant_accuracy top1_acc 0.0004464285714285714\
+batch quant_accuracy top5_acc 0.005803571428571429\
+batch quant_inference 0.03993875730150151\
+batch quant_accuracy top1_acc 0.0004422169811320755\
+batch quant_accuracy top5_acc 0.005748820754716981\
+batch quant_inference 0.03990740478735104\
+batch quant_accuracy top1_acc 0.0004380841121495327\
+batch quant_accuracy top5_acc 0.005695093457943925\
+batch quant_inference 0.03988113606141673\
+batch quant_accuracy top1_acc 0.00043402777777777775\
+batch quant_accuracy top5_acc 0.005642361111111111\
+batch quant_inference 0.03987183391090927\
+batch quant_accuracy top1_acc 0.00043004587155963305\
+batch quant_accuracy top5_acc 0.00559059633027523\
+batch quant_inference 0.03987764153968204\
+batch quant_accuracy top1_acc 0.0004261363636363636\
+batch quant_accuracy top5_acc 0.005539772727272727\
+batch quant_inference 0.039853535558994825\
+batch quant_accuracy top1_acc 0.0004222972972972973\
+batch quant_accuracy top5_acc 0.005489864864864865\
+batch quant_inference 0.039860741601192524\
+batch quant_accuracy top1_acc 0.0004185267857142857\
+batch quant_accuracy top5_acc 0.005580357142857143\
+batch quant_inference 0.03985012171015275\
+batch quant_accuracy top1_acc 0.0004148230088495575\
+batch quant_accuracy top5_acc 0.0055309734513274336\
+batch quant_inference 0.039880964839667604\
+batch quant_accuracy top1_acc 0.00041118421052631577\
+batch quant_accuracy top5_acc 0.005482456140350877\
+batch quant_inference 0.03993904917784359\
+batch quant_accuracy top1_acc 0.0004076086956521739\
+batch quant_accuracy top5_acc 0.005434782608695652\
+batch quant_inference 0.03991700374874575\
+batch quant_accuracy top1_acc 0.0004040948275862069\
+batch quant_accuracy top5_acc 0.005387931034482759\
+batch quant_inference 0.03990324612101938\
+batch quant_accuracy top1_acc 0.0005341880341880342\
+batch quant_accuracy top5_acc 0.00547542735042735\
+batch quant_inference 0.03991909290395551\
+batch quant_accuracy top1_acc 0.0005296610169491525\
+batch quant_accuracy top5_acc 0.005429025423728814\
+batch quant_inference 0.039890638012595535\
+batch quant_accuracy top1_acc 0.0005252100840336134\
+batch quant_accuracy top5_acc 0.005383403361344538\
+batch quant_inference 0.03987946525836984\
+batch quant_accuracy top1_acc 0.0005208333333333333\
+batch quant_accuracy top5_acc 0.005338541666666667\
+batch quant_inference 0.03995409386217102\
+batch quant_accuracy top1_acc 0.0005165289256198347\
+batch quant_accuracy top5_acc 0.005423553719008265\
+batch quant_inference 0.0399939519826506\
+batch quant_accuracy top1_acc 0.0005122950819672131\
+batch quant_accuracy top5_acc 0.0056352459016393444\
+batch quant_inference 0.04001918883343053\
+batch quant_accuracy top1_acc 0.0005081300813008131\
+batch quant_accuracy top5_acc 0.005589430894308943\
+batch quant_inference 0.040003397682261084\
+batch quant_accuracy top1_acc 0.0005040322580645161\
+batch quant_accuracy top5_acc 0.005544354838709678\
+batch quant_inference 0.04000723066926003\
+batch quant_accuracy top1_acc 0.000625\
+batch quant_accuracy top5_acc 0.005625\
+\
+\
+\
+\
+\
+Pure tvm compile\
+\
+\
+batch tvm_inference 0.013920918107032776\
+batch tvm_accuracy top1_acc 0.71875\
+batch tvm_accuracy top5_acc 0.9375\
+batch tvm_inference 0.014779631048440933\
+batch tvm_accuracy top1_acc 0.71875\
+batch tvm_accuracy top5_acc 0.9296875\
+batch tvm_inference 0.014648487170537313\
+batch tvm_accuracy top1_acc 0.7395833333333334\
+batch tvm_accuracy top5_acc 0.9375\
+batch tvm_inference 0.015478095039725304\
+batch tvm_accuracy top1_acc 0.75390625\
+batch tvm_accuracy top5_acc 0.94140625\
+batch tvm_inference 0.015622138977050781\
+batch tvm_accuracy top1_acc 0.759375\
+batch tvm_accuracy top5_acc 0.93125\
+batch tvm_inference 0.015792747338612873\
+batch tvm_accuracy top1_acc 0.7473958333333334\
+batch tvm_accuracy top5_acc 0.9296875\
+batch tvm_inference 0.015872415155172348\
+batch tvm_accuracy top1_acc 0.7589285714285714\
+batch tvm_accuracy top5_acc 0.9375\
+batch tvm_inference 0.015432139858603477\
+batch tvm_accuracy top1_acc 0.76171875\
+batch tvm_accuracy top5_acc 0.935546875\
+batch tvm_inference 0.014992978423833847\
+batch tvm_accuracy top1_acc 0.7690972222222222\
+batch tvm_accuracy top5_acc 0.9375\
+batch tvm_inference 0.01525384485721588\
+batch tvm_accuracy top1_acc 0.775\
+batch tvm_accuracy top5_acc 0.9390625\
+batch tvm_inference 0.016016769138249485\
+batch tvm_accuracy top1_acc 0.7784090909090909\
+batch tvm_accuracy top5_acc 0.9417613636363636\
+batch tvm_inference 0.015900975403686363\
+batch tvm_accuracy top1_acc 0.77734375\
+batch tvm_accuracy top5_acc 0.9440104166666666\
+batch tvm_inference 0.015738204981272038\
+batch tvm_accuracy top1_acc 0.7704326923076923\
+batch tvm_accuracy top5_acc 0.9399038461538461\
+batch tvm_inference 0.01565508038869926\
+batch tvm_accuracy top1_acc 0.7734375\
+batch tvm_accuracy top5_acc 0.9408482142857143\
+batch tvm_inference 0.015358043213685354\
+batch tvm_accuracy top1_acc 0.775\
+batch tvm_accuracy top5_acc 0.94375\
+batch tvm_inference 0.01521869283169508\
+batch tvm_accuracy top1_acc 0.775390625\
+batch tvm_accuracy top5_acc 0.9443359375\
+batch tvm_inference 0.015036567826481426\
+batch tvm_accuracy top1_acc 0.7738970588235294\
+batch tvm_accuracy top5_acc 0.9430147058823529\
+batch tvm_inference 0.014820237540536456\
+batch tvm_accuracy top1_acc 0.7673611111111112\
+batch tvm_accuracy top5_acc 0.9375\
+batch tvm_inference 0.014677871018648148\
+batch tvm_accuracy top1_acc 0.7664473684210527\
+batch tvm_accuracy top5_acc 0.9366776315789473\
+batch tvm_inference 0.014448064006865024\
+batch tvm_accuracy top1_acc 0.765625\
+batch tvm_accuracy top5_acc 0.93828125\
+batch tvm_inference 0.014245451206252688\
+batch tvm_accuracy top1_acc 0.7633928571428571\
+batch tvm_accuracy top5_acc 0.9389880952380952\
+batch tvm_inference 0.01427050070329146\
+batch tvm_accuracy top1_acc 0.7627840909090909\
+batch tvm_accuracy top5_acc 0.9396306818181818\
+batch tvm_inference 0.014308860120565994\
+batch tvm_accuracy top1_acc 0.7635869565217391\
+batch tvm_accuracy top5_acc 0.9395380434782609\
+batch tvm_inference 0.014165316708385944\
+batch tvm_accuracy top1_acc 0.7649739583333334\
+batch tvm_accuracy top5_acc 0.9407552083333334\
+batch tvm_inference 0.014007475525140763\
+batch tvm_accuracy top1_acc 0.7625\
+batch tvm_accuracy top5_acc 0.939375\
+batch tvm_inference 0.013852338234965619\
+batch tvm_accuracy top1_acc 0.7644230769230769\
+batch tvm_accuracy top5_acc 0.9399038461538461\
+batch tvm_inference 0.013852267491596716\
+batch tvm_accuracy top1_acc 0.7644675925925926\
+batch tvm_accuracy top5_acc 0.9386574074074074\
+batch tvm_inference 0.013891723273055894\
+batch tvm_accuracy top1_acc 0.7661830357142857\
+batch tvm_accuracy top5_acc 0.9380580357142857\
+batch tvm_inference 0.013913588277224836\
+batch tvm_accuracy top1_acc 0.7683189655172413\
+batch tvm_accuracy top5_acc 0.9380387931034483\
+batch tvm_inference 0.013864764074484507\
+batch tvm_accuracy top1_acc 0.76875\
+batch tvm_accuracy top5_acc 0.9401041666666666\
+batch tvm_inference 0.013794678353494214\
+batch tvm_accuracy top1_acc 0.7681451612903226\
+batch tvm_accuracy top5_acc 0.9369959677419355\
+batch tvm_inference 0.013776939362287521\
+batch tvm_accuracy top1_acc 0.7666015625\
+batch tvm_accuracy top5_acc 0.935546875\
+batch tvm_inference 0.013731893716436443\
+batch tvm_accuracy top1_acc 0.7679924242424242\
+batch tvm_accuracy top5_acc 0.9360795454545454\
+batch tvm_inference 0.013689939918763498\
+batch tvm_accuracy top1_acc 0.7693014705882353\
+batch tvm_accuracy top5_acc 0.9375\
+batch tvm_inference 0.013704936206340789\
+batch tvm_accuracy top1_acc 0.7700892857142857\
+batch tvm_accuracy top5_acc 0.9370535714285714\
+batch tvm_inference 0.013791287628312906\
+batch tvm_accuracy top1_acc 0.7703993055555556\
+batch tvm_accuracy top5_acc 0.9370659722222222\
+batch tvm_inference 0.013823405612964888\
+batch tvm_accuracy top1_acc 0.7702702702702703\
+batch tvm_accuracy top5_acc 0.9366554054054054\
+batch tvm_inference 0.013840202144102046\
+batch tvm_accuracy top1_acc 0.7705592105263158\
+batch tvm_accuracy top5_acc 0.9366776315789473\
+batch tvm_inference 0.013893644110514568\
+batch tvm_accuracy top1_acc 0.7696314102564102\
+batch tvm_accuracy top5_acc 0.9358974358974359\
+batch tvm_inference 0.013955342024564743\
+batch tvm_accuracy top1_acc 0.769921875\
+batch tvm_accuracy top5_acc 0.935546875\
+batch tvm_inference 0.01397439246860946\
+batch tvm_accuracy top1_acc 0.7682926829268293\
+batch tvm_accuracy top5_acc 0.9348323170731707\
+batch tvm_inference 0.013920707273341361\
+batch tvm_accuracy top1_acc 0.7671130952380952\
+batch tvm_accuracy top5_acc 0.9341517857142857\
+batch tvm_inference 0.013853365252184313\
+batch tvm_accuracy top1_acc 0.7681686046511628\
+batch tvm_accuracy top5_acc 0.9335029069767442\
+batch tvm_inference 0.01387612699446353\
+batch tvm_accuracy top1_acc 0.7691761363636364\
+batch tvm_accuracy top5_acc 0.9343039772727273\
+batch tvm_inference 0.013933839152256648\
+batch tvm_accuracy top1_acc 0.7701388888888889\
+batch tvm_accuracy top5_acc 0.9340277777777778\
+batch tvm_inference 0.013992790861622147\
+batch tvm_accuracy top1_acc 0.7686820652173914\
+batch tvm_accuracy top5_acc 0.9337635869565217\
+batch tvm_inference 0.014008240893166116\
+batch tvm_accuracy top1_acc 0.7686170212765957\
+batch tvm_accuracy top5_acc 0.9345079787234043\
+batch tvm_inference 0.014008062736441692\
+batch tvm_accuracy top1_acc 0.7682291666666666\
+batch tvm_accuracy top5_acc 0.9345703125\
+batch tvm_inference 0.014027108951490752\
+batch tvm_accuracy top1_acc 0.7684948979591837\
+batch tvm_accuracy top5_acc 0.9349489795918368\
+batch tvm_inference 0.014026399701833725\
+batch tvm_accuracy top1_acc 0.7684375\
+batch tvm_accuracy top5_acc 0.9340625\
+batch tvm_inference 0.014009516686201096\
+batch tvm_accuracy top1_acc 0.7668504901960784\
+batch tvm_accuracy top5_acc 0.9338235294117647\
+batch tvm_inference 0.014027271204842972\
+batch tvm_accuracy top1_acc 0.7671274038461539\
+batch tvm_accuracy top5_acc 0.93359375\
+batch tvm_inference 0.014059419058403879\
+batch tvm_accuracy top1_acc 0.7668042452830188\
+batch tvm_accuracy top5_acc 0.933372641509434\
+batch tvm_inference 0.01408267366113486\
+batch tvm_accuracy top1_acc 0.7690972222222222\
+batch tvm_accuracy top5_acc 0.9337384259259259\
+batch tvm_inference 0.014046734165061603\
+batch tvm_accuracy top1_acc 0.7681818181818182\
+batch tvm_accuracy top5_acc 0.9329545454545455\
+batch tvm_inference 0.01404512972970094\
+batch tvm_accuracy top1_acc 0.7684151785714286\
+batch tvm_accuracy top5_acc 0.9333147321428571\
+batch tvm_inference 0.014022521739988997\
+batch tvm_accuracy top1_acc 0.7689144736842105\
+batch tvm_accuracy top5_acc 0.9342105263157895\
+batch tvm_inference 0.014041916435134822\
+batch tvm_accuracy top1_acc 0.7693965517241379\
+batch tvm_accuracy top5_acc 0.9350754310344828\
+batch tvm_inference 0.014043349015005565\
+batch tvm_accuracy top1_acc 0.7698622881355932\
+batch tvm_accuracy top5_acc 0.9359110169491526\
+batch tvm_inference 0.01406082697212696\
+batch tvm_accuracy top1_acc 0.7697916666666667\
+batch tvm_accuracy top5_acc 0.9354166666666667\
+batch tvm_inference 0.014092320484704659\
+batch tvm_accuracy top1_acc 0.7694672131147541\
+batch tvm_accuracy top5_acc 0.9351946721311475\
+batch tvm_inference 0.014146419001683112\
+batch tvm_accuracy top1_acc 0.7689012096774194\
+batch tvm_accuracy top5_acc 0.9349798387096774\
+batch tvm_inference 0.014125408161254157\
+batch tvm_accuracy top1_acc 0.7710813492063492\
+batch tvm_accuracy top5_acc 0.935515873015873\
+batch tvm_inference 0.014144469168968499\
+batch tvm_accuracy top1_acc 0.77197265625\
+batch tvm_accuracy top5_acc 0.93603515625\
+batch tvm_inference 0.01418348837357301\
+batch tvm_accuracy top1_acc 0.7721153846153846\
+batch tvm_accuracy top5_acc 0.9362980769230769\
+batch tvm_inference 0.01418374100643577\
+batch tvm_accuracy top1_acc 0.7729640151515151\
+batch tvm_accuracy top5_acc 0.9360795454545454\
+batch tvm_inference 0.014160908147025465\
+batch tvm_accuracy top1_acc 0.773320895522388\
+batch tvm_accuracy top5_acc 0.9361007462686567\
+batch tvm_inference 0.014199784956872463\
+batch tvm_accuracy top1_acc 0.7734375\
+batch tvm_accuracy top5_acc 0.9363511029411765\
+batch tvm_inference 0.014226789977671444\
+batch tvm_accuracy top1_acc 0.7740036231884058\
+batch tvm_accuracy top5_acc 0.9363677536231884\
+batch tvm_inference 0.014251301171524185\
+batch tvm_accuracy top1_acc 0.7727678571428571\
+batch tvm_accuracy top5_acc 0.9363839285714286\
+batch tvm_inference 0.014274263465908212\
+batch tvm_accuracy top1_acc 0.7720070422535211\
+batch tvm_accuracy top5_acc 0.9359595070422535\
+batch tvm_inference 0.014221370323664613\
+batch tvm_accuracy top1_acc 0.7708333333333334\
+batch tvm_accuracy top5_acc 0.9364149305555556\
+batch tvm_inference 0.014215611227571147\
+batch tvm_accuracy top1_acc 0.7720462328767124\
+batch tvm_accuracy top5_acc 0.9366438356164384\
+batch tvm_inference 0.01419374643749482\
+batch tvm_accuracy top1_acc 0.7721706081081081\
+batch tvm_accuracy top5_acc 0.9364442567567568\
+batch tvm_inference 0.014258559842904408\
+batch tvm_accuracy top1_acc 0.771875\
+batch tvm_accuracy top5_acc 0.9354166666666667\
+batch tvm_inference 0.014268119525360433\
+batch tvm_accuracy top1_acc 0.772203947368421\
+batch tvm_accuracy top5_acc 0.9356496710526315\
+batch tvm_inference 0.014252831312743101\
+batch tvm_accuracy top1_acc 0.7713068181818182\
+batch tvm_accuracy top5_acc 0.9354707792207793\
+batch tvm_inference 0.01423413010361867\
+batch tvm_accuracy top1_acc 0.7712339743589743\
+batch tvm_accuracy top5_acc 0.9352964743589743\
+batch tvm_inference 0.014255291346130492\
+batch tvm_accuracy top1_acc 0.7715585443037974\
+batch tvm_accuracy top5_acc 0.9353243670886076\
+batch tvm_inference 0.014261248568072916\
+batch tvm_accuracy top1_acc 0.7720703125\
+batch tvm_accuracy top5_acc 0.9361328125\
+batch tvm_inference 0.014272812615942073\
+batch tvm_accuracy top1_acc 0.7721836419753086\
+batch tvm_accuracy top5_acc 0.9357638888888888\
+batch tvm_inference 0.014291988185993055\
+batch tvm_accuracy top1_acc 0.7728658536585366\
+batch tvm_accuracy top5_acc 0.9355945121951219\
+batch tvm_inference 0.014325055551816183\
+batch tvm_accuracy top1_acc 0.7722138554216867\
+batch tvm_accuracy top5_acc 0.9348644578313253\
+batch tvm_inference 0.014336144329891318\
+batch tvm_accuracy top1_acc 0.7721354166666666\
+batch tvm_accuracy top5_acc 0.9354538690476191\
+batch tvm_inference 0.01434511621208752\
+batch tvm_accuracy top1_acc 0.7715073529411764\
+batch tvm_accuracy top5_acc 0.9354779411764705\
+batch tvm_inference 0.014347790978675666\
+batch tvm_accuracy top1_acc 0.7723473837209303\
+batch tvm_accuracy top5_acc 0.9358648255813954\
+batch tvm_inference 0.014345797570957535\
+batch tvm_accuracy top1_acc 0.7724497126436781\
+batch tvm_accuracy top5_acc 0.9358836206896551\
+batch tvm_inference 0.014368979725986719\
+batch tvm_accuracy top1_acc 0.7730823863636364\
+batch tvm_accuracy top5_acc 0.9362571022727273\
+batch tvm_inference 0.014367421816908912\
+batch tvm_accuracy top1_acc 0.7719452247191011\
+batch tvm_accuracy top5_acc 0.9355688202247191\
+batch tvm_inference 0.014351437033878433\
+batch tvm_accuracy top1_acc 0.7729166666666667\
+batch tvm_accuracy top5_acc 0.9359375\
+batch tvm_inference 0.014339059673167847\
+batch tvm_accuracy top1_acc 0.7726648351648352\
+batch tvm_accuracy top5_acc 0.935782967032967\
+batch tvm_inference 0.014361614928297375\
+batch tvm_accuracy top1_acc 0.7725883152173914\
+batch tvm_accuracy top5_acc 0.9356317934782609\
+batch tvm_inference 0.014358839881356044\
+batch tvm_accuracy top1_acc 0.7736895161290323\
+batch tvm_accuracy top5_acc 0.9356518817204301\
+batch tvm_inference 0.014369487841712667\
+batch tvm_accuracy top1_acc 0.7742686170212766\
+batch tvm_accuracy top5_acc 0.9355053191489362\
+batch tvm_inference 0.014380288869142532\
+batch tvm_accuracy top1_acc 0.7753289473684211\
+batch tvm_accuracy top5_acc 0.9360197368421053\
+batch tvm_inference 0.014417683278831342\
+batch tvm_accuracy top1_acc 0.77490234375\
+batch tvm_accuracy top5_acc 0.9353841145833334\
+batch tvm_inference 0.014471695979231411\
+batch tvm_accuracy top1_acc 0.7759342783505154\
+batch tvm_accuracy top5_acc 0.9357280927835051\
+batch tvm_inference 0.01451088636353308\
+batch tvm_accuracy top1_acc 0.7761479591836735\
+batch tvm_accuracy top5_acc 0.935905612244898\
+batch tvm_inference 0.014552315866405314\
+batch tvm_accuracy top1_acc 0.7755681818181818\
+batch tvm_accuracy top5_acc 0.9360795454545454\
+batch tvm_inference 0.014569986462593078\
+batch tvm_accuracy top1_acc 0.774375\
+batch tvm_accuracy top5_acc 0.93546875\
+batch tvm_inference 0.014668461746803604\
+batch tvm_accuracy top1_acc 0.7742883663366337\
+batch tvm_accuracy top5_acc 0.9354888613861386\
+batch tvm_inference 0.014695851607065574\
+batch tvm_accuracy top1_acc 0.7743566176470589\
+batch tvm_accuracy top5_acc 0.9358149509803921\
+batch tvm_inference 0.014740821263454492\
+batch tvm_accuracy top1_acc 0.7745752427184466\
+batch tvm_accuracy top5_acc 0.9355279126213593\
+batch tvm_inference 0.014776235517974082\
+batch tvm_accuracy top1_acc 0.7744891826923077\
+batch tvm_accuracy top5_acc 0.935546875\
+batch tvm_inference 0.01479879074863025\
+batch tvm_accuracy top1_acc 0.774702380952381\
+batch tvm_accuracy top5_acc 0.9357142857142857\
+batch tvm_inference 0.014817197227253104\
+batch tvm_accuracy top1_acc 0.7753537735849056\
+batch tvm_accuracy top5_acc 0.9361733490566038\
+batch tvm_inference 0.01482438156816447\
+batch tvm_accuracy top1_acc 0.7754088785046729\
+batch tvm_accuracy top5_acc 0.9360397196261683\
+batch tvm_inference 0.014838639991702858\
+batch tvm_accuracy top1_acc 0.7744502314814815\
+batch tvm_accuracy top5_acc 0.9357638888888888\
+batch tvm_inference 0.014852757881814187\
+batch tvm_accuracy top1_acc 0.7749426605504587\
+batch tvm_accuracy top5_acc 0.9357798165137615\
+batch tvm_inference 0.014865085888992656\
+batch tvm_accuracy top1_acc 0.7751420454545455\
+batch tvm_accuracy top5_acc 0.9356534090909091\
+batch tvm_inference 0.014898148944249024\
+batch tvm_accuracy top1_acc 0.7750563063063063\
+batch tvm_accuracy top5_acc 0.9358108108108109\
+batch tvm_inference 0.014960977548201169\
+batch tvm_accuracy top1_acc 0.7744140625\
+batch tvm_accuracy top5_acc 0.935546875\
+batch tvm_inference 0.015040149005640924\
+batch tvm_accuracy top1_acc 0.7748893805309734\
+batch tvm_accuracy top5_acc 0.9354258849557522\
+batch tvm_inference 0.015094978113969168\
+batch tvm_accuracy top1_acc 0.7745339912280702\
+batch tvm_accuracy top5_acc 0.9353070175438597\
+batch tvm_inference 0.015096752313168153\
+batch tvm_accuracy top1_acc 0.7741847826086956\
+batch tvm_accuracy top5_acc 0.9349184782608696\
+batch tvm_inference 0.015101876848473632\
+batch tvm_accuracy top1_acc 0.7743803879310345\
+batch tvm_accuracy top5_acc 0.9348060344827587\
+batch tvm_inference 0.015116659558226919\
+batch tvm_accuracy top1_acc 0.7737713675213675\
+batch tvm_accuracy top5_acc 0.9346955128205128\
+batch tvm_inference 0.015134805213596862\
+batch tvm_accuracy top1_acc 0.774364406779661\
+batch tvm_accuracy top5_acc 0.934719279661017\
+batch tvm_inference 0.015166289259155257\
+batch tvm_accuracy top1_acc 0.7745535714285714\
+batch tvm_accuracy top5_acc 0.9347426470588235\
+batch tvm_inference 0.015180099382996559\
+batch tvm_accuracy top1_acc 0.7751302083333333\
+batch tvm_accuracy top5_acc 0.9350260416666667\
+batch tvm_inference 0.015228366494671372\
+batch tvm_accuracy top1_acc 0.7746642561983471\
+batch tvm_accuracy top5_acc 0.9353047520661157\
+batch tvm_inference 0.015266868606454036\
+batch tvm_accuracy top1_acc 0.7751024590163934\
+batch tvm_accuracy top5_acc 0.9350665983606558\
+batch tvm_inference 0.015316220681841781\
+batch tvm_accuracy top1_acc 0.7754065040650406\
+batch tvm_accuracy top5_acc 0.9352134146341463\
+batch tvm_inference 0.01536805525181755\
+batch tvm_accuracy top1_acc 0.7750756048387096\
+batch tvm_accuracy top5_acc 0.9351058467741935\
+batch tvm_inference 0.015423508793115616\
+batch tvm_accuracy top1_acc 0.775\
+batch tvm_accuracy top5_acc 0.935125\
+batch tvm_inference 0.015453117618721628\
+batch tvm_accuracy top1_acc 0.7749255952380952\
+batch tvm_accuracy top5_acc 0.9347718253968254\
+batch tvm_inference 0.015480406641021488\
+batch tvm_accuracy top1_acc 0.7737450787401575\
+batch tvm_accuracy top5_acc 0.9349163385826772\
+batch tvm_inference 0.015482624701689929\
+batch tvm_accuracy top1_acc 0.7738037109375\
+batch tvm_accuracy top5_acc 0.9351806640625\
+batch tvm_inference 0.015487237378608349\
+batch tvm_accuracy top1_acc 0.7741036821705426\
+batch tvm_accuracy top5_acc 0.9349563953488372\
+batch tvm_inference 0.015486925295912302\
+batch tvm_accuracy top1_acc 0.7742788461538461\
+batch tvm_accuracy top5_acc 0.9350961538461539\
+batch tvm_inference 0.015488157631786724\
+batch tvm_accuracy top1_acc 0.7739742366412213\
+batch tvm_accuracy top5_acc 0.9352337786259542\
+batch tvm_inference 0.015508157821993033\
+batch tvm_accuracy top1_acc 0.7737926136363636\
+batch tvm_accuracy top5_acc 0.935250946969697\
+batch tvm_inference 0.015541796033319673\
+batch tvm_accuracy top1_acc 0.7745535714285714\
+batch tvm_accuracy top5_acc 0.9356203007518797\
+batch tvm_inference 0.015563374552041737\
+batch tvm_accuracy top1_acc 0.7742537313432836\
+batch tvm_accuracy top5_acc 0.9354011194029851\
+batch tvm_inference 0.015571193231476679\
+batch tvm_accuracy top1_acc 0.7741898148148149\
+batch tvm_accuracy top5_acc 0.9351851851851852\
+batch tvm_inference 0.015600644188987859\
+batch tvm_accuracy top1_acc 0.7742417279411765\
+batch tvm_accuracy top5_acc 0.9350873161764706\
+batch tvm_inference 0.015636999839848845\
+batch tvm_accuracy top1_acc 0.7738366788321168\
+batch tvm_accuracy top5_acc 0.9348768248175182\
+batch tvm_inference 0.015646171472642734\
+batch tvm_accuracy top1_acc 0.7740036231884058\
+batch tvm_accuracy top5_acc 0.9346693840579711\
+\
+\
+\
+\
+\
+\
+Torch based approach\
+\
+batch torch_inference 0.07081800699234009\
+batch torch_accuracy top1_acc 0.71875\
+batch torch_accuracy top5_acc 0.9375\
+batch torch_inference 0.0840104166418314\
+batch torch_accuracy top1_acc 0.71875\
+batch torch_accuracy top5_acc 0.9296875\
+batch torch_inference 0.08933886513113976\
+batch torch_accuracy top1_acc 0.7395833333333334\
+batch torch_accuracy top5_acc 0.9375\
+batch torch_inference 0.09018838312476873\
+batch torch_accuracy top1_acc 0.75390625\
+batch torch_accuracy top5_acc 0.94140625\
+batch torch_inference 0.08924546539783478\
+batch torch_accuracy top1_acc 0.759375\
+batch torch_accuracy top5_acc 0.93125\
+batch torch_inference 0.09000262059271336\
+batch torch_accuracy top1_acc 0.7473958333333334\
+batch torch_accuracy top5_acc 0.9296875}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def @main(%input0: Tensor[(1, 3, 224, 224), float32] /* span=aten::_convolution_0.input0:0:0 */, %aten::_convolution_0.weight: Tensor[(3, 3, 3, 3), float32] /* span=aten::_convolution_0.weight:0:0 */, %aten::_convolution_0.bias: Tensor[(3), float32] /* span=aten::_convolution_0.bias:0:0 */) {
+  %0 = nn.conv2d(%input0, %aten::_convolution_0.weight, strides=[2, 2], padding=[0, 0, 0, 0], channels=3, kernel_size=[3, 3]) /* span=aten::_convolution_0:0:0 */;
+  nn.bias_add(%0, %aten::_convolution_0.bias) /* span=aten::_convolution_0:0:0 */
+}
+
+=====================================
+before quantize
+after quantize
+qfunc def @main(%input0: Tensor[(1, 3, 224, 224), float32] /* ty=Tensor[(1, 3, 224, 224), float32] span=aten::_convolution_0.input0:0:0 */) -> Tensor[(1, 3, 111, 111), float32] {
+  %0 = multiply(%input0, 16f /* ty=float32 */) /* ty=Tensor[(1, 3, 224, 224), float32] */;
+  %1 = round(%0) /* ty=Tensor[(1, 3, 224, 224), float32] */;
+  %2 = clip(%1, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 3, 224, 224), float32] */;
+  %3 = cast(%2, dtype="int8") /* ty=Tensor[(1, 3, 224, 224), int8] */;
+  %4 = nn.conv2d(%3, meta[relay.Constant][0] /* ty=Tensor[(3, 3, 3, 3), int8] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=3, kernel_size=[3, 3], out_dtype="int32") /* ty=Tensor[(1, 3, 111, 111), int32] */;
+  %5 = add(%4, 256 /* ty=int32 */) /* ty=Tensor[(1, 3, 111, 111), int32] */;
+  %6 = right_shift(%5, 9 /* ty=int32 */) /* ty=Tensor[(1, 3, 111, 111), int32] */;
+  %7 = clip(%6, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 3, 111, 111), int32] */;
+  %8 = cast(%7, dtype="int8") /* ty=Tensor[(1, 3, 111, 111), int8] */;
+  %9 = annotation.stop_fusion(%8) /* ty=Tensor[(1, 3, 111, 111), int8] */;
+  %10 = cast(%9, dtype="float32") /* ty=Tensor[(1, 3, 111, 111), float32] */;
+  %11 = multiply(%10, 0.0625f /* ty=float32 */) /* ty=Tensor[(1, 3, 111, 111), float32] */;
+  nn.bias_add(%11, meta[relay.Constant][1] /* ty=Tensor[(3), float32] */) /* ty=Tensor[(1, 3, 111, 111), float32] span=aten::_convolution_0:0:0 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###optimized IR:
+#[version = "0.0.5"]
+def @main(%input0 {virtual_device=VirtualDevice(device_type=1, virtual_device_id=0, target=Target(id=aaab163ae120, kind='llvm', keys={'arm_cpu', 'cpu'}, attrs={'device': "arm_cpu"}, host=Target(id=aaab163b4570, kind='llvm', keys={'cpu'})))}: Tensor[(1, 3, 224, 224), float32] /* ty=Tensor[(1, 3, 224, 224), float32] span=aten::_convolution_0.input0:0:0 */, runtime=meta[Runtime][0], hash="0447479ae2d656d4", kernel_layout="OIHW16o", executor=meta[Executor][0], data_layout="NCHW", out_layout="", virtual_device=VirtualDevice(device_type=1, virtual_device_id=0, target=Target(id=aaab163ae120, kind='llvm', keys={'arm_cpu', 'cpu'}, attrs={'device': "arm_cpu"}, host=Target(id=aaab163b4570, kind='llvm', keys={'cpu'})))) -> Tensor[(1, 1000), float32] {
+  %197 = fn (%p042: Tensor[(1, 3, 224, 224), float32] /* ty=Tensor[(1, 3, 224, 224), float32] */, %p134: Tensor[(8, 3, 7, 7, 8), float32] /* ty=Tensor[(8, 3, 7, 7, 8), float32] */, Primitive=1, hash="07883339b413572b", kernel_layout="OIHW8o", data_layout="NCHW", out_layout="") -> Tensor[(1, 64, 112, 112), float32] {
+    nn.conv2d(%p042, %p134, strides=[2, 2], padding=[3, 3, 3, 3], channels=64, kernel_size=[7, 7], kernel_layout="OIHW8o") /* ty=Tensor[(1, 64, 112, 112), float32] */
+  } /* ty=fn (Tensor[(1, 3, 224, 224), float32], Tensor[(8, 3, 7, 7, 8), float32]) -> Tensor[(1, 64, 112, 112), float32] */;
+  %198 = %197(%input0, meta[relay.Constant][0] /* ty=Tensor[(8, 3, 7, 7, 8), float32] */) /* ty=Tensor[(1, 64, 112, 112), float32] */;
+  %199 = fn (%p041: Tensor[(1, 64, 112, 112), float32] /* ty=Tensor[(1, 64, 112, 112), float32] */, %p133: Tensor[(1, 64, 1, 1), float32] /* ty=Tensor[(1, 64, 1, 1), float32] */, Primitive=1, hash="22aa09d9aeb6f101") -> Tensor[(1, 64, 112, 112), float32] {
+    %196 = add(%p041, %p133) /* ty=Tensor[(1, 64, 112, 112), float32] */;
+    nn.relu(%196) /* ty=Tensor[(1, 64, 112, 112), float32] */
+  } /* ty=fn (Tensor[(1, 64, 112, 112), float32], Tensor[(1, 64, 1, 1), float32]) -> Tensor[(1, 64, 112, 112), float32] */;
+  %200 = %199(%198, meta[relay.Constant][1] /* ty=Tensor[(1, 64, 1, 1), float32] */) /* ty=Tensor[(1, 64, 112, 112), float32] */;
+  %201 = fn (%p040: Tensor[(1, 64, 112, 112), float32] /* ty=Tensor[(1, 64, 112, 112), float32] */, Primitive=1, hash="7c3d0ff8d798eea6", layout="NCHW", out_layout="") -> Tensor[(1, 64, 56, 56), float32] {
+    nn.max_pool2d(%p040, pool_size=[3, 3], strides=[2, 2], padding=[1, 1, 1, 1]) /* ty=Tensor[(1, 64, 56, 56), float32] */
+  } /* ty=fn (Tensor[(1, 64, 112, 112), float32]) -> Tensor[(1, 64, 56, 56), float32] */;
+  %202 = %201(%200) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+  %203 = fn (%p039: Tensor[(1, 64, 56, 56), float32] /* ty=Tensor[(1, 64, 56, 56), float32] */, Primitive=1, hash="b2c05935cd2d5164") -> Tensor[(1, 64, 56, 56), int8] {
+    %193 = multiply(%p039, 8f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %194 = round(%193) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %195 = clip(%194, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    cast(%195, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), float32]) -> Tensor[(1, 64, 56, 56), int8] */;
+  %204 = %203(%202) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %205 = fn (%p038: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p132: Tensor[(16, 64, 3, 3, 4), int8] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, %p224: int16 /* ty=int16 */, %p318: int16 /* ty=int16 */, Primitive=1, hash="4a6ae428f24795aa", kernel_layout="OIHW4o", data_layout="NCHW", out_layout="") -> Tensor[(1, 64, 56, 56), int8] {
+    %189 = nn.conv2d(%p038, %p132, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], kernel_layout="OIHW4o", out_dtype="int16") /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %190 = add(%189, %p224) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %191 = right_shift(%190, %p318) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %192 = clip(%191, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    cast(%192, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(16, 64, 3, 3, 4), int8], int16, int16) -> Tensor[(1, 64, 56, 56), int8] */;
+  %206 = %205(%204, meta[relay.Constant][2] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, 128i16 /* ty=int16 */, 8i16 /* ty=int16 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %207 = fn (%p037: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p131: Tensor[(1, 64, 1, 1), float32] /* ty=Tensor[(1, 64, 1, 1), float32] */, Primitive=1, hash="2374696c07533d60") -> Tensor[(1, 64, 56, 56), int8] {
+    %182 = cast(%p037, dtype="float32") /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %183 = multiply(%182, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %184 = add(%183, %p131) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %185 = nn.relu(%184) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %186 = multiply(%185, 8f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %187 = round(%186) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %188 = clip(%187, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    cast(%188, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(1, 64, 1, 1), float32]) -> Tensor[(1, 64, 56, 56), int8] */;
+  %208 = %207(%206, meta[relay.Constant][3] /* ty=Tensor[(1, 64, 1, 1), float32] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %209 = fn (%p036: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p130: Tensor[(16, 64, 3, 3, 4), int8] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, %p223: int16 /* ty=int16 */, %p317: int16 /* ty=int16 */, Primitive=1, hash="4a6ae428f24795aa", kernel_layout="OIHW4o", data_layout="NCHW", out_layout="") -> Tensor[(1, 64, 56, 56), int8] {
+    %178 = nn.conv2d(%p036, %p130, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], kernel_layout="OIHW4o", out_dtype="int16") /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %179 = add(%178, %p223) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %180 = right_shift(%179, %p317) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %181 = clip(%180, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    cast(%181, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(16, 64, 3, 3, 4), int8], int16, int16) -> Tensor[(1, 64, 56, 56), int8] */;
+  %210 = %209(%208, meta[relay.Constant][4] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, 64i16 /* ty=int16 */, 7i16 /* ty=int16 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %211 = fn (%p035: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p129: Tensor[(1, 64, 1, 1), float32] /* ty=Tensor[(1, 64, 1, 1), float32] */, %p222: Tensor[(1, 64, 56, 56), float32] /* ty=Tensor[(1, 64, 56, 56), float32] */, Primitive=1, hash="b05b1efadd338d32") -> Tensor[(1, 64, 56, 56), float32] {
+    %174 = cast(%p035, dtype="float32") /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %175 = multiply(%174, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %176 = add(%175, %p129) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %177 = add(%176, %p222) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    nn.relu(%177) /* ty=Tensor[(1, 64, 56, 56), float32] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(1, 64, 1, 1), float32], Tensor[(1, 64, 56, 56), float32]) -> Tensor[(1, 64, 56, 56), float32] */;
+  %212 = %211(%210, meta[relay.Constant][5] /* ty=Tensor[(1, 64, 1, 1), float32] */, %202) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+  %213 = fn (%p034: Tensor[(1, 64, 56, 56), float32] /* ty=Tensor[(1, 64, 56, 56), float32] */, Primitive=1, hash="b2c05935cd2d5164") -> Tensor[(1, 64, 56, 56), int8] {
+    %171 = multiply(%p034, 8f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %172 = round(%171) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %173 = clip(%172, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    cast(%173, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), float32]) -> Tensor[(1, 64, 56, 56), int8] */;
+  %214 = %213(%212) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %215 = fn (%p033: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p128: Tensor[(16, 64, 3, 3, 4), int8] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, %p221: int16 /* ty=int16 */, %p316: int16 /* ty=int16 */, Primitive=1, hash="4a6ae428f24795aa", kernel_layout="OIHW4o", data_layout="NCHW", out_layout="") -> Tensor[(1, 64, 56, 56), int8] {
+    %167 = nn.conv2d(%p033, %p128, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], kernel_layout="OIHW4o", out_dtype="int16") /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %168 = add(%167, %p221) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %169 = right_shift(%168, %p316) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %170 = clip(%169, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    cast(%170, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(16, 64, 3, 3, 4), int8], int16, int16) -> Tensor[(1, 64, 56, 56), int8] */;
+  %216 = %215(%214, meta[relay.Constant][6] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, 128i16 /* ty=int16 */, 8i16 /* ty=int16 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %217 = fn (%p032: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p127: Tensor[(1, 64, 1, 1), float32] /* ty=Tensor[(1, 64, 1, 1), float32] */, Primitive=1, hash="2374696c07533d60") -> Tensor[(1, 64, 56, 56), int8] {
+    %160 = cast(%p032, dtype="float32") /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %161 = multiply(%160, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %162 = add(%161, %p127) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %163 = nn.relu(%162) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %164 = multiply(%163, 8f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %165 = round(%164) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %166 = clip(%165, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    cast(%166, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(1, 64, 1, 1), float32]) -> Tensor[(1, 64, 56, 56), int8] */;
+  %218 = %217(%216, meta[relay.Constant][7] /* ty=Tensor[(1, 64, 1, 1), float32] */) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %219 = fn (%p031: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p126: Tensor[(16, 64, 3, 3, 4), int8] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, %p220: int16 /* ty=int16 */, %p315: int16 /* ty=int16 */, Primitive=1, hash="4a6ae428f24795aa", kernel_layout="OIHW4o", data_layout="NCHW", out_layout="") -> Tensor[(1, 64, 56, 56), int8] {
+    %156 = nn.conv2d(%p031, %p126, padding=[1, 1, 1, 1], channels=64, kernel_size=[3, 3], kernel_layout="OIHW4o", out_dtype="int16") /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %157 = add(%156, %p220) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %158 = right_shift(%157, %p315) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    %159 = clip(%158, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), int16] */;
+    cast(%159, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(16, 64, 3, 3, 4), int8], int16, int16) -> Tensor[(1, 64, 56, 56), int8] */;
+  %220 = %219(%218, meta[relay.Constant][8] /* ty=Tensor[(16, 64, 3, 3, 4), int8] */, 32i16 /* ty=int16 */, 6i16 /* ty=int16 */) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %221 = fn (%p030: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p125: Tensor[(1, 64, 1, 1), float32] /* ty=Tensor[(1, 64, 1, 1), float32] */, %p219: Tensor[(1, 64, 56, 56), float32] /* ty=Tensor[(1, 64, 56, 56), float32] */, Primitive=1, hash="2902ec10d42b4667") -> Tensor[(1, 64, 56, 56), int8] {
+    %148 = cast(%p030, dtype="float32") /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %149 = multiply(%148, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %150 = add(%149, %p125) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %151 = add(%150, %p219) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %152 = nn.relu(%151) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %153 = multiply(%152, 8f /* ty=float32 */) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %154 = round(%153) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    %155 = clip(%154, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 64, 56, 56), float32] */;
+    cast(%155, dtype="int8") /* ty=Tensor[(1, 64, 56, 56), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(1, 64, 1, 1), float32], Tensor[(1, 64, 56, 56), float32]) -> Tensor[(1, 64, 56, 56), int8] */;
+  %222 = %221(%220, meta[relay.Constant][9] /* ty=Tensor[(1, 64, 1, 1), float32] */, %212) /* ty=Tensor[(1, 64, 56, 56), int8] */;
+  %223 = fn (%p029: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p124: Tensor[(8, 64, 3, 3, 16), int8] /* ty=Tensor[(8, 64, 3, 3, 16), int8] */, %p218: int16 /* ty=int16 */, %p314: int16 /* ty=int16 */, Primitive=1, hash="c7ded1251dc06040", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 128, 28, 28), int8] {
+    %144 = nn.conv2d(%p029, %p124, strides=[2, 2], padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %145 = add(%144, %p218) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %146 = right_shift(%145, %p314) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %147 = clip(%146, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    cast(%147, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(8, 64, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 128, 28, 28), int8] */;
+  %224 = %223(%222, meta[relay.Constant][10] /* ty=Tensor[(8, 64, 3, 3, 16), int8] */, 256i16 /* ty=int16 */, 9i16 /* ty=int16 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %225 = fn (%p028: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p123: Tensor[(1, 128, 1, 1), float32] /* ty=Tensor[(1, 128, 1, 1), float32] */, Primitive=1, hash="ca568c8781ada2a3") -> Tensor[(1, 128, 28, 28), int8] {
+    %137 = cast(%p028, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %138 = multiply(%137, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %139 = add(%138, %p123) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %140 = nn.relu(%139) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %141 = multiply(%140, 8f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %142 = round(%141) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %143 = clip(%142, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    cast(%143, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(1, 128, 1, 1), float32]) -> Tensor[(1, 128, 28, 28), int8] */;
+  %226 = %225(%224, meta[relay.Constant][11] /* ty=Tensor[(1, 128, 1, 1), float32] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %227 = fn (%p027: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p122: Tensor[(8, 128, 3, 3, 16), int8] /* ty=Tensor[(8, 128, 3, 3, 16), int8] */, %p217: int16 /* ty=int16 */, %p313: int16 /* ty=int16 */, Primitive=1, hash="3232bd5b6497b9ed", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 128, 28, 28), int8] {
+    %133 = nn.conv2d(%p027, %p122, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %134 = add(%133, %p217) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %135 = right_shift(%134, %p313) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %136 = clip(%135, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    cast(%136, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(8, 128, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 128, 28, 28), int8] */;
+  %232 = fn (%p043: Tensor[(1, 64, 56, 56), int8] /* ty=Tensor[(1, 64, 56, 56), int8] */, %p135: Tensor[(8, 64, 1, 1, 16), int8] /* ty=Tensor[(8, 64, 1, 1, 16), int8] */, %p225: int16 /* ty=int16 */, %p319: int16 /* ty=int16 */, Primitive=1, hash="2e0924ba0f73d765", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 128, 28, 28), int8] {
+    %228 = nn.conv2d(%p043, %p135, strides=[2, 2], padding=[0, 0, 0, 0], channels=128, kernel_size=[1, 1], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %229 = add(%228, %p225) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %230 = right_shift(%229, %p319) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %231 = clip(%230, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    cast(%231, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 64, 56, 56), int8], Tensor[(8, 64, 1, 1, 16), int8], int16, int16) -> Tensor[(1, 128, 28, 28), int8] */;
+  %233 = %227(%226, meta[relay.Constant][12] /* ty=Tensor[(8, 128, 3, 3, 16), int8] */, 64i16 /* ty=int16 */, 7i16 /* ty=int16 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %234 = %232(%222, meta[relay.Constant][14] /* ty=Tensor[(8, 64, 1, 1, 16), int8] */, 64i16 /* ty=int16 */, 7i16 /* ty=int16 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %235 = fn (%p026: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p121: Tensor[(1, 128, 1, 1), float32] /* ty=Tensor[(1, 128, 1, 1), float32] */, %p216: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p312: Tensor[(1, 128, 1, 1), float32] /* ty=Tensor[(1, 128, 1, 1), float32] */, Primitive=1, hash="eb14bfc94c372429") -> Tensor[(1, 128, 28, 28), float32] {
+    %126 = cast(%p026, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %127 = multiply(%126, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %128 = cast(%p216, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %129 = multiply(%128, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %130 = add(%127, %p121) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %131 = add(%129, %p312) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %132 = add(%130, %131) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    nn.relu(%132) /* ty=Tensor[(1, 128, 28, 28), float32] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(1, 128, 1, 1), float32], Tensor[(1, 128, 28, 28), int8], Tensor[(1, 128, 1, 1), float32]) -> Tensor[(1, 128, 28, 28), float32] */;
+  %236 = %235(%233, meta[relay.Constant][13] /* ty=Tensor[(1, 128, 1, 1), float32] */, %234, meta[relay.Constant][15] /* ty=Tensor[(1, 128, 1, 1), float32] */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+  %237 = fn (%p025: Tensor[(1, 128, 28, 28), float32] /* ty=Tensor[(1, 128, 28, 28), float32] */, Primitive=1, hash="9e24ebf500e97d6e") -> Tensor[(1, 128, 28, 28), int8] {
+    %123 = multiply(%p025, 8f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %124 = round(%123) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %125 = clip(%124, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    cast(%125, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), float32]) -> Tensor[(1, 128, 28, 28), int8] */;
+  %238 = %237(%236) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %239 = fn (%p024: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p120: Tensor[(8, 128, 3, 3, 16), int8] /* ty=Tensor[(8, 128, 3, 3, 16), int8] */, %p215: int16 /* ty=int16 */, %p311: int16 /* ty=int16 */, Primitive=1, hash="3232bd5b6497b9ed", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 128, 28, 28), int8] {
+    %119 = nn.conv2d(%p024, %p120, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %120 = add(%119, %p215) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %121 = right_shift(%120, %p311) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %122 = clip(%121, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    cast(%122, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(8, 128, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 128, 28, 28), int8] */;
+  %240 = %239(%238, meta[relay.Constant][16] /* ty=Tensor[(8, 128, 3, 3, 16), int8] */, 128i16 /* ty=int16 */, 8i16 /* ty=int16 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %241 = fn (%p023: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p119: Tensor[(1, 128, 1, 1), float32] /* ty=Tensor[(1, 128, 1, 1), float32] */, Primitive=1, hash="ca568c8781ada2a3") -> Tensor[(1, 128, 28, 28), int8] {
+    %112 = cast(%p023, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %113 = multiply(%112, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %114 = add(%113, %p119) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %115 = nn.relu(%114) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %116 = multiply(%115, 8f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %117 = round(%116) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %118 = clip(%117, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    cast(%118, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(1, 128, 1, 1), float32]) -> Tensor[(1, 128, 28, 28), int8] */;
+  %242 = %241(%240, meta[relay.Constant][17] /* ty=Tensor[(1, 128, 1, 1), float32] */) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %243 = fn (%p022: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p118: Tensor[(8, 128, 3, 3, 16), int8] /* ty=Tensor[(8, 128, 3, 3, 16), int8] */, %p214: int16 /* ty=int16 */, %p310: int16 /* ty=int16 */, Primitive=1, hash="3232bd5b6497b9ed", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 128, 28, 28), int8] {
+    %108 = nn.conv2d(%p022, %p118, padding=[1, 1, 1, 1], channels=128, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %109 = add(%108, %p214) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %110 = right_shift(%109, %p310) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    %111 = clip(%110, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), int16] */;
+    cast(%111, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(8, 128, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 128, 28, 28), int8] */;
+  %244 = %243(%242, meta[relay.Constant][18] /* ty=Tensor[(8, 128, 3, 3, 16), int8] */, 64i16 /* ty=int16 */, 7i16 /* ty=int16 */) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %245 = fn (%p021: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p117: Tensor[(1, 128, 1, 1), float32] /* ty=Tensor[(1, 128, 1, 1), float32] */, %p213: Tensor[(1, 128, 28, 28), float32] /* ty=Tensor[(1, 128, 28, 28), float32] */, Primitive=1, hash="52e43d0e2e117bd4") -> Tensor[(1, 128, 28, 28), int8] {
+    %100 = cast(%p021, dtype="float32") /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %101 = multiply(%100, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %102 = add(%101, %p117) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %103 = add(%102, %p213) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %104 = nn.relu(%103) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %105 = multiply(%104, 8f /* ty=float32 */) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %106 = round(%105) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    %107 = clip(%106, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 128, 28, 28), float32] */;
+    cast(%107, dtype="int8") /* ty=Tensor[(1, 128, 28, 28), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(1, 128, 1, 1), float32], Tensor[(1, 128, 28, 28), float32]) -> Tensor[(1, 128, 28, 28), int8] */;
+  %246 = %245(%244, meta[relay.Constant][19] /* ty=Tensor[(1, 128, 1, 1), float32] */, %236) /* ty=Tensor[(1, 128, 28, 28), int8] */;
+  %247 = fn (%p020: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p116: Tensor[(16, 128, 3, 3, 16), int8] /* ty=Tensor[(16, 128, 3, 3, 16), int8] */, %p212: int16 /* ty=int16 */, %p39: int16 /* ty=int16 */, Primitive=1, hash="104d01181139406d", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 256, 14, 14), int8] {
+    %96 = nn.conv2d(%p020, %p116, strides=[2, 2], padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %97 = add(%96, %p212) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %98 = right_shift(%97, %p39) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %99 = clip(%98, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    cast(%99, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(16, 128, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 256, 14, 14), int8] */;
+  %248 = %247(%246, meta[relay.Constant][20] /* ty=Tensor[(16, 128, 3, 3, 16), int8] */, 256i16 /* ty=int16 */, 9i16 /* ty=int16 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %249 = fn (%p019: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p115: Tensor[(1, 256, 1, 1), float32] /* ty=Tensor[(1, 256, 1, 1), float32] */, Primitive=1, hash="3dfbf42250b6c406") -> Tensor[(1, 256, 14, 14), int8] {
+    %89 = cast(%p019, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %90 = multiply(%89, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %91 = add(%90, %p115) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %92 = nn.relu(%91) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %93 = multiply(%92, 8f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %94 = round(%93) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %95 = clip(%94, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    cast(%95, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(1, 256, 1, 1), float32]) -> Tensor[(1, 256, 14, 14), int8] */;
+  %250 = %249(%248, meta[relay.Constant][21] /* ty=Tensor[(1, 256, 1, 1), float32] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %251 = fn (%p018: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p114: Tensor[(16, 256, 3, 3, 16), int8] /* ty=Tensor[(16, 256, 3, 3, 16), int8] */, %p211: int16 /* ty=int16 */, %p38: int16 /* ty=int16 */, Primitive=1, hash="44d07152f2ed21af", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 256, 14, 14), int8] {
+    %85 = nn.conv2d(%p018, %p114, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %86 = add(%85, %p211) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %87 = right_shift(%86, %p38) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %88 = clip(%87, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    cast(%88, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(16, 256, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 256, 14, 14), int8] */;
+  %256 = fn (%p044: Tensor[(1, 128, 28, 28), int8] /* ty=Tensor[(1, 128, 28, 28), int8] */, %p136: Tensor[(16, 128, 1, 1, 16), int8] /* ty=Tensor[(16, 128, 1, 1, 16), int8] */, %p226: int16 /* ty=int16 */, %p320: int16 /* ty=int16 */, Primitive=1, hash="044fa68a65772c13", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 256, 14, 14), int8] {
+    %252 = nn.conv2d(%p044, %p136, strides=[2, 2], padding=[0, 0, 0, 0], channels=256, kernel_size=[1, 1], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %253 = add(%252, %p226) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %254 = right_shift(%253, %p320) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %255 = clip(%254, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    cast(%255, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 128, 28, 28), int8], Tensor[(16, 128, 1, 1, 16), int8], int16, int16) -> Tensor[(1, 256, 14, 14), int8] */;
+  %257 = %251(%250, meta[relay.Constant][22] /* ty=Tensor[(16, 256, 3, 3, 16), int8] */, 64i16 /* ty=int16 */, 7i16 /* ty=int16 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %258 = %256(%246, meta[relay.Constant][24] /* ty=Tensor[(16, 128, 1, 1, 16), int8] */, 128i16 /* ty=int16 */, 8i16 /* ty=int16 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %259 = fn (%p017: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p113: Tensor[(1, 256, 1, 1), float32] /* ty=Tensor[(1, 256, 1, 1), float32] */, %p210: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p37: Tensor[(1, 256, 1, 1), float32] /* ty=Tensor[(1, 256, 1, 1), float32] */, Primitive=1, hash="ae169a1f29d3c547") -> Tensor[(1, 256, 14, 14), float32] {
+    %78 = cast(%p017, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %79 = multiply(%78, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %80 = cast(%p210, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %81 = multiply(%80, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %82 = add(%79, %p113) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %83 = add(%81, %p37) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %84 = add(%82, %83) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    nn.relu(%84) /* ty=Tensor[(1, 256, 14, 14), float32] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(1, 256, 1, 1), float32], Tensor[(1, 256, 14, 14), int8], Tensor[(1, 256, 1, 1), float32]) -> Tensor[(1, 256, 14, 14), float32] */;
+  %260 = %259(%257, meta[relay.Constant][23] /* ty=Tensor[(1, 256, 1, 1), float32] */, %258, meta[relay.Constant][25] /* ty=Tensor[(1, 256, 1, 1), float32] */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+  %261 = fn (%p016: Tensor[(1, 256, 14, 14), float32] /* ty=Tensor[(1, 256, 14, 14), float32] */, Primitive=1, hash="24984b6267b23ec3") -> Tensor[(1, 256, 14, 14), int8] {
+    %75 = multiply(%p016, 8f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %76 = round(%75) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %77 = clip(%76, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    cast(%77, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), float32]) -> Tensor[(1, 256, 14, 14), int8] */;
+  %262 = %261(%260) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %263 = fn (%p015: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p112: Tensor[(16, 256, 3, 3, 16), int8] /* ty=Tensor[(16, 256, 3, 3, 16), int8] */, %p29: int16 /* ty=int16 */, %p36: int16 /* ty=int16 */, Primitive=1, hash="44d07152f2ed21af", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 256, 14, 14), int8] {
+    %71 = nn.conv2d(%p015, %p112, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %72 = add(%71, %p29) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %73 = right_shift(%72, %p36) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %74 = clip(%73, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    cast(%74, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(16, 256, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 256, 14, 14), int8] */;
+  %264 = %263(%262, meta[relay.Constant][26] /* ty=Tensor[(16, 256, 3, 3, 16), int8] */, 128i16 /* ty=int16 */, 8i16 /* ty=int16 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %265 = fn (%p014: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p111: Tensor[(1, 256, 1, 1), float32] /* ty=Tensor[(1, 256, 1, 1), float32] */, Primitive=1, hash="3dfbf42250b6c406") -> Tensor[(1, 256, 14, 14), int8] {
+    %64 = cast(%p014, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %65 = multiply(%64, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %66 = add(%65, %p111) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %67 = nn.relu(%66) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %68 = multiply(%67, 8f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %69 = round(%68) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %70 = clip(%69, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    cast(%70, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(1, 256, 1, 1), float32]) -> Tensor[(1, 256, 14, 14), int8] */;
+  %266 = %265(%264, meta[relay.Constant][27] /* ty=Tensor[(1, 256, 1, 1), float32] */) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %267 = fn (%p013: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p110: Tensor[(16, 256, 3, 3, 16), int8] /* ty=Tensor[(16, 256, 3, 3, 16), int8] */, %p28: int16 /* ty=int16 */, %p35: int16 /* ty=int16 */, Primitive=1, hash="44d07152f2ed21af", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 256, 14, 14), int8] {
+    %60 = nn.conv2d(%p013, %p110, padding=[1, 1, 1, 1], channels=256, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %61 = add(%60, %p28) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %62 = right_shift(%61, %p35) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    %63 = clip(%62, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), int16] */;
+    cast(%63, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(16, 256, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 256, 14, 14), int8] */;
+  %268 = %267(%266, meta[relay.Constant][28] /* ty=Tensor[(16, 256, 3, 3, 16), int8] */, 64i16 /* ty=int16 */, 7i16 /* ty=int16 */) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %269 = fn (%p012: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p19: Tensor[(1, 256, 1, 1), float32] /* ty=Tensor[(1, 256, 1, 1), float32] */, %p27: Tensor[(1, 256, 14, 14), float32] /* ty=Tensor[(1, 256, 14, 14), float32] */, Primitive=1, hash="d825118aac3ad631") -> Tensor[(1, 256, 14, 14), int8] {
+    %52 = cast(%p012, dtype="float32") /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %53 = multiply(%52, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %54 = add(%53, %p19) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %55 = add(%54, %p27) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %56 = nn.relu(%55) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %57 = multiply(%56, 8f /* ty=float32 */) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %58 = round(%57) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    %59 = clip(%58, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 256, 14, 14), float32] */;
+    cast(%59, dtype="int8") /* ty=Tensor[(1, 256, 14, 14), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(1, 256, 1, 1), float32], Tensor[(1, 256, 14, 14), float32]) -> Tensor[(1, 256, 14, 14), int8] */;
+  %270 = %269(%268, meta[relay.Constant][29] /* ty=Tensor[(1, 256, 1, 1), float32] */, %260) /* ty=Tensor[(1, 256, 14, 14), int8] */;
+  %271 = fn (%p011: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p18: Tensor[(32, 256, 3, 3, 16), int8] /* ty=Tensor[(32, 256, 3, 3, 16), int8] */, %p26: int16 /* ty=int16 */, %p34: int16 /* ty=int16 */, Primitive=1, hash="3280c3ef84f3bfb6", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 512, 7, 7), int8] {
+    %48 = nn.conv2d(%p011, %p18, strides=[2, 2], padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %49 = add(%48, %p26) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %50 = right_shift(%49, %p34) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %51 = clip(%50, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    cast(%51, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(32, 256, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 512, 7, 7), int8] */;
+  %272 = %271(%270, meta[relay.Constant][30] /* ty=Tensor[(32, 256, 3, 3, 16), int8] */, 128i16 /* ty=int16 */, 8i16 /* ty=int16 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %273 = fn (%p010: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p17: Tensor[(1, 512, 1, 1), float32] /* ty=Tensor[(1, 512, 1, 1), float32] */, Primitive=1, hash="c8db7dbbb9b25377") -> Tensor[(1, 512, 7, 7), int8] {
+    %41 = cast(%p010, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %42 = multiply(%41, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %43 = add(%42, %p17) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %44 = nn.relu(%43) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %45 = multiply(%44, 8f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %46 = round(%45) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %47 = clip(%46, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    cast(%47, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), int8], Tensor[(1, 512, 1, 1), float32]) -> Tensor[(1, 512, 7, 7), int8] */;
+  %274 = %273(%272, meta[relay.Constant][31] /* ty=Tensor[(1, 512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %275 = fn (%p09: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p16: Tensor[(32, 512, 3, 3, 16), int8] /* ty=Tensor[(32, 512, 3, 3, 16), int8] */, %p25: int16 /* ty=int16 */, %p33: int16 /* ty=int16 */, Primitive=1, hash="0fdc07806e3ff52f", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 512, 7, 7), int8] {
+    %37 = nn.conv2d(%p09, %p16, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %38 = add(%37, %p25) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %39 = right_shift(%38, %p33) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %40 = clip(%39, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    cast(%40, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), int8], Tensor[(32, 512, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 512, 7, 7), int8] */;
+  %280 = fn (%p045: Tensor[(1, 256, 14, 14), int8] /* ty=Tensor[(1, 256, 14, 14), int8] */, %p137: Tensor[(32, 256, 1, 1, 16), int8] /* ty=Tensor[(32, 256, 1, 1, 16), int8] */, %p227: int16 /* ty=int16 */, %p321: int16 /* ty=int16 */, Primitive=1, hash="4420c88f1b157458", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 512, 7, 7), int8] {
+    %276 = nn.conv2d(%p045, %p137, strides=[2, 2], padding=[0, 0, 0, 0], channels=512, kernel_size=[1, 1], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %277 = add(%276, %p227) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %278 = right_shift(%277, %p321) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %279 = clip(%278, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    cast(%279, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 256, 14, 14), int8], Tensor[(32, 256, 1, 1, 16), int8], int16, int16) -> Tensor[(1, 512, 7, 7), int8] */;
+  %281 = %275(%274, meta[relay.Constant][32] /* ty=Tensor[(32, 512, 3, 3, 16), int8] */, 32i16 /* ty=int16 */, 6i16 /* ty=int16 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %282 = %280(%270, meta[relay.Constant][34] /* ty=Tensor[(32, 256, 1, 1, 16), int8] */, 64i16 /* ty=int16 */, 7i16 /* ty=int16 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %283 = fn (%p08: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p15: Tensor[(1, 512, 1, 1), float32] /* ty=Tensor[(1, 512, 1, 1), float32] */, %p24: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p32: Tensor[(1, 512, 1, 1), float32] /* ty=Tensor[(1, 512, 1, 1), float32] */, Primitive=1, hash="8c6c90fb6440c370") -> Tensor[(1, 512, 7, 7), float32] {
+    %30 = cast(%p08, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %31 = multiply(%30, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %32 = cast(%p24, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %33 = multiply(%32, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %34 = add(%31, %p15) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %35 = add(%33, %p32) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %36 = add(%34, %35) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    nn.relu(%36) /* ty=Tensor[(1, 512, 7, 7), float32] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), int8], Tensor[(1, 512, 1, 1), float32], Tensor[(1, 512, 7, 7), int8], Tensor[(1, 512, 1, 1), float32]) -> Tensor[(1, 512, 7, 7), float32] */;
+  %284 = %283(%281, meta[relay.Constant][33] /* ty=Tensor[(1, 512, 1, 1), float32] */, %282, meta[relay.Constant][35] /* ty=Tensor[(1, 512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+  %285 = fn (%p07: Tensor[(1, 512, 7, 7), float32] /* ty=Tensor[(1, 512, 7, 7), float32] */, Primitive=1, hash="860a8b4c0c555b8f") -> Tensor[(1, 512, 7, 7), int8] {
+    %27 = multiply(%p07, 8f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %28 = round(%27) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %29 = clip(%28, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    cast(%29, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), float32]) -> Tensor[(1, 512, 7, 7), int8] */;
+  %286 = %285(%284) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %287 = fn (%p06: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p14: Tensor[(32, 512, 3, 3, 16), int8] /* ty=Tensor[(32, 512, 3, 3, 16), int8] */, %p23: int16 /* ty=int16 */, %p31: int16 /* ty=int16 */, Primitive=1, hash="0fdc07806e3ff52f", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 512, 7, 7), int8] {
+    %23 = nn.conv2d(%p06, %p14, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %24 = add(%23, %p23) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %25 = right_shift(%24, %p31) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %26 = clip(%25, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    cast(%26, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), int8], Tensor[(32, 512, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 512, 7, 7), int8] */;
+  %288 = %287(%286, meta[relay.Constant][36] /* ty=Tensor[(32, 512, 3, 3, 16), int8] */, 128i16 /* ty=int16 */, 8i16 /* ty=int16 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %289 = fn (%p05: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p13: Tensor[(1, 512, 1, 1), float32] /* ty=Tensor[(1, 512, 1, 1), float32] */, Primitive=1, hash="c8db7dbbb9b25377") -> Tensor[(1, 512, 7, 7), int8] {
+    %16 = cast(%p05, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %17 = multiply(%16, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %18 = add(%17, %p13) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %19 = nn.relu(%18) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %20 = multiply(%19, 8f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %21 = round(%20) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %22 = clip(%21, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    cast(%22, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), int8], Tensor[(1, 512, 1, 1), float32]) -> Tensor[(1, 512, 7, 7), int8] */;
+  %290 = %289(%288, meta[relay.Constant][37] /* ty=Tensor[(1, 512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %291 = fn (%p04: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p12: Tensor[(32, 512, 3, 3, 16), int8] /* ty=Tensor[(32, 512, 3, 3, 16), int8] */, %p22: int16 /* ty=int16 */, %p3: int16 /* ty=int16 */, Primitive=1, hash="0fdc07806e3ff52f", kernel_layout="OIHW16o", data_layout="NCHW", out_layout="") -> Tensor[(1, 512, 7, 7), int8] {
+    %12 = nn.conv2d(%p04, %p12, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3], kernel_layout="OIHW16o", out_dtype="int16") /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %13 = add(%12, %p22) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %14 = right_shift(%13, %p3) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    %15 = clip(%14, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512, 7, 7), int16] */;
+    cast(%15, dtype="int8") /* ty=Tensor[(1, 512, 7, 7), int8] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), int8], Tensor[(32, 512, 3, 3, 16), int8], int16, int16) -> Tensor[(1, 512, 7, 7), int8] */;
+  %292 = %291(%290, meta[relay.Constant][38] /* ty=Tensor[(32, 512, 3, 3, 16), int8] */, 16i16 /* ty=int16 */, 5i16 /* ty=int16 */) /* ty=Tensor[(1, 512, 7, 7), int8] */;
+  %293 = fn (%p03: Tensor[(1, 512, 7, 7), int8] /* ty=Tensor[(1, 512, 7, 7), int8] */, %p11: Tensor[(1, 512, 1, 1), float32] /* ty=Tensor[(1, 512, 1, 1), float32] */, %p21: Tensor[(1, 512, 7, 7), float32] /* ty=Tensor[(1, 512, 7, 7), float32] */, Primitive=1, hash="afe6614fe00ae46d") -> Tensor[(1, 512, 7, 7), float32] {
+    %8 = cast(%p03, dtype="float32") /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %9 = multiply(%8, 0.125f /* ty=float32 */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %10 = add(%9, %p11) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    %11 = add(%10, %p21) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+    nn.relu(%11) /* ty=Tensor[(1, 512, 7, 7), float32] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), int8], Tensor[(1, 512, 1, 1), float32], Tensor[(1, 512, 7, 7), float32]) -> Tensor[(1, 512, 7, 7), float32] */;
+  %294 = %293(%292, meta[relay.Constant][39] /* ty=Tensor[(1, 512, 1, 1), float32] */, %284) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+  %295 = fn (%p02: Tensor[(1, 512, 7, 7), float32] /* ty=Tensor[(1, 512, 7, 7), float32] */, Primitive=1, hash="61b143b6e27e2ebd", layout="NCHW", out_layout="") -> Tensor[(1, 512, 1, 1), float32] {
+    nn.adaptive_avg_pool2d(%p02, output_size=[1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] */
+  } /* ty=fn (Tensor[(1, 512, 7, 7), float32]) -> Tensor[(1, 512, 1, 1), float32] */;
+  %296 = %295(%294) /* ty=Tensor[(1, 512, 1, 1), float32] */;
+  %297 = fn (%p01: Tensor[(1, 512, 1, 1), float32] /* ty=Tensor[(1, 512, 1, 1), float32] */, Primitive=1, hash="49c41454fe92c22b") -> Tensor[(1, 512), int8] {
+    %3 = reshape(%p01, newshape=[0, -1, 1, 1]) /* ty=Tensor[(1, 512, 1, 1), float32] */;
+    %4 = squeeze(%3, axis=[2, 3]) /* ty=Tensor[(1, 512), float32] */;
+    %5 = multiply(%4, 8f /* ty=float32 */) /* ty=Tensor[(1, 512), float32] */;
+    %6 = round(%5) /* ty=Tensor[(1, 512), float32] */;
+    %7 = clip(%6, a_min=-127f, a_max=127f) /* ty=Tensor[(1, 512), float32] */;
+    cast(%7, dtype="int8") /* ty=Tensor[(1, 512), int8] */
+  } /* ty=fn (Tensor[(1, 512, 1, 1), float32]) -> Tensor[(1, 512), int8] */;
+  %298 = %297(%296) /* ty=Tensor[(1, 512), int8] */;
+  %299 = fn (%p0: Tensor[(1, 512), int8] /* ty=Tensor[(1, 512), int8] */, %p1: Tensor[(1000, 512), int8] /* ty=Tensor[(1000, 512), int8] */, %p2: Tensor[(1, 1000), float32] /* ty=Tensor[(1, 1000), float32] */, Primitive=1, hash="43ef2f9763bea1b6") -> Tensor[(1, 1000), float32] {
+    %0 = nn.dense(%p0, %p1, units=None, out_dtype="int16") /* ty=Tensor[(1, 1000), int16] */;
+    %1 = cast(%0, dtype="float32") /* ty=Tensor[(1, 1000), float32] */;
+    %2 = multiply(%1, 0.000976562f /* ty=float32 */) /* ty=Tensor[(1, 1000), float32] */;
+    add(%2, %p2) /* ty=Tensor[(1, 1000), float32] */
+  } /* ty=fn (Tensor[(1, 512), int8], Tensor[(1000, 512), int8], Tensor[(1, 1000), float32]) -> Tensor[(1, 1000), float32] */;
+  %299(%298, meta[relay.Constant][40] /* ty=Tensor[(1000, 512), int8] */, meta[relay.Constant][41] /* ty=Tensor[(1, 1000), float32] */) /* ty=Tensor[(1, 1000), float32] */
+}
+attributes {
+  'executor' = graph{"link-params": T.bool(False)}
+  'runtime' = cpp
+}

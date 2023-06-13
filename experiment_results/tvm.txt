@@ -1,0 +1,1559 @@
+/opt/homebrew/bin/python3.8
+
+conda activate /opt/homebrew/Caskroom/miniforge/base/envs/tvm
+
+
+Get into base
+source /opt/homebrew/Caskroom/miniforge/base/bin/activate
+
+
+export TVM_LOG_DEBUG=“ir/transform.cc=1,relay/ir/transform.cc=1"
+
+
+multipass launch -c 8 -m 16G -d 50G
+
+multipass shell meet-seagull
+
+multipass info meet-seagull
+
+Name:           meet-seagull
+State:          Running
+IPv4:           192.168.64.5
+Release:        Ubuntu 22.04.2 LTS
+Image hash:     9454d882bd72 (Ubuntu 22.04 LTS)
+CPU(s):         8
+Load:           0.02 0.03 0.01
+Disk usage:     1.7GiB out of 48.3GiB
+Memory usage:   200.0MiB out of 15.6GiB
+Mounts:         —
+
+
+ssh -i /Users/guomingfei/multipass-key ubuntu@192.168.64.5
+
+
+vim ~/.ssh/authorized_keys
+
+
+
+Passphrase gmf70102801226
+
+
+arm64
+
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/sbsa/cuda-ubuntu2204.pin
+sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/12.1.1/local_installers/cuda-repo-ubuntu2204-12-1-local_12.1.1-530.30.02-1_arm64.deb
+sudo dpkg -i cuda-repo-ubuntu2204-12-1-local_12.1.1-530.30.02-1_arm64.deb
+sudo cp /var/cuda-repo-ubuntu2204-12-1-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda
+
+
+
+Architecture:           aarch64
+  CPU op-mode(s):       64-bit
+  Byte Order:           Little Endian
+CPU(s):                 8
+  On-line CPU(s) list:  0-7
+Vendor ID:              ARM
+  Model name:           Cortex-A72
+    Model:              3
+    Thread(s) per core: 1
+    Core(s) per socket: 8
+    Socket(s):          1
+    Stepping:           r0p3
+    BogoMIPS:           48.00
+    Flags:              fp asimd evtstrm aes pmull sha1 sha2 crc32 fphp asimdhp cpuid dit
+NUMA:                   
+  NUMA node(s):         1
+  NUMA node0 CPU(s):    0-7
+Vulnerabilities:        
+  Itlb multihit:        Not affected
+  L1tf:                 Not affected
+  Mds:                  Not affected
+  Meltdown:             Not affected
+  Mmio stale data:      Not affected
+  Retbleed:             Not affected
+  Spec store bypass:    Vulnerable
+  Spectre v1:           Mitigation; __user pointer sanitization
+  Spectre v2:           Mitigation; CSV2, BHB
+  Srbds:                Not affected
+  Tsx async abort:      Not affected
+
+
+arm64-sbsa yes
+aarch64 jetson yes
+
+
+aarch64
+
+
+export TVM_HOME=/home/ubuntu/tvm
+export PYTHONPATH=$TVM_HOME/python:${PYTHONPATH}
+
+
+After installing GTest, the C++ tests can be built and started with ./tests/scripts/task_cpp_unittest.sh or just built with make cpptest.
+
+
+python3 -m tvm.driver.tvmc --help
+
+python3 -m tvm.driver.tvmc compile \
+--target "llvm" \
+--input-shapes "data:[1,3,224,224]" \
+--output resnet50-v2-7-tvm.tar \
+resnet50-v2-7.onnx
+
+
+Have cuda installed, but no Nvidia gpu
+
+python3 -m tvm.driver.tvmc run \
+--inputs imagenet_cat.npz \
+--output predictions.npz \
+resnet50-v2-7-tvm.tar 
+
+
+python3 -m tvm.driver.tvmc tune \
+--target "llvm" \
+--output resnet50-v2-7-autotuner_records.json \
+resnet50-v2-7.onnx
+
+
+python3 -m tvm.driver.tvmc compile \
+--target "llvm" \
+--tuning-records resnet50-v2-7-autotuner_records.json  \
+--output resnet50-v2-7-tvm_autotuned.tar \
+resnet50-v2-7.onnx
+
+
+python3 -m tvm.driver.tvmc run \
+--inputs imagenet_cat.npz \
+--output predictions.npz \
+resnet50-v2-7-tvm_autotuned.tar
+
+python3 postprocess.py
+
+
+
+python3 -m tvm.driver.tvmc run \
+--inputs imagenet_cat.npz \
+--output predictions.npz  \
+--print-time \
+--repeat 100 \
+resnet50-v2-7-tvm_autotuned.tar
+
+Execution time summary:
+ mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)  
+  17.5849      17.5173      19.9619      17.0820       0.3413   
+
+
+
+python3 -m tvm.driver.tvmc run \
+--inputs imagenet_cat.npz \
+--output predictions.npz  \
+--print-time \
+--repeat 100 \
+resnet50-v2-7-tvm.tar
+
+
+Execution time summary:
+ mean (ms)   median (ms)    max (ms)     min (ms)     std (ms)  
+  28.6183      27.7558      42.6182      26.1468       2.9325   
+
+
+cmake .. -G Ninja
+ninja
+
+
+
+
+# todo(merrymercy): automatically decrease learning rate when the loss is too large
+
+
+
+tvm_inference 0.01254582405090332
+torch_inference 0.12966012954711914
+
+
+
+
+# This is onnx model!
+# TVM_TUNED_MODEL = "resnet50-v2-7-tvm.tar"
+# # resnet50-v2-7-tvm_autotuned.tar
+# model = torchvision.models.resnet50()
+# model.load_state_dict(torch.load(TVM_TUNED_MODEL))
+
+
+
+
+tvm_inference 0.03474879264831543
+torch_inference 0.27569079399108887
+
+tvm_inference 0.0682826042175293
+torch_inference 0.327639102935791
+
+tvm_inference 0.03915071487426758
+torch_inference 0.2524285316467285
+
+quant_inference 0.05618143081665039
+torch_inference 0.20691370964050293
+
+quant_inference 0.05059051513671875
+torch_inference 0.18295741081237793
+
+quant_inference 0.05663704872131348
+torch_inference 0.21645545959472656
+
+resnet50
+
+/home/ubuntu/.cache/torch/hub/checkpoints/resnet50-0676ba61.pth 
+
+
+Naturally incompatible with pytorch
+
+
+resnet50-v2-7 onnx
+
+
+
+tutorial_autotvm.py
+
+optimized: {'mean': 129.99899779999396, 'median': 111.50596310035326, 'std': 60.466561373160225}
+unoptimized: {'mean': 127.8282322701125, 'median': 99.06526160048088, 'std': 84.45525639822552}
+
+
+Mingfei
+
+
+
+
+
+No simulation:
+
+tvm_inference 0.05326919555664063
+torch_inference 0.2560387372970581
+Relay top-1 id: 282, class name: tiger cat
+Torch top-1 id: 282, class name: tiger cat
+
+
+quant_inference 0.20025527477264404
+torch_inference 0.22567079067230225
+Torch top-1 id: 282, class name: tiger cat
+Quantized Torch top-1 id: 282, class name: tiger cat
+
+
+
+ssh -i practice.pem ubuntu@ec2-3-145-29-101.us-east-2.compute.amazonaws.com
+
+
+
+
+batch quant_accuracy top1_acc 34.84278350515464
+batch quant_accuracy top5_acc 47.57860824742268
+batch quant_inference 11.782596390833419
+batch quant_accuracy top1_acc 34.84298584298584
+batch quant_accuracy top5_acc 47.58172458172458
+batch quant_inference 11.775443808585022
+batch quant_accuracy top1_acc 34.83547557840617
+batch quant_accuracy top5_acc 47.577120822622106
+batch quant_inference 11.768249689231942
+batch quant_accuracy top1_acc 34.83440308087292
+batch quant_accuracy top5_acc 47.57637997432606
+batch quant_inference 11.761158076922099
+batch quant_accuracy top1_acc 34.83717948717949
+batch quant_accuracy top5_acc 47.57692307692308
+batch quant_inference 11.753947559605793
+batch quant_accuracy top1_acc 34.8437900128041
+batch quant_accuracy top5_acc 47.57874519846351
+batch quant_inference 11.746761009821197
+batch quant_accuracy top1_acc 34.84526854219949
+batch quant_accuracy top5_acc 47.584398976982094
+quant_inference 2.870614721775055
+quant_accuracy top1_acc 8.5153125
+quant_accuracy top5_acc 11.6284375
+torch_inference 0.0
+torch_accuracy top1_acc 0.0
+torch_accuracy top5_acc 0.0
+
+
+
+batch tvm_accuracy top5_acc 59.17032258064516
+batch tvm_inference 8.466558945854915
+batch tvm_accuracy top1_acc 48.0180412371134
+batch tvm_accuracy top5_acc 59.16881443298969
+batch tvm_inference 8.465068804558026
+batch tvm_accuracy top1_acc 48.01287001287001
+batch tvm_accuracy top5_acc 59.16473616473616
+batch tvm_inference 8.463734088336288
+batch tvm_accuracy top1_acc 48.005141388174806
+batch tvm_accuracy top5_acc 59.16323907455013
+batch tvm_inference 8.461458199749556
+batch tvm_accuracy top1_acc 48.0
+batch tvm_accuracy top5_acc 59.163029525032094
+batch tvm_inference 8.459662593328035
+batch tvm_accuracy top1_acc 48.00512820512821
+batch tvm_accuracy top5_acc 59.16153846153846
+batch tvm_inference 8.45741628989978
+batch tvm_accuracy top1_acc 48.00512163892446
+batch tvm_accuracy top5_acc 59.162612035851474
+batch tvm_inference 8.456187814702767
+batch tvm_accuracy top1_acc 48.00127877237852
+batch tvm_accuracy top5_acc 59.16368286445013
+tvm_inference 2.066480897217989
+tvm_accuracy top1_acc 11.7303125
+tvm_accuracy top5_acc 14.458125
+torch_inference 0.0
+torch_accuracy top1_acc 0.0
+torch_accuracy top5_acc 0.0
+
+
+
+
+
+
+batch tvm_inference 0.03114733286201954
+batch tvm_accuracy top1_acc 0.7472098214285714
+batch tvm_accuracy top5_acc 0.92578125
+batch tvm_inference 0.03113381028698202
+batch tvm_accuracy top1_acc 0.7478070175438597
+batch tvm_accuracy top5_acc 0.9262609649122807
+batch tvm_inference 0.031134011095453953
+batch tvm_accuracy top1_acc 0.7486530172413793
+batch tvm_accuracy top5_acc 0.9272629310344828
+batch tvm_inference 0.0311673370710874
+batch tvm_accuracy top1_acc 0.7502648305084746
+batch tvm_accuracy top5_acc 0.9279661016949152
+batch tvm_inference 0.03119786406556765
+batch tvm_accuracy top1_acc 0.75
+batch tvm_accuracy top5_acc 0.9268229166666667
+
+
+
+batch torch_inference 0.07772284746170044
+batch torch_accuracy top1_acc 0.71875
+batch torch_accuracy top5_acc 0.9375
+batch torch_inference 0.07178422436118126
+batch torch_accuracy top1_acc 0.7265625
+batch torch_accuracy top5_acc 0.9140625
+batch torch_inference 0.069349920998017
+batch torch_accuracy top1_acc 0.734375
+batch torch_accuracy top5_acc 0.8958333333333334
+batch torch_inference 0.06821228750050068
+batch torch_accuracy top1_acc 0.73828125
+batch torch_accuracy top5_acc 0.91015625
+batch torch_inference 0.06812384128570556
+batch torch_accuracy top1_acc 0.734375
+batch torch_accuracy top5_acc 0.9125
+batch torch_inference 0.06879411327342193
+batch torch_accuracy top1_acc 0.7317708333333334
+batch torch_accuracy top5_acc 0.9114583333333334
+batch torch_inference 0.06819066352077893
+batch torch_accuracy top1_acc 0.75
+batch torch_accuracy top5_acc 0.9196428571428571
+batch torch_inference 0.06855952739715576
+batch torch_accuracy top1_acc 0.751953125
+batch torch_accuracy top5_acc 0.921875
+batch torch_inference 0.07115874356693691
+batch torch_accuracy top1_acc 0.7569444444444444
+batch torch_accuracy top5_acc 0.9253472222222222
+batch torch_inference 0.08708565197885036
+batch torch_accuracy top1_acc 0.7671875
+batch torch_accuracy top5_acc 0.928125
+
+
+
+
+batch quant_inference 0.05234457924962044
+batch quant_accuracy top1_acc 0.5625
+batch quant_accuracy top5_acc 0.796875
+batch quant_inference 0.05449152551591396
+batch quant_accuracy top1_acc 0.53125
+batch quant_accuracy top5_acc 0.7734375
+batch quant_inference 0.05510808899998665
+batch quant_accuracy top1_acc 0.5104166666666666
+batch quant_accuracy top5_acc 0.7447916666666666
+batch quant_inference 0.05544947739690542
+batch quant_accuracy top1_acc 0.51953125
+batch quant_accuracy top5_acc 0.74609375
+batch quant_inference 0.05568078309297562
+batch quant_accuracy top1_acc 0.509375
+batch quant_accuracy top5_acc 0.740625
+batch quant_inference 0.05607732447485129
+batch quant_accuracy top1_acc 0.515625
+batch quant_accuracy top5_acc 0.7369791666666666
+batch quant_inference 0.05653863613094602
+batch quant_accuracy top1_acc 0.5446428571428571
+batch quant_accuracy top5_acc 0.75
+batch quant_inference 0.05659580510109663
+batch quant_accuracy top1_acc 0.548828125
+batch quant_accuracy top5_acc 0.751953125
+batch quant_inference 0.05668456438514921
+batch quant_accuracy top1_acc 0.5503472222222222
+batch quant_accuracy top5_acc 0.7517361111111112
+
+
+
+batch quant_inference 0.12598303705453873
+batch quant_accuracy top1_acc 0.640625
+batch quant_accuracy top5_acc 0.890625
+batch quant_inference 0.12524906359612942
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.8671875
+batch quant_inference 0.1294111286600431
+batch quant_accuracy top1_acc 0.640625
+batch quant_accuracy top5_acc 0.8489583333333334
+
+
+Quantization problem
+Double buffering
+Almost all matrix optimization
+
+1.Virtual machine virtualize architecture?
+virtualize nvidia GPU?
+
+2.Debug underlying C++ of python.
+gdb
+
+3.Inference time influenced by something else?
+
+4.Will low-bit quantization really influence inference time? For example without 8 bit hardware support?
+
+
+
+Use TVM to compile a quantized model.
+Use implement primitives myself.
+Compare to TVM.
+
+Backup.
+
+SIMD verify the case.
+
+Run one process one time.
+
+Bandwidth bound.
+
+No virtualize GPU.
+
+Best quantization value on modern arch.
+
+32 16 8.
+
+Backup.
+
+
+/home/ubuntu/.vscode/launch.json
+
+Could not load source './posix/../sysdeps/unix/syscall-template.S': 'SourceRequest' not supported..
+
+
+
+export QTVM_HOME=/home/ubuntu/QTVM
+export PYTHONPATH=$QTVM_HOME/python:${PYTHONPATH}
+
+
+
+cd tvm/build cmake -DCMAKE_BUILD_TYPE=Debug … make -j8
+
+QuantizeRealize
+0.625
+-127 127
+
+
+
+after_quant_inference - before_quant_inference
+0.028529882431030273
+after_inference - before_inference
+0.006913900375366211
+
+ssh -i ~/.ssh/y git@github.com
+git clone -i ~/.ssh/y git@github.com:llvm/llvm-project.git
+
+
+export AMOS_HOME=/home/ubuntu/AMOS
+export PYTHONPATH=$AMOS_HOME/python:${PYTHONPATH}
+
+
+
+/home/ubuntu/miniconda3
+
+
+conda activate amos
+
+
+
+llvm-as < /dev/null | llc -march=xyz -mcpu=help
+
+
+python3 tvm-models-baseline/baseline/profiling_main.py
+python3 tvm-models-baseline/baseline/tuning_main.py
+
+For x86
+'cascadelake' is not a recognized processor for this target (ignoring processor)
+
+python3 tvm-models-baseline/baseline/profiling_main.py --target=arm
+
+python3 tvm-models-baseline/baseline/tuning_main.py --target=arm
+
+
+export TVM_NDK_CC=/Users/hanqiu/Desktop/android-toolchain-arm64/bin/aarch64-linux-android-ld
+
+Window 6 no quantization
+Window 7 with quantization
+
+
+
+
+ and 
+
+b) Design algorithms for co-optimizing technology parameters with architectural blocks.
+
+
+
+python3 amos_conv_avx512.py
+
+
+
+
+dot_16x1x16_uint8_int8_int32_skylake
+Explain https://blog.csdn.net/Eurypterid/article/details/125730046
+
+
+
+
+        multiply_low = T.call_llvm_pure_intrin(
+            T.llvm_lookup_intrinsic_id("llvm.aarch64.neon.smull.v8i16"),
+            T.uint32(2),
+            vec_a,
+            vec_b_low,
+            dtype="int16x8",
+        )
+
+
+
+#[version = "0.0.5"]
+
+
+
+
+
+
+  warnings.warn(
+[Task 26/26: conv2d_nchw_winograd.arm_cpu]  Current/Best:  108.66/ 137.17 GFLOPS | Progress: (248/1500) | 5284.74 s/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 0.1.43ubuntu1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+[Task 26/26: conv2d_nchw_winograd.arm_cpu]  Current/Best:   10.47/ 139.90 GFLOPS | Progress: (952/1500) | 15038.72 s/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 0.1.43ubuntu1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+[Task 26/26: conv2d_nchw_winograd.arm_cpu]  Current/Best:   11.13/ 139.90 GFLOPS | Progress: (1200/1500) | 16128.49 s Done
+
+
+
+Resnet18
+
+With -mcpu
+batch quant_accuracy top1_acc 0.6452205882352942
+batch quant_accuracy top5_acc 0.8731617647058824
+batch quant_inference 0.02910196677678161
+batch quant_accuracy top1_acc 0.6380208333333334
+batch quant_accuracy top5_acc 0.8671875
+batch quant_inference 0.029194521668710206
+
+
+batch torch_accuracy top5_acc 56.513513513513516
+batch torch_inference 2.485651819329513
+batch torch_accuracy top1_acc 43.60526315789474
+batch torch_accuracy top5_acc 56.60526315789474
+batch torch_inference 2.4823434475140695
+batch torch_accuracy top1_acc 43.64102564102564
+batch torch_accuracy top5_acc 56.61538461538461
+
+
+
+Add intrin
+batch quant_accuracy top1_acc 0.6380208333333334
+batch quant_accuracy top5_acc 0.8671875
+batch quant_inference 0.029179036617279053
+batch quant_accuracy top1_acc 0.6356907894736842
+batch quant_accuracy top5_acc 0.865953947368421
+batch quant_inference 0.029167044349014758
+batch quant_accuracy top1_acc 0.63828125
+batch quant_accuracy top5_acc 0.865625
+batch quant_inference 0.02916686414253144
+batch quant_accuracy top1_acc 0.6369047619047619
+batch quant_accuracy top5_acc 0.8630952380952381
+batch quant_inference 0.029141821305860172
+batch quant_accuracy top1_acc 0.6420454545454546
+batch quant_accuracy top5_acc 0.8622159090909091
+
+Delete required pass list, just with opt3
+
+batch quant_inference 0.027927156537771225
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.030968183651566505
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.03173408036430677
+
+Runs again
+
+batch quant_inference 0.0291607603430748
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.030964192003011703
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.031218546132246654
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.0314194168895483
+batch quant_accuracy top1_acc 0.63671875
+batch quant_accuracy top5_acc 0.859375
+batch quant_inference 0.031530742347240445
+batch quant_accuracy top1_acc 0.628125
+batch quant_accuracy top5_acc 0.85625
+
+
+Without cpu with lower
+
+
+batch quant_inference 0.026358500123023987
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.028421083465218544
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.029868355641762417
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.030213449150323868
+batch quant_accuracy top1_acc 0.63671875
+
+
+Without cpu with lower
+4 required pass
+batch quant_inference 0.03293949365615845
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.03797658160328865
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.03996954609950384
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.040954156778752804
+batch quant_accuracy top1_acc 0.63671875
+batch quant_accuracy top5_acc 0.859375
+
+batch quant_inference 0.031984176486730576
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.03770115599036217
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.039241816848516464
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+
+
+Without cpu with lower
+No required pass
+batch quant_inference 0.028359703719615936
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.030491899698972702
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.03110060344139735
+
+batch quant_inference 0.031135816127061844
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.035938238725066185
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.03715401142835617
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.03782803472131491
+batch quant_accuracy top1_acc 0.63671875
+batch quant_accuracy top5_acc 0.859375
+batch quant_inference 0.03843365535140038
+batch quant_accuracy top1_acc 0.628125
+batch quant_accuracy top5_acc 0.85625
+
+
+batch quant_inference 0.032188091427087784
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.03720090538263321
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.038979556411504745
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.0403178408741951
+batch quant_accuracy top1_acc 0.63671875
+batch quant_accuracy top5_acc 0.859375
+
+
+Without cpu without lower
+
+batch quant_inference 0.03433457016944885
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.04052451252937317
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+
+batch quant_inference 0.035186875611543655
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.041374487802386284
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+
+batch quant_inference 0.035186875611543655
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.031722184270620346
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.0367001686245203
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.038345073660214744
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.039310785941779613
+batch quant_accuracy top1_acc 0.63671875
+batch quant_accuracy top5_acc 0.859375
+batch quant_inference 0.039853174984455106
+batch quant_accuracy top1_acc 0.628125
+batch quant_accuracy top5_acc 0.85625
+
+batch quant_inference 0.03135909140110016
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.03628320060670376
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.037844846645991005
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.0387762701138854
+batch quant_accuracy top1_acc 0.63671875
+batch quant_accuracy top5_acc 0.859375
+
+batch quant_inference 0.03576408699154854
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.041966816410422325
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.04614987845222155
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.838541666666
+
+batch quant_inference 0.027020253241062164
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.02855771593749523
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.02892451857527097
+
+batch quant_inference 0.03505059704184532
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.04168923199176788
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.044494930654764175
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+batch quant_inference 0.04566745646297932
+batch quant_accuracy top1_acc 0.63671875
+
+batch quant_inference 0.03524507209658623
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.04132532514631748
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.04378702243169149
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+
+
+
+0.0388
+
+Without -mcpu
+
+batch quant_inference 0.035829976201057434
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.04154778830707073
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.04338375230630239
+
+
+Resent 18 pure tvm no quant no -mcpu
+
+batch tvm_inference 0.01583627425134182
+batch tvm_accuracy top1_acc 0.65625
+batch tvm_accuracy top5_acc 0.84375
+batch tvm_inference 0.015405981491009394
+batch tvm_accuracy top1_acc 0.6770833333333334
+batch tvm_accuracy top5_acc 0.8541666666666666
+batch tvm_inference 0.015573892742395401
+batch tvm_accuracy top1_acc 0.67578125
+batch tvm_accuracy top5_acc 0.875
+batch tvm_inference 0.015543550252914429
+batch tvm_accuracy top1_acc 0.665625
+batch tvm_accuracy top5_acc 0.875
+batch tvm_inference 0.01565467131634553
+batch tvm_accuracy top1_acc 0.6666666666666666
+batch tvm_accuracy top5_acc 0.8697916666666666
+
+
+With -mcpu
+
+
+batch tvm_accuracy top1_acc 0.6805752840909091
+batch tvm_accuracy top5_acc 0.8822798295454546
+batch tvm_inference 0.021762286553557
+batch tvm_accuracy top1_acc 0.6797752808988764
+batch tvm_accuracy top5_acc 0.8814957865168539
+batch tvm_inference 0.021765260067250995
+batch tvm_accuracy top1_acc 0.6807291666666667
+batch tvm_accuracy top5_acc 0.8817708333333333
+batch tvm_inference 0.021769113756798127
+batch tvm_accuracy top1_acc 0.6787431318681318
+batch tvm_accuracy top5_acc 0.8804945054945055
+batch tvm_inference 0.02179982343121715
+batch tvm_accuracy top1_acc 0.6795176630434783
+batch tvm_accuracy top5_acc 0.8797554347826086
+batch tvm_inference 0.02180386170424441
+batch tvm_accuracy top1_acc 0.6799395161290323
+batch tvm_accuracy top5_acc 0.8795362903225806
+batch tvm_inference 0.021807745693528904
+batch tvm_accuracy top1_acc 0.6788563829787234
+
+
+
+
+
+
+Resent-80
+
+Models tested (onnx):
+Image Classification
+
+Densenet (https://github.com/onnx/models)
+Resnet18 (https://github.com/onnx/models)
+EfficientNet-4 (https://github.com/onnx/models)
+InceptionV3 (Converted from torchvision.models)
+Object Detection
+
+Tinyyolov2 (https://github.com/onnx/models)
+Yolov2 (https://github.com/onnx/models)
+Yolov4 (https://github.com/onnx/models)
+SSD-resnet34 (https://github.com/onnx/models)
+Embedding Models
+
+Arcface (https://github.com/onnx/models)
+RFB-face (https://github.com/onnx/models)
+Super resolution:
+
+Some random super resolution model (https://github.com/onnx/models)
+NLP:
+
+GPT-2 (https://github.com/onnx/models)
+DistillBert (Converted from HuggingFace's transformers lib)
+Models tested (relay native):
+
+ResNet18
+ResNet18-3D
+Densenet
+LSTM (unrolled)
+Squeezenet
+Mobilenet
+
+
+
+
+Resnet50 pure llvm no mcpu
+
+
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+
+export TI_WITH_CUDA = False
+
+
+sudo apt-get update
+sudo apt-get install -y python3 python3-dev python3-setuptools gcc libtinfo-dev zlib1g-dev build-essential cmake libedit-dev libxml2-dev
+
+
+
+
+cmake -DCMAKE_PREFIX_PATH=/home/ubuntu/libtorch
+
+
+
+/home/ubuntu/libtorch/include/torch/csrc/api/include/torch/all.h:4:2: error: #error C++14 or later compatible compiler is required to use PyTorch.
+    4 | #error C++14 or later compatible compiler is required to use PyTorch.
+      |  ^~~~~
+In file included from /home/ubuntu/libtorch/include/c10/util/string_view.h:4,
+                 from /home/ubuntu/libtorch/include/c10/util/StringUtil.h:6,
+                 from /home/ubuntu/libtorch/include/c10/util/Exception.h:6,
+                 from /home/ubuntu/libtorch/include/c10/core/Device.h:5,
+                 from /home/ubuntu/libtorch/include/ATen/core/TensorBody.h:11,
+                 from /home/ubuntu/libtorch/include/ATen/core/Tensor.h:3,
+                 from /home/ubuntu/libtorch/include/ATen/Tensor.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/autograd/function_hook.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/autograd/cpp_hook.h:2,
+                 from /home/ubuntu/libtorch/include/torch/csrc/autograd/variable.h:6,
+                 from /home/ubuntu/libtorch/include/torch/csrc/autograd/autograd.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/autograd.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/all.h:7,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/torch.h:3,
+                 from /home/ubuntu/ResNet_LibTorch/resnet/resnet.cpp:1:
+/home/ubuntu/libtorch/include/c10/util/C++17.h:27:2: error: #error You need C++14 to compile PyTorch
+   27 | #error You need C++14 to compile PyTorch
+      |  ^~~~~
+In file included from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/types.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/data/dataloader_options.h:4,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/data/dataloader/base.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/data/dataloader/stateful.h:4,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/data/dataloader.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/data.h:3,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/all.h:9,
+                 from /home/ubuntu/libtorch/include/torch/csrc/api/include/torch/torch.h:3,
+                 from /home/ubuntu/ResNet_LibTorch/resnet/resnet.cpp:1:
+/home/ubuntu/libtorch/include/ATen/ATen.h:4:2: error: #error C++14 or later compatible compiler is required to use ATen.
+    4 | #error C++14 or later compatible compiler is required to use ATen.
+      |  ^~~~~
+^Cgmake[2]: *** [CMakeFiles/resnet.dir/build.make:76: CMakeFiles/resnet.dir/resnet.cpp.o] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/resnet.dir/all] Interrupt
+gmake: *** [Makefile:91: all] Interrupt
+
+
+
+
+
+
+
+
+[Task  1/26: conv2d_nchw_spatial_pack.arm_cpu]  Current/Best:   13.79/  38.29 GFLOPS | Progress: (8/1500) | 67.35 s/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+  warnings.warn(
+
+
+[Task  1/26: conv2d_nchw_spatial_pack.arm_cpu]  Current/Best:   13.79/  38.29 GFLOPS | Progress: (8/1500) | 67.35 s/usr/lib/python3/dist-packages/pkg_resources/__init__.py:116: PkgResourcesDeprecationWarning: 1.1build1 is an invalid version and will not be supported in a future release
+
+
+
+
+pool is not optimized for arm cpu.
+dense is not optimized for arm cpu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+tvmgen_default_fused_nn_conv2d_nn_bias_add
+
+"{\n  \"nodes\": [\n    {\n      \"op\": \"null\", \n      \"name\": \"input0\", \n      \"inputs\": []\n    }, \n    {\n      \"op\": \"tvm_op\", \n      \"name\": \"quantize_inputs\", \n      \"attrs\": {\n        \"num_outputs\": \"1\""...
+
+
+
+/home/ubuntu/tvm/python/tvm/relay/quantize/_partition_conversions.py
+
+/home/ubuntu/QTVM/python/tvm/relay/quantize/_partition_conversions.py
+
+
+
+
+
+batch quant_inference 0.010279122740030289
+batch quant_accuracy top1_acc 0.625
+batch quant_accuracy top5_acc 0.875
+batch quant_inference 0.011185960844159126
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.828125
+batch quant_inference 0.011836682756741842
+batch quant_accuracy top1_acc 0.6614583333333334
+batch quant_accuracy top5_acc 0.8385416666666666
+
+
+
+
+
+
+Hi Arden, sorry for the late reply.
+
+Where are you at now / what’s been done so far? Were you able to get more consistent measurements and/or begin performance analysis of inference with the quantized models?
+
+I'm continuing to improve the quantization performance, and now I think I've fixed the bug, and 
+
+What are you planning on working on in the next 1-2 weeks?
+Are there any changes to the deliverables/evaluation or other project details that Kayvon and I should be aware of?
+Is there anything blocking you / challenges/ things that Kayvon or I can help with?
+
+
+
+
+
+batch quant_inference 0.012236457965944124
+batch quant_accuracy top1_acc 0.6433423913043478
+batch quant_accuracy top5_acc 0.8614130434782609
+batch quant_inference 0.012251858754704395
+batch quant_accuracy top1_acc 0.6484375
+batch quant_accuracy top5_acc 0.8639322916666666
+batch quant_inference 0.01224463313817978
+batch quant_accuracy top1_acc 0.645625
+batch quant_accuracy top5_acc 0.8625
+batch quant_inference 0.01224551249582034
+batch quant_accuracy top1_acc 0.6454326923076923
+batch quant_accuracy top5_acc 0.8635817307692307
+batch quant_inference 0.01228192365831799
+batch quant_accuracy top1_acc 0.6475694444444444
+batch quant_accuracy top5_acc 0.8651620370370371
+
+
+
+
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+
+
+
+
+%71 = nn.conv2d(%64, meta[relay.Constant][51] /* ty=Tensor[(512, 256, 1, 1), float32] */, strides=[2, 2], padding=[0, 0, 0, 0], channels=512, kernel_size=[1, 1]) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_17:0:0 */;
+  %72 = multiply(%71, meta[relay.Constant][52] /* ty=Tensor[(512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+  %73 = add(%70, meta[relay.Constant][50] /* ty=Tensor[(512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+  %74 = add(%72, meta[relay.Constant][53] /* ty=Tensor[(512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+  %75 = add(%73, %74) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::add__6:0:0 */;
+  %76 = nn.relu(%75) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::relu__14:0:0 */;
+  %77 = nn.conv2d(%76, meta[relay.Constant][54] /* ty=Tensor[(512, 512, 3, 3), float32] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3]) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_18:0:0 */;
+  %78 = multiply(%77, meta[relay.Constant][55] /* ty=Tensor[(512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+  %79 = add(%78, meta[relay.Constant][56] /* ty=Tensor[(512, 1, 1), float32] */) /* ty=Tensor[(1, 512, 7, 7), float32] */;
+  %80 = nn.relu(%79) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::relu__15:0:0 */;
+  %81 = nn.conv2d(%80, meta[relay.Constant][57] /* ty=Tensor[(512, 512, 3, 3), float32] */, padding=[1, 1, 1, 1], channels=512, kernel_size=[3, 3]) /* ty=Tensor[(1, 512, 7, 7), float32] span=aten::_convolution_19:0:0 */;
+
+
+
+
+QuantizeRealize * 2 
+
+Conv2dRealize
+
+
+
+
+
+
+
+
+
+
+Fused + graph + resnet18
+With specified mcpu
+
+batch quant_accuracy top1_acc 0.6328125
+batch quant_accuracy top5_acc 0.83984375
+batch quant_inference 0.010076601058244705
+batch quant_accuracy top1_acc 0.63125
+batch quant_accuracy top5_acc 0.834375
+batch quant_inference 0.010093562304973602
+batch quant_accuracy top1_acc 0.6276041666666666
+batch quant_accuracy top5_acc 0.8333333333333334
+batch quant_inference 0.009992447814771108
+
+
+
+
+quant_inference 0.014069641754031182
+quant_accuracy top1_acc 0.59375
+quant_accuracy top5_acc 0.8125
+
+
+
+Original torch
+
+batch torch_inference 0.04857718199491501
+batch torch_accuracy top1_acc 0.671875
+batch torch_accuracy top5_acc 0.828125
+
+
+
+batch tvm_accuracy top1_acc 0.640625
+batch tvm_accuracy top5_acc 0.859375
+tvm_inference 0.011147294566035271
+tvm_accuracy top1_acc 0.640625
+tvm_accuracy top5_acc 0.859375
+batch torch_inference 3.1987335681915283
+batch torch_accuracy top1_acc 43.0
+batch torch_accuracy top5_acc 53.0
+
+
+
+
+
+
+batch quant_inference 0.01724897585809231
+batch quant_accuracy top1_acc 0.59375
+batch quant_accuracy top5_acc 0.8125
+quant_inference 0.01724897585809231
+quant_accuracy top1_acc 0.59375
+quant_accuracy top5_acc 0.8125
+batch torch_inference 0.05965057760477066
+batch torch_accuracy top1_acc 0.671875
+batch torch_accuracy top5_acc 0.828125
+batch torch_inference 0.05932410806417465
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(amos) ubuntu@meet-seagull:~/scripts$ lscpu
+Architecture:           aarch64
+  CPU op-mode(s):       64-bit
+  Byte Order:           Little Endian
+CPU(s):                 8
+  On-line CPU(s) list:  0-7
+Vendor ID:              ARM
+  Model name:           Cortex-A72
+    Model:              3
+    Thread(s) per core: 1
+    Core(s) per socket: 8
+    Socket(s):          1
+    Stepping:           r0p3
+    BogoMIPS:           48.00
+    Flags:              fp asimd evtstrm aes pmull sha1 sha2 crc32 fphp asimdhp cpuid dit
+NUMA:                   
+  NUMA node(s):         1
+  NUMA node0 CPU(s):    0-7
+Vulnerabilities:        
+  Itlb multihit:        Not affected
+  L1tf:                 Not affected
+  Mds:                  Not affected
+  Meltdown:             Not affected
+  Mmio stale data:      Not affected
+  Retbleed:             Not affected
+  Spec store bypass:    Vulnerable
+  Spectre v1:           Mitigation; __user pointer sanitization
+  Spectre v2:           Mitigation; CSV2, BHB
+  Srbds:                Not affected
+  Tsx async abort:      Not affected
+
+
+
+
+
+
+
+
+ps -o pid,user,%mem,command ax | grep python | sort -b -k3 -r
+
+
+
+ 771677 ubuntu   21.3 python3 compile_pytorch.py
+
+
+ 772198 ubuntu   12.3 python3 compile_quant_pytorch.py
+
+ 772500 ubuntu   12.3 python3 compile_quant_pytorch.py or 12.2
+
+12.4 python3 compile_quant_pytorch.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Verify that certain special instructions from the tensorize pass exist
+def verify_bitserial_conv2d_nhwc(
+    batch,
+    in_size,
+    in_channel,
+    num_filter,
+    kernel,
+    stride,
+    padding,
+    activation_bits,
+    weight_bits,
+    unipolar,
+    use_relu=False,
+):
+    in_height = in_width = in_size
+    input_type = "uint32"
+    out_dtype = "int16"
+
+    device = "llvm -device=arm_cpu -model=bcm2837 -mtriple=armv7l-linux-gnueabihf -mattr=+neon"
+    with tvm.target.Target(device):
+        A = te.placeholder((batch, in_height, in_width, in_channel), dtype=input_type, name="A")
+        W = te.placeholder((kernel, kernel, in_channel, num_filter), dtype=input_type, name="W")
+        B = topi.arm_cpu.bitserial_conv2d_nhwc(
+            A, W, stride, padding, activation_bits, weight_bits, "uint8", out_dtype, unipolar
+        )
+        if use_relu:
+            B = topi.nn.relu(B)
+        s = topi.arm_cpu.schedule_bitserial_conv2d_nhwc([B])
+
+    func = tvm.build(s, [A, W, B], device)
+
+    assembly = func.get_source("asm")
+    matches = re.findall("vpadal", assembly)
+    assert len(matches) > 0
+    matches = re.findall("vcnt", assembly)
+    assert len(matches) > 0
+    matches = re.findall("vpadd", assembly)
+    assert len(matches) > 0
+
+    dev = tvm.device(device, 0)
+    if "arm" not in os.uname()[4]:
+        print("Skipped running code, not an arm device")
+        return
+
+    print("Running on target: %s" % device)
+
+    def get_ref_data():
+        a_np = generate_quantized_np(get_const_tuple(A.shape), activation_bits, input_type)
+        w_np = generate_quantized_np(get_const_tuple(W.shape), weight_bits, input_type)
+        if unipolar:
+            w_ = np.copy(w_np).astype(out_dtype)
+            for x in np.nditer(w_, op_flags=["readwrite"]):
+                x[...] = 1 if x == 1 else -1
+            b_np = tvm.topi.testing.conv2d_nhwc_python(a_np, w_, stride, padding).astype(out_dtype)
+        else:
+            b_np = tvm.topi.testing.conv2d_nhwc_python(a_np, w_np, stride, padding).astype(
+                out_dtype
+            )
+        return a_np, w_np, b_np
+
+    a_np, w_np, b_np = get_ref_data()
+    a = tvm.nd.array(a_np, dev)
+    w = tvm.nd.array(w_np, dev)
+    b = tvm.nd.array(np.zeros(get_const_tuple(B.shape), dtype=B.dtype), dev)
+    func = tvm.build(s, [A, W, B], device)
+
+    func(a, w, b)
+    np.testing.assert_allclose(b.numpy(), b_np, rtol=1e-5)
+
+
+
+
+
+
+
+
+
+
+    LOG_INFO << "\r\n###before IR:\r\n" << AsText(relay_module, false) << "\r\n";
+    
+    relay_module = OptimizeImpl(std::move(module));
+
+    // LOG_INFO << "\r\n###optimized IR:\r\n" << AsText(relay_module, false) << "\r\n";
+
+
+
+
+
+
+
+
+Memory Alignment: Modern hardware architectures often require data to be aligned on specific memory boundaries for efficient access. This alignment can result in padding added to INT8 representations, effectively increasing their memory footprint. FP16 values, on the other hand, may already be aligned without requiring any additional padding.
+Data Storage Formats: Neural network models are typically stored and accessed in a specific format, such as TensorFlow's .pb or ONNX's .onnx formats. These formats have predefined data structures and storage requirements, which might not directly correspond to the bit precision of the values. In many cases, both INT8 and FP16 representations are stored in the same data format, resulting in similar memory consumption.
+Additional Overhead: While the core data might be represented in INT8 or FP16, there can be additional metadata or auxiliary information required for the model's execution. This metadata often has a fixed size and is independent of the precision of the values. Consequently, the overhead introduced by this metadata can offset any memory savings that could be achieved by using INT8 over FP16.
+It's worth noting that the primary benefit of using INT8 over FP16 lies in reducing the computational requirements during inference rather than memory savings. INT8 operations can be executed more efficiently on modern hardware, such as specialized accelerators (e.g., GPUs or dedicated AI chips), leading to faster inference times and improved energy efficiency.
+
+
+
+/home/ubuntu/QTVM/python/tvm/relay/backend/executor_factory.py
+print("graph_json_str", graph_json_str)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        at /home/ubuntu/QTVM/include/tvm/tir/stmt_functor.h:114
+  1: tvm::tir::StmtFunctor<void (tvm::tir::Stmt const&)>::InitVTable()::{lambda(tvm::runtime::ObjectRef const&, tvm::tir::StmtFunctor<void (tvm::tir::Stmt const&)>*)#4}::operator()(tvm::runtime::ObjectRef const&, tvm::tir::StmtFunctor<void (tvm::tir::Stmt const&)>*) const
+        at /home/ubuntu/QTVM/include/tvm/tir/stmt_functor.h:114
+  0: tvm::codegen::CodeGenCPU::VisitStmt_(tvm::tir::ForNode const*)
+        at /home/ubuntu/QTVM/src/target/llvm/codegen_cpu.cc:1583
+  File "/home/ubuntu/QTVM/src/target/llvm/codegen_cpu.cc", line 1583
+TVMError: cannot handle for type vectorized
+
+
+
+
+
+
+
+
+
+
+
+visualize_ir!!!!! for vw in range(9):
+    data_vec = T.Buffer((762048,))
+    h = T.int32()
+    w = T.int32()
+    ci = T.int32()
+    vh = T.int32()
+    p0 = T.Buffer((150528,))
+    data_vec[h * 13608 + w * 243 + ci * 81 + vh * 9 + vw] = T.if_then_else(3 <= h * 4 + vh and h * 4 + vh < 227 and 3 <= w * 4 + vw and w * 4 + vw < 227, p0[ci * 50176 + h * 896 + vh * 224 + w * 4 + vw - 675], T.float32(0))
+visualize_ir!!!!! for vh, vw in T.grid(9, 9):
+    data_vec = T.Buffer((762048,))
+    h = T.int32()
+    w = T.int32()
+    ci = T.int32()
+    p0 = T.Buffer((150528,))
+    data_vec[h * 13608 + w * 243 + ci * 81 + vh * 9 + vw] = T.if_then_else(3 <= h * 4 + vh and h * 4 + vh < 227 and 3 <= w * 4 + vw and w * 4 + vw < 227, p0[ci * 50176 + h * 896 + vh * 224 + w * 4 + vw - 675], T.float32(0))
+visualize_ir!!!!! for ci, vh, vw in T.grid(3, 9, 9):
+    data_vec = T.Buffer((762048,))
+    h = T.int32()
+    w = T.int32()
+    p0 = T.Buffer((150528,))
+    data_vec[h * 13608 + w * 243 + ci * 81 + vh * 9 + vw] = T.if_then_else(3 <= h * 4 + vh and h * 4 + vh < 227 and 3 <= w * 4 + vw and w * 4 + vw < 227, p0[ci * 50176 + h * 896 + vh * 224 + w * 4 + vw - 675], T.float32(0))
+visualize_ir!!!!! for w, ci, vh, vw in T.grid(56, 3, 9, 9):
+    data_vec = T.Buffer((762048,))
+    h = T.int32()
+    p0 = T.Buffer((150528,))
+    data_vec[h * 13608 + w * 243 + ci * 81 + vh * 9 + vw] = T.if_then_else(3 <= h * 4 + vh and h * 4 + vh < 227 and 3 <= w * 4 + vw and w * 4 + vw < 227, p0[ci * 50176 + h * 896 + vh * 224 + w * 4 + vw - 675], T.float32(0))
+visualize_ir!!!!! for h in T.parallel(56):
+    for w, ci, vh, vw in T.grid(56, 3, 9, 9):
+        data_vec = T.Buffer((762048,))
+        p0 = T.Buffer((150528,))
+        data_vec[h * 13608 + w * 243 + ci * 81 + vh * 9 + vw] = T.if_then_else(3 <= h * 4 + vh and h * 4 + vh < 227 and 3 <= w * 4 + vw and w * 4 + vw < 227, p0[ci * 50176 + h * 896 + vh * 224 + w * 4 + vw - 675], T.float32(0))
+visualize_ir!!!!! conv = T.Buffer((32,))
+data_vec = T.Buffer((762048,))
+h_outer = T.int32()
+w_outer = T.int32()
+ci = T.int32()
+kh = T.int32()
+p1 = T.Buffer((9408,))
+co_outer = T.int32()
+conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+visualize_ir!!!!! for kh in range(7):
+    conv = T.Buffer((32,))
+    data_vec = T.Buffer((762048,))
+    h_outer = T.int32()
+    w_outer = T.int32()
+    ci = T.int32()
+    p1 = T.Buffer((9408,))
+    co_outer = T.int32()
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+visualize_ir!!!!! for ci, kh in T.grid(3, 7):
+    conv = T.Buffer((32,))
+    data_vec = T.Buffer((762048,))
+    h_outer = T.int32()
+    w_outer = T.int32()
+    p1 = T.Buffer((9408,))
+    co_outer = T.int32()
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[T.Add(h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2), 0)], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(0, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 1], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(1, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 2], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(2, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 3], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(3, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 4], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(4, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 5], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(5, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(0, 8):T.Mul(0, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(0, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+    conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(0, 16) + T.Mul(1, 8):T.Mul(0, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(0, 18) + kh * 9 + T.Mul(1, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(0, 8):T.Mul(1, 16) + T.Mul(0, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(0, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+    conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] = conv[T.Mul(1, 16) + T.Mul(1, 8):T.Mul(1, 16) + T.Mul(1, 8) + 8] + T.Broadcast(data_vec[h_outer * 13608 + w_outer * 243 + ci * 81 + T.Mul(1, 18) + kh * 9 + T.Mul(1, 2) + 6], 8) * p1[co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8):co_outer * 1176 + ci * 392 + kh * 56 + T.Mul(6, 8) + 8]
+visualize_ir!!!!! for co_inner in range(8):
+    output_unpack = T.Buffer((802816,))
+    co_outer = T.int32()
+    h_outer = T.int32()
+    h_inner = T.int32()
+    w_outer = T.int32()
+    w_inner = T.int32()
+    conv = T.Buffer((32,))
+    output_unpack[co_outer * 100352 + co_inner * 12544 + h_outer * 224 + h_inner * 112 + w_outer * 2 + w_inner] = conv[h_inner * 16 + w_inner * 8 + co_inner]
+visualize_ir!!!!! for w_inner, co_inner in T.grid(2, 8):
+    output_unpack = T.Buffer((802816,))
+    co_outer = T.int32()
+    h_outer = T.int32()
+    h_inner = T.int32()
+    w_outer = T.int32()
+    conv = T.Buffer((32,))
+    output_unpack[co_outer * 100352 + co_inner * 12544 + h_outer * 224 + h_inner * 112 + w_outer * 2 + w_inner] = conv[h_inner * 16 + w_inner * 8 + co_inner]
+
+
+
+OIHW16o
+
+
+
+llvm-as < /dev/null | llc -march=aarch64 -mattr=help
+
+
+
+/home/ubuntu/tvm/clang+llvm-16.0.0-aarch64-linux-gnu/bin/llvm-config < /dev/null | llc -march=xyz -mattr=help
+
+
+
+
+/home/ubuntu/tvm/clang+llvm-16.0.0-aarch64-linux-gnu/bin/llvm-as < /dev/null | /home/ubuntu/tvm/clang+llvm-16.0.0-aarch64-linux-gnu/bin/llc -march=aarch64 -mattr=help
+
+
+i8mm
+
+
+
+Gdb
+
+https://github.com/Microsoft/MIEngine/wiki/Troubleshoot-attaching-to-processes-using-GDB
+
+
+NCHW OIHW8o
+
+
+
+processor       : 2
+BogoMIPS        : 48.00
+Features        : fp asimd evtstrm aes pmull sha1 sha2 crc32 fphp asimdhp cpuid dit
+CPU implementer : 0x41
+CPU architecture: 8
+CPU variant     : 0x0
+CPU part        : 0xd08
+CPU revision    : 3
+
+
+
+
+Model:              3
+
+one operator reads int8 values and writes fp32 values into memory, the other operator reads fp32 values from memory and writes int8 values.
